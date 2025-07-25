@@ -6,5 +6,6 @@ export function buildDevSrever(options: webpackOptions): devServerConfiguration{
         port: options.port,
         open: true,
         historyApiFallback: true,
+        hot: true
     }
 }

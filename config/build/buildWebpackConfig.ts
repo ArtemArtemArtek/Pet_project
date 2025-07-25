@@ -17,7 +17,7 @@ export function webpackConfig(options: webpackOptions): webpack.Configuration {
             path: path.output,
             clean: true,
         },
-        plugins: buildPlugins(path.html),
+        plugins: buildPlugins(path.html, isDev),
         module: {
             rules: buildRules(options),
         },
