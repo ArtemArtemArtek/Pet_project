@@ -18,6 +18,30 @@ const config: Config = {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
   testEnvironment: "jsdom",
+    
+  // An array of file extensions your modules use
+  moduleFileExtensions: [
+    "js",
+    "mjs",
+    "cjs",
+    "jsx",
+    "ts",
+    "mts",
+    "cts",
+    "tsx",
+    "json",
+    "node"
+  ],
+
+    // An array of regexp pattern strings used to skip coverage collection
+  coveragePathIgnorePatterns: [
+    "\\\\node_modules\\\\"
+  ],
+
+    testMatch: [
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    rootDir: '../../',
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -28,10 +52,7 @@ const config: Config = {
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,
 
-  // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
-  // ],
+
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -78,19 +99,7 @@ const config: Config = {
   //   "node_modules"
   // ],
 
-  // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "mjs",
-  //   "cjs",
-  //   "jsx",
-  //   "ts",
-  //   "mts",
-  //   "cts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
+
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},

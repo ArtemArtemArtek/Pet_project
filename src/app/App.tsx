@@ -6,6 +6,7 @@ import ClassNameHelper from '../shared/lib/classNames/classNames';
 import { AppRouter } from './providers/RouterProvider';
 import { NavBar } from '../widgets/NavBar/index';
 import { SideBar } from '../widgets/SideBar/MainSideBar/index';
+import { Loader } from '../shared/ui/Loader/Loader';
 
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
 
     return (
         <div className={ClassNameHelper('app', {}, [theme])}>
-            <Suspense fallback='Loading...'>
+            <Suspense fallback={<Loader/>}>
                 <NavBar className='' />
                 <div className="content-page">
                     <SideBar />

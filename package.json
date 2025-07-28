@@ -10,7 +10,8 @@
     "build:dev": "webpack --env mode=development",
     "eslint": "npx eslint \"**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\"",
     "stylelint": "npx stylelint \"**/*.scss\"",
-    "test": "jest"
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
+    "test": "jest --config ./config/jest/jest.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +39,7 @@
     "globals": "^16.3.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.17.0",
     "sass": "^1.49.9",
