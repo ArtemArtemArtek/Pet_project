@@ -10,7 +10,7 @@ export function buildPlugins(path: string, isDev: boolean): webpack.WebpackPlugi
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
-            filename:'css/[name].[contenthash:8].css',
+            filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css'
         }),
         new webpack.DefinePlugin({
@@ -20,7 +20,7 @@ export function buildPlugins(path: string, isDev: boolean): webpack.WebpackPlugi
         // isDev? new ReactRefreshWebpackPlugin(): null
     ]
 
-    if(isDev){
+    if (isDev) {
         plugins.push(new webpack.HotModuleReplacementPlugin())
         plugins.push(new ReactRefreshWebpackPlugin())
     }

@@ -1,4 +1,3 @@
-import { FC, useMemo, useState } from 'react';
 import { useContext } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Themes, ThemeContext } from '../ui/ThemeContext';
 

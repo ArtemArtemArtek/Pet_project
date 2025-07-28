@@ -2,7 +2,6 @@ import React from "react";
 import { Button, ButtonTheme } from "../Button/Button";
 import { useTranslation } from 'react-i18next';
 import ClassNameHelper from "../../lib/classNames/classNames";
-import cls from "./LanguageChanger.module.scss"
 
 interface LanguageChangerProps {
     className?: string
@@ -21,7 +20,7 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className }) =
     return (
         <Button
             theme={ButtonTheme.CLEAR}
-            className={ClassNameHelper(cls.languageChanger, {}, [className])}
+            className={ClassNameHelper('', {}, [className])}
             onClick={changeLanguage}>
             {t('Язык')}
         </Button>

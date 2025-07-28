@@ -2,6 +2,7 @@ import ClassNameHelper  from '../../lib/classNames/classNames';
 import cls from './Button.module.scss';
 // import {Link, LinkProps} from "react-router-dom";
 import {FC, ButtonHTMLAttributes} from "react";
+// import React from 'react';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
