@@ -1,5 +1,5 @@
 // import { Routes, Route, Link } from 'react-router-dom';
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import './styles/index.scss';
 import useTheme from './providers/ThemeProvider/lib/useTheme';
 import ClassNameHelper from '../shared/lib/classNames/classNames';
@@ -12,9 +12,16 @@ import { Loader } from '../shared/ui/Loader/Loader';
 const App = () => {
     const { theme, changeTheme } = useTheme()
 
+    // useEffect(() => {
+    //     if (Math.random() < 0.5) {
+    //         throw new Error('Произошла запланированная ошибка')
+    //     }
+    //     console.log('Error 121212121')
+    // }, [])
+
     return (
         <div className={ClassNameHelper('app', {}, [theme])}>
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
                 <NavBar className='' />
                 <div className="content-page">
                     <SideBar />

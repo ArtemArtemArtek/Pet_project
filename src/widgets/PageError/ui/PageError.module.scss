@@ -1,9 +1,8 @@
-.maintext{
-    display: flex;
+.pageErrorWrapper{
+        display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font: var(--font-l);
-    height: 100hv;
-    width: 100%;
+    height: 100%;
 }
