@@ -19,8 +19,8 @@ const SideBar: React.FC<SidebarProps> = ({className}) => {
         setCollapsed(collapsed=>!collapsed)
     }
     return (
-        <div className={ClassNameHelper(cls.sidebar, {[cls.collapsed]:collapsed}, [className])}>
-            <button onClick={setCollapsedSideBar}>{t('Скрыть')}</button>
+        <div data-testid='sidebar' className={ClassNameHelper(cls.sidebar, {[cls.collapsed]:collapsed}, [className])}>
+            <button data-testid='sidebar-button' onClick={setCollapsedSideBar}>{t('Скрыть')}</button>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 <LanguageChanger className={cls.lang}/>

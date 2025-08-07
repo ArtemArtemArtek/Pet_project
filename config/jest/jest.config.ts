@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -43,6 +44,12 @@ const config: Config = {
     ],
     rootDir: '../../',
 
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+
+    moduleNameMapper: {
+    '\\.(s?css)$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
