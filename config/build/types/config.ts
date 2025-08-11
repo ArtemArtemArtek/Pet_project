@@ -3,7 +3,8 @@ type mode = 'development' | 'production'
 export interface buildPath {
     html: string
     entry: string
-    output: string
+    output: string,
+    src: string
 }
 
 export interface webpackOptions {
