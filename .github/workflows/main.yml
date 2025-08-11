@@ -19,12 +19,11 @@ jobs:
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
-        run: npm run lint:ts
+        run: npm run eslint
       - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        run: npm run test:unit
+        run: npm run stylelint
+      - name: testing
+        run: npm run test
       - name: build storybook
-        run: npm run storybook:build
-      - name: screenshot testing
-        run: npm run test:ui:ci
+        run: npm run storybook
+
