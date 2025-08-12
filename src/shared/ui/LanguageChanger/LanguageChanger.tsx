@@ -5,10 +5,11 @@ import ClassNameHelper from "../../lib/classNames/classNames";
 
 interface LanguageChangerProps {
     className?: string
+    collapsed: boolean
 }
 
 
-export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className }) => {
+export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className, collapsed }) => {
 
     const { t, i18n } = useTranslation()
 
@@ -22,7 +23,8 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className }) =
             theme={ButtonTheme.CLEAR}
             className={ClassNameHelper('', {}, [className])}
             onClick={changeLanguage}>
-            {t('Язык')}
+
+            {t(collapsed?'Короткий язык':'Язык')}
         </Button>
     )
 }
