@@ -7,6 +7,7 @@ import { AppRouter } from './providers/RouterProvider';
 import { NavBar } from '../widgets/NavBar/index';
 import { SideBar } from '../widgets/SideBar/MainSideBar/index';
 import { Loader } from '../shared/ui/Loader/Loader';
+import Modal from '../shared/ui/Modal/Modal';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
     return (
         <div className={ClassNameHelper('app', {}, [theme])}>
             <Suspense fallback={<Loader />}>
+            <Modal/>
                 <NavBar className='' />
                 <div className="content-page">
                     <SideBar />
