@@ -13,15 +13,17 @@ import Modal from '../shared/ui/Modal/Modal';
 const App = () => {
     const { theme, changeTheme } = useTheme()
 
-    // const [seconds, setSeconds] = useState(0)
-
-
+    const [isOpened, setIsOpened] = useState(false)
 
     return (
+
         <div className={ClassNameHelper('app', {}, [theme])}>
             <Suspense fallback={<Loader />}>
-            <Modal/>
+            {/* <Modal opened={isOpened} setOpen={()=>setIsOpened(!isOpened)}>
+                Это не финальное состояние модального окна, в ходе всего курса мы будем его менять\рефакторить. Также прошу заметить, что переопределение переменных из темы это АНТИПАТЕРН! Так делать не стоит. Пока оставьте так, а через 1-2 урока мы это пофиксим.
+                </Modal> */}
                 <NavBar className='' />
+                {/* <button onClick={()=>setIsOpened(!isOpened)}>Открыть модалку</button> */}
                 <div className="content-page">
                     <SideBar />
                     <AppRouter />
