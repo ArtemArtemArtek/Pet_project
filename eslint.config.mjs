@@ -12,7 +12,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], plugins: { js,'react-hooks': reactHooks }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
   tseslint.configs.recommended,
-  globalIgnores(["build", "src/**/**.test.tsx"]),
+  globalIgnores(["build", "src/**/**.test.tsx", "json-server/**"]),
   {
     rules: {
       "no-unused-vars": "off",

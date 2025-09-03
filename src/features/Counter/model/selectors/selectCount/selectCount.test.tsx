@@ -5,7 +5,8 @@ import { StateSchema } from "../../../../../app/providers/StoreProvider/";
 describe('selectCount test', () => {
     test('Get count', () => {
         const testingState: StateSchema = {
-            counter: { value: 10 }
+            counter: { value: 10 },
+            auth: null
         }
         expect(getCounter(testingState)).toEqual({ value: 10 })
     })

@@ -24,9 +24,9 @@ export const Counter=()=>{
     
     return(
         <>
-        <h1>{count}</h1>
-        <Button onClick={increment}>+</Button>
-        <Button onClick={decrement}>-</Button>
+        <h1 data-testid='count_value'>{count}</h1>
+        <Button data-testid='increment_btn' onClick={increment}>+</Button>
+        <Button data-testid='decrement_btn' onClick={decrement}>-</Button>
         </>
     )
 }

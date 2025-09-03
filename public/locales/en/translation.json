@@ -7,5 +7,7 @@
     "Извините": "Sorry",
     "Ошибка": "Sorry, an error occurred",
     "Перезагрузить страницу": "Reload page",
-    "Короткий язык":"En"
+    "Короткий язык":"En",
+    "Введите логин": "Enter login",
+    "Введите пароль": "Enter password" 
 }

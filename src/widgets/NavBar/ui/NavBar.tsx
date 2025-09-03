@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import cls from './NavBar.module.scss';
 import ClassNameHelper from '../../../shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/AppLink/AppLink'
 import { useTranslation } from "react-i18next"
+import Modal from "../../../shared/ui/Modal/Modal";
+import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
+// import { Button, ButtonTheme } from "src/shared/ui/Button/Button";
+import { AuthModal } from "../../../features/AuthModal";
+
 
 interface NavBarProps {
     className: string
@@ -10,11 +15,14 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ className }) => {
     
+    const [opened, setIsOpened]=useState(false)
+
     const {t} = useTranslation('navbar')
     return (
         <div className={ClassNameHelper(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-
+                <Button onClick={()=>setIsOpened(true)} theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Войти')}</Button>
+                <AuthModal className={ClassNameHelper(cls.authModal, {}, [className])} opened={opened} setOpen={()=>setIsOpened(false)} />
             </div>
         </div>
     )

@@ -13,6 +13,7 @@ const useTheme = (): useThemeResult => {
         const newTheme = theme === Themes.DARK ? Themes.LIGHT : Themes.DARK
         setTheme(newTheme)
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
+        // document.body.className = newTheme
     }
     return {
         theme,
