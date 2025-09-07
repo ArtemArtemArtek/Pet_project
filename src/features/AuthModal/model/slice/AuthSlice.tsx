@@ -4,8 +4,8 @@ import { authSchema } from '../types/AuthSchema'
 import { authUser } from '../service/asyncThunk'
 
 const initialState: authSchema = {
-  username: null,
-  password: null,
+  username: '',
+  password: '',
   isLoading: false
 }
 
@@ -30,7 +30,8 @@ const authSlice = createSlice({
       state.isLoading = false
     })
     .addCase(authUser.rejected, (state, action)=>{
-      state.error = action.payload as string
+      console.log(action.error.message)
+      state.error = action.error.message
       state.isLoading = false
     })
   }

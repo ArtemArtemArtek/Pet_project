@@ -2,18 +2,15 @@ import { combineReducers, configureStore, ReducersMapObject } from '@reduxjs/too
 import { StateSchema } from '../types/types'
 import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice'
 import { authReducer } from '../../../../features/AuthModal'
+import { userReducer } from '../../../../entities/User'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const universalStore = (initialState?: StateSchema) => {
 
-    const rootReducer: ReducersMapObject<StateSchema> = {
-        counter: counterReducer,
-        auth: authReducer
-    }
-
     const reducers = combineReducers({
         counter: counterReducer,
-        auth: authReducer
+        auth: authReducer,
+        user: userReducer
     })
     return configureStore<StateSchema>({
         reducer: reducers,
@@ -27,5 +24,6 @@ export const store = universalStore()
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-// export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+// export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppDispatch: () => AppDispatch = useDispatch
 // export const useAppSelector = useSelector.withTypes<RootState>()

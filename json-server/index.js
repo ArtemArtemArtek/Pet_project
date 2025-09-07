@@ -21,12 +21,15 @@ server.use(async (req, res, next) => {
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
+        console.log(username, password)
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
 
         const userFromBd = users.find(
             (user) => user.username === username && user.password === password,
         );
+
+        console.log(userFromBd)
 
         if (userFromBd) {
             return res.json(userFromBd);

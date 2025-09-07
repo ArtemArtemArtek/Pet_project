@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { universalStore } from '../config/store';
 import { StateSchema } from '../types/types';
+// import partia
 
 interface StoreProviderProps {
     children?: ReactNode;

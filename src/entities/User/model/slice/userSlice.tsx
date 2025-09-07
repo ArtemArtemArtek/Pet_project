@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { authData, user } from '../type/userSchema'
+import { userSchema, user } from '../type/userSchema'
 import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts'
 
-const initialState: authData = {}
+const initialState: userSchema = {
+    isAuth:undefined
+}
 
 const userSlice = createSlice({
   name: 'user',
@@ -20,7 +22,7 @@ const userSlice = createSlice({
         },
         logout:(state)=>{
             state.isAuth=undefined
-            localStorage.getItem(LOCAL_USER_AUTH_KEY)
+            localStorage.removeItem(LOCAL_USER_AUTH_KEY)
         }
   },
 })

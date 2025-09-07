@@ -6,24 +6,26 @@ import { BASE_SERVER_URL, LOCAL_USER_AUTH_KEY } from "../../../../shared/consts/
 
 interface useData {
     password: string
-    login: string
+    username: string
 }
 
 export const authUser = createAsyncThunk(
     'login/authUser',
-    async (userData: useData, { rejectWithValue }) => {
-        const dispatch = useDispatch()
+    async (userData: useData, thunkAPI) => {
+        // console.log('Попали в выхов')
         try {
+            // const dispatch = useDispatch()//Проблема
+            console.log(userData)
             const response = await axios.post<user>(BASE_SERVER_URL, userData)
             if (!response.data) {
                 throw new Error()
             }
             localStorage.setItem(LOCAL_USER_AUTH_KEY, JSON.stringify(response.data))
-            dispatch(userActions.setUserData(response.data))
+            thunkAPI.dispatch(userActions.setUserData(response.data))
             return response.data
         } catch (err) {
             console.log(err)
-            return rejectWithValue(err.response.data)
+            return thunkAPI.rejectWithValue(err.response.data)
         }
     },
 )

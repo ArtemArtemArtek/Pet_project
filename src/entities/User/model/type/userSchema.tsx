@@ -3,6 +3,6 @@ export interface user {
     username: string
 }
 
-export interface authData {
+export interface userSchema {
     isAuth?: user
 }
