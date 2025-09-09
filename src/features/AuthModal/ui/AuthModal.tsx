@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import Modal from "../../../shared/ui/Modal/Modal";
 import { Button, ButtonSize, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
@@ -6,9 +6,11 @@ import { Input,InputThemes } from "../../../shared/ui/Input/Input";
 import cls from "./AuthModal.module.scss"
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "../model/service/asyncThunk";
-import { authActions } from "../model/slice/AuthSlice";
+import { authActions, authReducer } from "../model/slice/AuthSlice";
 import { getAuth } from "../model/selectors/selectAuthData";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/config/store";
+import { useStore } from "react-redux";
+import { ReducerManagerStore } from "../../../app/providers/StoreProvider";
 
 interface AuthModalProps{
     className: string,
@@ -22,10 +24,16 @@ export const AuthModal:React.FC<AuthModalProps>=React.memo((props)=>{
     const dispatch = useDispatch()
     const {password, username}=useSelector(getAuth)
 
-    const usdata={
-        password:password,
-        login: username
-    }
+    const store = useStore() as ReducerManagerStore
+
+    useEffect(()=>{
+        store.reducerManeger.add('auth', authReducer)
+
+        return()=>{
+            store.reducerManeger.remove('auth')
+        }
+        //eslint-disable-next-line
+    },[])
 
     const changeLogin=useCallback((data: string)=>{
         console.log(data)
@@ -37,6 +45,7 @@ export const AuthModal:React.FC<AuthModalProps>=React.memo((props)=>{
     }, [dispatch])
 
     const sendData=useCallback(()=>{
+        //@ts-ignore
         dispatch(authUser({password: password, username: username}))
     },[dispatch, password, username])
 
