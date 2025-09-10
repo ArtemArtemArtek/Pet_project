@@ -5,19 +5,21 @@ import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@redux
 
 export interface StateSchema {
     counter: counterSchema
-    auth: authSchema
     user?: userSchema
+    
+    auth?: authSchema
 }
 
 export interface ReducerManagerInterface {
     getReducerMap: () => ReducersMapObject<StateSchema>,
-    reduce: (state: StateSchema, action: UnknownAction) => StateSchema,
+    // reduce: (state: StateSchema, action: UnknownAction) => StateSchema,
+    reduce: Reducer<StateSchema>
     add: (key: StateSchemaKeys, reducer: Reducer) => void,
     remove: (key: StateSchemaKeys) => void
 }
 
 export interface ReducerManagerStore extends EnhancedStore<StateSchema> {
-    reducerManeger: ReducerManagerInterface
+    reducerManager: ReducerManagerInterface
 }
 
 export type StateSchemaKeys = keyof StateSchema

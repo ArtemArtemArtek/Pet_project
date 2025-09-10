@@ -19,7 +19,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
     
     const [opened, setIsOpened]=useState(false)
     const [openedLogoutModal, setIsOpenedLogoutModal]=useState(false)
-    const {isAuth} = useSelector(getUser)
+    const {isAuth} = useSelector(getUser)||{}
     const {t} = useTranslation('navbar')
     const dispatch = useDispatch()
 
@@ -41,7 +41,9 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
                 :
                 <div>
                 <Button onClick={()=>setIsOpened(true)} theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Войти')}</Button>
+                {opened&&
                 <ModalLazy className={ClassNameHelper(cls.authModal, {}, [className])} opened={opened} setOpen={()=>setIsOpened(false)} />
+                }
                 </div>
             }
             </div>

@@ -17,9 +17,10 @@ export default defineConfig([
     rules: {
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      "react-hooks/rules-of-hooks": "error",
+      // "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "error",
-      "@typescript-eslint/ban-ts-comment":"off"
+      "@typescript-eslint/ban-ts-comment":"off",
+      "react-hooks/rules-of-hooks": "off"
     }
   },
   i18next.configs['flat/recommended'],

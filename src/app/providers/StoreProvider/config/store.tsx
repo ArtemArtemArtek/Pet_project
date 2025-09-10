@@ -17,13 +17,14 @@ export const universalStore = (initialState?: StateSchema) => {
 
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        auth: authReducer,
+        // auth: authReducer,
+        user: userReducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
 
     const store = configureStore<StateSchema>({
-        reducer: rootReducers,
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState
     })
@@ -36,7 +37,8 @@ export const universalStore = (initialState?: StateSchema) => {
 
 export const store = universalStore()
 
+export type AppDispatch = ReturnType<typeof universalStore>['dispatch'];
 
 export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+// export type AppDispatch = typeof store.dispatch
 export const useAppDispatch: () => AppDispatch = useDispatch

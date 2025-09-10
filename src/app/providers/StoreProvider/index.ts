@@ -1,4 +1,4 @@
 import { universalStore, RootState, AppDispatch } from "./config/store";
-import { StateSchema, ReducerManagerStore } from "./types/types";
+import { StateSchema, ReducerManagerStore, StateSchemaKeys, ReducerManagerInterface } from "./types/types";
 
-export {universalStore, RootState, AppDispatch, StateSchema, ReducerManagerStore}
+export {universalStore, RootState, AppDispatch, StateSchema, ReducerManagerStore, ReducerManagerInterface, StateSchemaKeys}
