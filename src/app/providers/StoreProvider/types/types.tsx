@@ -12,7 +12,6 @@ export interface StateSchema {
 
 export interface ReducerManagerInterface {
     getReducerMap: () => ReducersMapObject<StateSchema>,
-    // reduce: (state: StateSchema, action: UnknownAction) => StateSchema,
     reduce: Reducer<StateSchema>
     add: (key: StateSchemaKeys, reducer: Reducer) => void,
     remove: (key: StateSchemaKeys) => void
@@ -23,3 +22,5 @@ export interface ReducerManagerStore extends EnhancedStore<StateSchema> {
 }
 
 export type StateSchemaKeys = keyof StateSchema
+
+export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

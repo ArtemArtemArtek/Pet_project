@@ -1,14 +1,14 @@
 import { getCounterValue } from './selectCountValue';
 import { describe, expect, test } from '@jest/globals';
 import { StateSchema } from "../../../../../app/providers/StoreProvider/";
+import { DeepPartial } from '../../../../../app/providers/StoreProvider/types/types';
 
 describe('selectCountValue test', () => {
     test('Get count value', () => {
-        const testingState: StateSchema = {
+        const testingState: DeepPartial<StateSchema> = {
             counter: { value: 10 },
-            auth: null
         }
-        expect(getCounterValue(testingState)).toBe(10)
+        expect(getCounterValue(testingState as StateSchema)).toBe(10)
     })
 
 })
