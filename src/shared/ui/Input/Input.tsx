@@ -14,7 +14,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 }
 
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = React.memo((props) => {
 
     const { 
         className, 
@@ -34,4 +34,4 @@ export const Input: React.FC<InputProps> = (props) => {
         />
 
     )
-}
+})

@@ -6,17 +6,18 @@ import { render } from '@testing-library/react';
 import { Provider } from "react-redux";
 import { StateSchema } from "../../../app/providers/StoreProvider/types/types";
 import { StoreProvider } from "../../../app/providers/StoreProvider/ui/StoreProvider";
+import { DeepPartial } from "../../../app/providers/StoreProvider/types/types";
 
 interface wrapperTestProps{
-    store?: StateSchema
+    store?: DeepPartial<StateSchema>
 }
 
-export const wrapperTest = (component: ReactNode, options:wrapperTestProps={} ) => {
+export const wrapperTest = (component: ReactNode, options:wrapperTestProps={}  ) => {
     
     const { store} = options
 
     return (render(
-        <StoreProvider initialState={store}>        
+        <StoreProvider initialState={store as StateSchema}>        
             <MemoryRouter >
                 <I18nextProvider i18n={i18n}>
                     {component}

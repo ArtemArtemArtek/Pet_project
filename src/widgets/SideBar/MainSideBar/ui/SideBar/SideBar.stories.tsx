@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '../../../../shared/configs/storybook/ThemeDecorator';
-import { StyleDecorator } from '../../../../shared/configs/storybook/StyleDecorator';
+import { ThemeDecorator } from '../../../../../shared/configs/storybook/ThemeDecorator';
+import { StyleDecorator } from '../../../../../shared/configs/storybook/StyleDecorator';
 
-import { Themes } from '../../../../app/providers/ThemeProvider/index';
+import { Themes } from '../../../../../app/providers/ThemeProvider/index';
 import SideBar from './SideBar';
 
 export default {

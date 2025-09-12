@@ -2,12 +2,14 @@ import { counterSchema } from "../../../../features/Counter";
 import { authSchema } from "../../../../features/AuthModal";
 import { userSchema } from "../../../../entities/User";
 import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
+import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profileSchema";
 
 export interface StateSchema {
     counter: counterSchema
-    user?: userSchema
+    user: userSchema
     
     auth?: authSchema
+    profile?:ProfileSchema
 }
 
 export interface ReducerManagerInterface {

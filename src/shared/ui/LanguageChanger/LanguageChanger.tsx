@@ -9,7 +9,7 @@ interface LanguageChangerProps {
 }
 
 
-export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className, collapsed }) => {
+export const LanguageChanger: React.FC<LanguageChangerProps> = React.memo(({ className, collapsed }) => {
 
     const { t, i18n } = useTranslation()
 
@@ -27,4 +27,4 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({ className, col
             {t(collapsed?'Короткий язык':'Язык')}
         </Button>
     )
-}
+})

@@ -29,7 +29,7 @@ export const universalStore = (initialState?: StateSchema) => {
         preloadedState: initialState
     })
 
-    //@ts-ignore
+    // @ts-ignore
     store.reducerManager = reducerManager
 
     return store

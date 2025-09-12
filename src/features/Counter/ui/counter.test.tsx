@@ -2,6 +2,7 @@ import { describe, expect, test } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Counter } from './counter';
 import { wrapperTest } from '../../../shared/lib/wrapperTest/wrapperTest';
+import { DeepPartial } from '../../../app/providers/StoreProvider/types/types';
 
 describe('Counter test', () => {
     test('Test render value', () => {

@@ -9,7 +9,7 @@ interface ThemeSwitcherProps{
     className?:string
 }
 
-export const ThemeSwitcher:FC<ThemeSwitcherProps>=(props)=>{
+export const ThemeSwitcher:FC<ThemeSwitcherProps>=React.memo((props)=>{
     const {className} = props
 
     const {theme, changeTheme} = useTheme()
@@ -20,4 +20,4 @@ export const ThemeSwitcher:FC<ThemeSwitcherProps>=(props)=>{
     >
         {theme === Themes.LIGHT? <LightIcon/>: <DarkIcon/>}
     </Button>)
-}
+})
