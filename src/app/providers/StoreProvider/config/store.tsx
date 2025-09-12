@@ -40,5 +40,4 @@ export const store = universalStore()
 export type AppDispatch = ReturnType<typeof universalStore>['dispatch'];
 
 export type RootState = ReturnType<typeof store.getState>
-// export type AppDispatch = typeof store.dispatch
 export const useAppDispatch: () => AppDispatch = useDispatch

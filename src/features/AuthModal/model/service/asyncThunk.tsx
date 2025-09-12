@@ -12,9 +12,7 @@ interface useData {
 export const authUser = createAsyncThunk(
     'login/authUser',
     async (userData: useData, thunkAPI) => {
-        // console.log('Попали в выхов')
         try {
-            // const dispatch = useDispatch()//Проблема
             console.log(userData)
             const response = await axios.post<user>(BASE_SERVER_URL, userData)
             if (!response.data) {
