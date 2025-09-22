@@ -3,6 +3,8 @@ import { authSchema } from "../../../../features/AuthModal";
 import { userSchema } from "../../../../entities/User";
 import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profileSchema";
+import { AxiosInstance } from "axios";
+import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
     counter: counterSchema
@@ -24,5 +26,15 @@ export interface ReducerManagerStore extends EnhancedStore<StateSchema> {
 }
 
 export type StateSchemaKeys = keyof StateSchema
+
+export interface ThunkExtraArgument{
+    api: AxiosInstance
+    navigate?: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkType<T>{
+    rejectWithValue: T
+    extra: ThunkExtraArgument
+}
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

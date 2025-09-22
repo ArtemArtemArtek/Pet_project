@@ -14,7 +14,8 @@
         },
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "strict": true
     },
     "ts-node": {
         "compilerOptions": {

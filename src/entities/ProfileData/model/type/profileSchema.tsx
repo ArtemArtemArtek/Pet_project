@@ -1,6 +1,6 @@
 import { Currency, Country, Cities } from "../../../../shared/consts/enums";
 
-export interface userProfile{
+export interface UserProfile{
     firstname: string,
     lastname: string,
     age: number,
@@ -12,7 +12,7 @@ export interface userProfile{
 }
 
 export interface ProfileSchema{
-    data?:userProfile,
+    data?:UserProfile,
     error?: string,
     isLoading: boolean,
     readonly: boolean
