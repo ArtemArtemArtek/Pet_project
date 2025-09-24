@@ -1,0 +1,40 @@
+.CardWrapper{
+    border: solid 2px var(--inverted-bg-color);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+}
+
+.CardErrorWrapper{
+    border: solid 2px rgb(255, 0, 0);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mainErrorText{
+    color: rgb(255, 0, 0);
+    size: 20px;
+}
+
+.reloadErrorText{
+    color: rgb(174, 0, 0);
+    size: 12px;
+}
+
+.avatarWrapper{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.editProfileButton{
+    margin-left: auto;
+    border-radius: 20px;
+    width: 150px;
+    padding: 5px;
+}

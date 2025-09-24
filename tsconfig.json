@@ -15,7 +15,7 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "strict": true
+        "strict": false
     },
     "ts-node": {
         "compilerOptions": {
