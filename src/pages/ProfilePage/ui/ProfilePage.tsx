@@ -20,7 +20,7 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
     const {t} = useTranslation('profile')
     
     const dispatch = useAppDispatch()
-    // const profileData = useSelector(getProfileData)
+
     useEffect(()=>{
         dispatch(fetchProfileData()) 
         // eslint-disable-next-line

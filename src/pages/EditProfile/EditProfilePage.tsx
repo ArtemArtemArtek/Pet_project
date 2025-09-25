@@ -1,51 +1,36 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { ProfileSchema } from "../../entities/ProfileData/model/type/profileSchema";
+import { useState } from "react";
+import { Input } from "../../shared/ui/Input/Input";
+import { useSelector } from "react-redux";
+import { fetchProfileData, getProfileData } from "../..//entities/ProfileData";
+import { profileReducer } from "../../entities/ProfileData/model/slice/profileSlice";
+import { ReducerList, AsyncReducerWrapper } from '../../shared/lib/asyncReducerWrapper/asyncReducerWrapper'
+import { useEffect } from "react";
+import { useAppDispatch } from "../../app/providers/StoreProvider/config/store";
+import { EditProfileCard } from "../../entities/ProfileData/ui/EditProfileCard/EditProfileCard";
 
-interface EditProfilePageProps {
-    profileData: ProfileSchema
+const inputReducers: ReducerList = {
+    profile: profileReducer
 }
 
-export const EditProfilePage: React.FC<EditProfilePageProps> = (props) => {
+export const EditProfilePage: React.FC = () => {
 
-    const { profileData } = props
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(fetchProfileData())
+        // eslint-disable-next-line
+    }, [])
+    const profileData = useSelector(getProfileData)
 
     const { t } = useTranslation('profile')
-
+    // const [userData, setUserData] = useState(data)
 
     return (
-        <div>
-            <div>
-                {t('Логин: ')}
-                {profileData?.data?.username}
-            </div>
-            <div>
-                {t('Имя: ')}
-                {profileData?.data?.firstname}
-            </div>
-            <div>
-                {t('Фамилия: ')}
-                {profileData?.data?.lastname}
-            </div>
-            <div>
-                {t('Возраст: ')}
-                {profileData?.data?.age}
-            </div>
-            <div>
-                {t('Страна: ')}
-                {profileData?.data?.country}
-            </div>
-            <div>
-                {t('Город: ')}
-                {profileData?.data?.city}
-            </div>
-            <div>
-                {t('Валюта: ')}
-                {profileData?.data?.currency}
-            </div>
-            <div className={cls.avatarWrapper}>
-                
-            </div>
-        </div>
+        <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
+           <EditProfileCard profileData={profileData}/>
+        </AsyncReducerWrapper>
     )
 }

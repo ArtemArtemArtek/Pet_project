@@ -2,12 +2,11 @@ import { RouteProps } from "react-router-dom"
 import React from "react";
 import { PathRoutes, AppRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import { NotFoundPage } from "../../../../pages/NotFounPage/index";
-import ProfilePage from "../../../../pages/ProfilePage/ui/ProfilePage";
 
 const AboutPageLazy = React.lazy(() => import('../../../../pages/AboutPage').then(module => ({ default: module.AboutPage })));
 const MainPageLazy = React.lazy(() => import('../../../../pages/MainPage').then(module => ({ default: module.MainPage })));
 const ProfilePageLazy = React.lazy(() => import('../../../../pages/ProfilePage').then(module => ({ default: module.ProfilePage })));
-
+const EditProfilePageLazy = React.lazy(() => import('../../../../pages/EditProfile').then(module => ({ default: module.EditProfilePage })));
 
 export const RouteConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
@@ -25,5 +24,10 @@ export const RouteConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.PROFILE]:{
         path: PathRoutes.profile,
         element: <ProfilePageLazy />
-    }
+    },
+    [AppRoutes.EDIT_PROFILE]:{
+        path: PathRoutes.edit,
+        element: <EditProfilePageLazy />
+    },
+
 }

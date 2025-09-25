@@ -11,6 +11,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string
     theme?: InputThemes
     placeholder?: string
+    defaultValue?: string
 
 }
 
@@ -20,7 +21,9 @@ export const Input: React.FC<InputProps> = React.memo((props) => {
         className, 
         theme, 
         placeholder = '',
-        onChange } = props
+        onChange ,
+        defaultValue
+    } = props
 
     const mods: Record<string, boolean> = {
         [cls[theme]]: true
@@ -31,6 +34,7 @@ export const Input: React.FC<InputProps> = React.memo((props) => {
             className={ClassNameHelper(cls.input_style, mods, [className])}
             placeholder={placeholder}
             onChange={onChange}
+            defaultValue={defaultValue}
         />
 
     )

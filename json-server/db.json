@@ -28,7 +28,7 @@
   "profile": { 
     "firstname": "Артем",
     "lastname": "Программист",
-    "age": 23,
+    "age": "23",
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",

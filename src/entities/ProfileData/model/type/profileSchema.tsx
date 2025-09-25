@@ -3,7 +3,7 @@ import { Currency, Country, Cities } from "../../../../shared/consts/enums";
 export interface UserProfile{
     firstname: string,
     lastname: string,
-    age: number,
+    age: string,
     currency: Currency,
     country: Country,
     city: Cities,
