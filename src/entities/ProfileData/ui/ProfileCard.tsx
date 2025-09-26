@@ -7,6 +7,8 @@ import { Loader } from "../../../shared/ui/Loader/Loader";
 import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import cls from './ProfileCard.module.scss'
+import { useNavigate } from "react-router-dom";
+
 
 interface ProfileCardProps {
     className?: string
@@ -17,6 +19,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     console.log('ProfileCard')
     
     // const {profileData} = props
+    const navigate = useNavigate();
     const profileData = useSelector(getProfileData)
     const { t } = useTranslation('profile')
 
@@ -63,7 +66,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                         {t('Валюта: ')}
                         {profileData?.data?.currency}
                     </div>
-                    <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.editProfileButton}>{t('Редактировать профиль')}</Button>
+                    <Button onClick={()=>navigate('/edit')} theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.editProfileButton}>{t('Редактировать профиль')}</Button>
                 </div>
     )
 }
