@@ -19,7 +19,13 @@
     },
     "ts-node": {
         "compilerOptions": {
-            "module": "CommonJS"
+            "module": "CommonJS",
+            "jsx": "react",
+            "paths": {
+                "react": [
+                    "./node_modules/@types/react"
+                ]
+            }
         }
     },
     "include": [

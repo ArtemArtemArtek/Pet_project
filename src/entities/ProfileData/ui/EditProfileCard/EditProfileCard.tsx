@@ -47,6 +47,10 @@ export const EditProfileCard: React.FC<EditProfileCardProps> = (props) => {
                 <Input defaultValue={profileData?.data?.lastname} onChange={(event) => setUserData({ ...userData, lastname: event.currentTarget.value })} />
             </div>
             <div className={cls.inputMargin}>
+                {t('Введите ссылку на аватар: ')}
+                <Input defaultValue={profileData?.data?.avatar} onChange={(event) => setUserData({ ...userData, avatar: event.currentTarget.value })} />
+            </div>
+            <div className={cls.inputMargin}>
                 {t('Введите возраст: ')}
                 <Input defaultValue={profileData?.data?.age} onChange={(event) => setUserData({ ...userData, age: event.currentTarget.value })} />
             </div>

@@ -8,6 +8,7 @@ export interface ListProps {
     path: string
     text: string
     icon: React.VFC<React.SVGProps<SVGSVGElement>>
+    isauth?: boolean
 }
 
 export const SideBarItemList: Array<ListProps> = [
@@ -25,5 +26,6 @@ export const SideBarItemList: Array<ListProps> = [
         text: 'Профиль',
         path: PathRoutes.profile,
         icon: ProfileIcon,
+        isauth: true
     },
 ]

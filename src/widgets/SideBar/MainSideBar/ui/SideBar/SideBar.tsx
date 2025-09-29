@@ -10,6 +10,8 @@ import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import { SideBarItem } from "../SideBarItem/SideBarItem";
 import { SideBarItemList } from "../SideBarItemList/SideBarItemList";
+import { useSelector } from "react-redux";
+import { getUser } from "../../../../../entities/User";
 
 interface SidebarProps {
     className?: string;
@@ -18,6 +20,14 @@ interface SidebarProps {
 const SideBar: React.FC<SidebarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState(false)
     const { t } = useTranslation('sidebar')
+        const {isAuth} = useSelector(getUser)||{}
+
+    const filtredArray = SideBarItemList.filter((item) => {
+        if ('isauth' in item) {
+            return item
+        }
+    })
+    console.log('Элементы сайдбара:' + filtredArray)
 
     const setCollapsedSideBar = () => {
         setCollapsed(collapsed => !collapsed)
@@ -25,8 +35,16 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
     return (
         <div data-testid='sidebar' className={ClassNameHelper(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <div className={cls.linkWrapper}>
-                {SideBarItemList.map((item)=>
-                <SideBarItem itemData={item} collapsed={collapsed}/>
+                {SideBarItemList.filter((item) => {
+                    if ('isauth' in item) {
+                        if(isAuth){
+                            return item
+                        }
+                    }else{
+                        return item
+                    }
+                }).map((item) =>
+                    <SideBarItem itemData={item} collapsed={collapsed} />
                 )}
             </div>
 
