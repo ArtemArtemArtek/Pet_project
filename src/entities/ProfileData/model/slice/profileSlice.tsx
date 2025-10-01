@@ -4,13 +4,15 @@ import { ProfileSchema, UserProfile } from '../type/profileSchema'
 import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts'
 import { fetchProfileData } from '../service/getProfileDataThunk'
 import { updateProfileData } from '../service/updateProfileDataThunk'
+import { validateErrorEnum } from '../type/profileSchema'
 // import { UserProfile } from '../type/profileSchema'
 
 const initialState: ProfileSchema = {
     data: undefined,
     isLoading: false,
     error: undefined,
-    readonly: true
+    readonly: true,
+    validateError: undefined
 }
 
 const profileSlice = createSlice({
@@ -37,10 +39,11 @@ const profileSlice = createSlice({
             })
             .addCase(updateProfileData.fulfilled, (state, action:PayloadAction<UserProfile>) => {
                 state.data = action.payload
+                state.validateError=undefined
                 state.isLoading = false
             })
-            .addCase(updateProfileData.rejected, (state, action) => {
-                state.error = action.error.message
+            .addCase(updateProfileData.rejected, (state, action: PayloadAction<validateErrorEnum>) => {
+                state.validateError = action.payload
                 state.isLoading = false
             })
     }

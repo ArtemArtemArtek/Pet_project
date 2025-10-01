@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { ProfileSchema } from "../../entities/ProfileData/model/type/profileSchema";
 import { useState } from "react";
@@ -25,12 +25,13 @@ export const EditProfilePage: React.FC = () => {
     }, [])
     const profileData = useSelector(getProfileData)
 
+
     const { t } = useTranslation('profile')
     // const [userData, setUserData] = useState(data)
 
     return (
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
-           <EditProfileCard profileData={profileData}/>
+           <EditProfileCard />
         </AsyncReducerWrapper>
     )
 }

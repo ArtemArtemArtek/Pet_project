@@ -11,9 +11,21 @@ export interface UserProfile{
     avatar: string
 }
 
+export interface validateErrorEnum{
+    ageError?: string
+    currencyError?: string
+    countryError?: string
+    cityError?: string
+    firstNameError?:string
+    lastNameError?:string
+    avatarError?:string
+    userNameError?:string
+}
+
 export interface ProfileSchema{
     data?:UserProfile,
     error?: string,
     isLoading: boolean,
-    readonly: boolean
+    readonly: boolean,
+    validateError?: validateErrorEnum
 }

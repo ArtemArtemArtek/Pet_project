@@ -8,7 +8,7 @@
 }
 
 .CardErrorWrapper{
-    border: solid 2px rgb(255, 0, 0);
+    border: solid 2px rgb(255 0 0);
     border-radius: 15px;
     padding: 10px;
     display: flex;
@@ -17,12 +17,12 @@
 }
 
 .mainErrorText{
-    color: rgb(255, 0, 0);
+    color: rgb(255 0 0);
     size: 20px;
 }
 
 .reloadErrorText{
-    color: rgb(174, 0, 0);
+    color: rgb(174 0 0);
     size: 12px;
 }
 

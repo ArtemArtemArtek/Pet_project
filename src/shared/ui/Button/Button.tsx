@@ -2,6 +2,7 @@ import ClassNameHelper  from '../../lib/classNames/classNames';
 import cls from './Button.module.scss';
 // import {Link, LinkProps} from "react-router-dom";
 import {FC, ButtonHTMLAttributes} from "react";
+import React from 'react';
 // import React from 'react';
 
 export enum ButtonTheme {
@@ -26,7 +27,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = React.memo((props) => {
     const {
         className,
         children,
@@ -53,5 +54,5 @@ export const Button: FC<ButtonProps> = (props) => {
             {children}
         </button>
     );
-};
+});
 
