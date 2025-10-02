@@ -7,16 +7,22 @@ import axios from 'axios';
 import { ProfileSchema } from '../type/profileSchema';
 import { Cities, Country, Currency } from '../../../../shared/consts/enums';
 import { user, userActions } from '../../../../entities/User';
+import { $api } from '../../../../shared/api/instanceApi';
 
-jest.mock('axios')
 
-const mockedAxios = jest.mocked(axios)
-const testingState: DeepPartial<StateSchema> = {}
+jest.mock('../../../../shared/api/instanceApi', () => ({
+    $api: {
+        get: jest.fn(),
+    },
+}))
+
+const mockedApi = $api as jest.Mocked<typeof $api>
 
 let dispatch: Dispatch
 let state: () => StateSchema
 
-const userProfile: DeepPartial<ProfileSchema> = {
+
+const mockUserProfile: DeepPartial<ProfileSchema> = {
     data: {
         age: '21',
         avatar: 'testUrl',
@@ -28,22 +34,24 @@ const userProfile: DeepPartial<ProfileSchema> = {
         username: 'dddawawawaaaaaa'
     }
 }
-
-describe('GetProfileDataThunk test', () => {
+describe('fetchProfileData thunk', () => {
     beforeEach(() => {
-        dispatch = jest.fn()
+        jest.clearAllMocks()
+        dispatch = jest.fn()    
         state = jest.fn()
     })
-    test('Sucsess response', async () => {
-        mockedAxios.get.mockReturnValue(Promise.resolve({userProfile}))
-        const action = fetchProfileData()
-        const response = await action(dispatch, state, undefined)
-        console.log(response)
 
-        expect(mockedAxios.get).toHaveBeenCalledTimes(1)
-        expect(dispatch).toHaveBeenCalledTimes(3)
-        // expect(response.payload).toEqual(userData)
-        // expect(dispatch).toHaveBeenCalledWith(userActions.setUserData(userData))
+    test('should dispatch fulfilled action when API call is successful', async () => {
+        mockedApi.get.mockResolvedValueOnce({ data: mockUserProfile })
+        const extra = { api: mockedApi }
+
+        const response = await fetchProfileData()(dispatch, state, extra)
+
+        expect(mockedApi.get).toHaveBeenCalledWith('/profile')
+        expect(dispatch).toHaveBeenCalledTimes(2)
+        expect(response.payload).toEqual(mockUserProfile)
         expect(response.meta.requestStatus).toBe('fulfilled')
+
     })
+
 })
