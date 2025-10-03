@@ -17,7 +17,7 @@ export const validateProfileData = (userData: UserProfile): validateErrorEnum =>
     if (!regex.test(age)) {
         Errors.ageError = '*Введите цифры в строку возраста'
     } else {
-        if (parseInt(age) > 100 || parseInt(age) < 0) {
+        if (parseInt(age) > 100 || parseInt(age) < 1) {
             Errors.ageError = '*Некорректный диапазон возраста'
         }
     }
