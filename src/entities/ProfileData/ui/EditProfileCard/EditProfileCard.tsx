@@ -45,6 +45,9 @@ export const EditProfileCard: React.FC = React.memo(() => {
 
     return (
         <div className={cls.EditCardWrapper}>
+            {profileData&&
+            <>
+            
             <div className={cls.errorMessage}>{profileData?.validateError?.firstNameError}</div>
             <div className={cls.errorMessage}>{profileData?.validateError?.lastNameError}</div>
             <div className={cls.errorMessage}>{profileData?.validateError?.userNameError}</div>
@@ -101,9 +104,8 @@ export const EditProfileCard: React.FC = React.memo(() => {
                 <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.cancelUpgradeButton} onClick={cancelButton}>{t('Отменить')}</Button>
                 <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.saveUpgradeButton} onClick={updateUserData}>{t('Редактировать')}</Button>
             </div>
-            {/* <div className={cls.avatarWrapper}>
-                
-                </div> */}
+            </>
+            }
         </div>
     )
 })

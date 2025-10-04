@@ -11,25 +11,27 @@ import Modal from '../shared/ui/Modal/Modal';
 import {LOCAL_USER_AUTH_KEY} from '../shared/consts/consts'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../entities/User';
+import { getUser } from '../entities/User';
+import { useSelector } from 'react-redux';
 
 const App = () => {
     const { theme, changeTheme } = useTheme()
 
     const [isOpened, setIsOpened] = useState(false)
     const dispatch = useDispatch()
+    const {init} = useSelector(getUser)
 
     useEffect(()=>{
         dispatch(userActions.initUserData())
     },[dispatch])
+    
     return (
-
-
         <div className={ClassNameHelper('app', {}, [theme])}>
             <Suspense fallback={<Loader />}>
                 <NavBar className='' />
                 <div className="content-page">
                     <SideBar />
-                    <AppRouter />
+                    {init?<AppRouter />: null}
                 </div>
             </Suspense>
         </div>

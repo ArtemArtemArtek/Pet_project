@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { Suspense } from 'react';
-import { RouteConfig } from '../lib/routeConfig';
+import { RouteConfigWrapper } from '../lib/routeConfig';
 import cls from './AppRouter.module.scss'
 import { Loader } from '../../../../shared/ui/Loader/Loader';
 // const AboutPageLazy = React.lazy(() => import('../../../../pages/AboutPage').then(module => ({ default: module.AboutPage })));
@@ -10,7 +10,7 @@ const AppRouter = () => {
     return (
         <Suspense fallback={<Loader/>}>
             <Routes>
-             {Object.values(RouteConfig).map(({path, element})=>(
+             {Object.values(RouteConfigWrapper()).map(({path, element})=>(
                     <Route key={path} path={path} element={
                         <div className={cls.pageWrapper}>{element}</div>}/>
              ))}

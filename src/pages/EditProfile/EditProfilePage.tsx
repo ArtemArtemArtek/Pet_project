@@ -31,7 +31,7 @@ export const EditProfilePage: React.FC = () => {
 
     return (
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
-           <EditProfileCard />
+           {profileData?<EditProfileCard />:null}
         </AsyncReducerWrapper>
     )
 }

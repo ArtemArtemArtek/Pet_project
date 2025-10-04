@@ -8,11 +8,11 @@ interface NotFoundPageProps {
     className?: string
 }
 
-export const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
+export const NotFoundPage: FC<NotFoundPageProps> = () => {
     const { t } = useTranslation()
 
     return (
-        <div className={ClassNameHelper(cls.maintext, {}, [className])}>
+        <div className={ClassNameHelper(cls.maintext, {}, [])}>
             <h1>{t('Извините')}</h1>
             <h1>{t('Страница не найдена')}</h1>
             {/* <Loader/> */}

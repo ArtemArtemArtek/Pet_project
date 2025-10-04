@@ -9,7 +9,10 @@ type ProtectedRouteProps = {
 
 export const PrivateRouteWrapper = (props: ProtectedRouteProps) => {
 
+
     const { children, user } = props
+
+    console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG:'+user)
 
     if (!user) {
         return <Navigate to="/" replace />;

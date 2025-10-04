@@ -4,7 +4,8 @@ import { userSchema, user } from '../type/userSchema'
 import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts'
 
 const initialState: userSchema = {
-    isAuth:undefined
+    isAuth:undefined,
+    init: false
 }
 
 const userSlice = createSlice({
@@ -19,6 +20,7 @@ const userSlice = createSlice({
             if(data){
                 state.isAuth=JSON.parse(data)
             }
+            state.init=true
         },
         logout:(state)=>{
             state.isAuth=undefined

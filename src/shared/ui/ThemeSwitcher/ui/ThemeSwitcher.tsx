@@ -10,13 +10,12 @@ interface ThemeSwitcherProps{
     className?:string
 }
 
-export const ThemeSwitcher:FC<ThemeSwitcherProps>=React.memo((props)=>{
-    const {className} = props
+export const ThemeSwitcher:FC<ThemeSwitcherProps>=React.memo(()=>{
 
     const {theme, changeTheme} = useTheme()
     
     return(
-    <Button className={ClassNameHelper('', {}, [className])} theme={ButtonTheme.CLEAR}
+    <Button className={ClassNameHelper('', {}, [])} theme={ButtonTheme.CLEAR}
     onClick={changeTheme}
     >
         {theme === Themes.LIGHT? <LightIcon/>: theme===Themes.DARK?<DarkIcon/>: <OrangeIcon/>}

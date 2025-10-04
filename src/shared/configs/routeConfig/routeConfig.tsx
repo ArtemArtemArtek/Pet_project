@@ -3,7 +3,9 @@ export enum AppRoutes{
     ABOUT= 'about',
     NOT_FOUND = 'not_found',
     PROFILE = 'profile',
-    EDIT_PROFILE = 'edit'
+    EDIT_PROFILE = 'edit',
+    ARTICLES_PAGE = 'articles',
+    ARTICLE_DETAIL_PAGE='article_detail'
 }
 
 export const PathRoutes:Record<AppRoutes, string>={
@@ -11,5 +13,7 @@ export const PathRoutes:Record<AppRoutes, string>={
     [AppRoutes.MAIN]:'/',
     [AppRoutes.ABOUT]:'/about',
     [AppRoutes.PROFILE]: '/profile',
-    [AppRoutes.EDIT_PROFILE]: '/edit'
+    [AppRoutes.EDIT_PROFILE]: '/edit',
+    [AppRoutes.ARTICLES_PAGE]: '/articles',
+    [AppRoutes.ARTICLE_DETAIL_PAGE]: '/articles/'
 }

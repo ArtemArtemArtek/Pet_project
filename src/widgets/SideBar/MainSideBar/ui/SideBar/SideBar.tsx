@@ -44,7 +44,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
                         return item
                     }
                 }).map((item) =>
-                    <SideBarItem itemData={item} collapsed={collapsed} />
+                    <SideBarItem key={item.text} itemData={item} collapsed={collapsed} />
                 )}
             </div>
 
