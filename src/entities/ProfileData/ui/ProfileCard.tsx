@@ -9,13 +9,7 @@ import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import cls from './ProfileCard.module.scss'
 import { useNavigate } from "react-router-dom";
 
-
-interface ProfileCardProps {
-    className?: string
-    profileData?: ProfileSchema
-}
-
-export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
+export const ProfileCard: React.FC = () => {
     console.log('ProfileCard')
     
     // const {profileData} = props

@@ -3,6 +3,7 @@ import { PathRoutes } from "../../../../../shared/configs/routeConfig/routeConfi
 import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import ProfileIcon from '../../../../../shared/assets/icons/ProfileIcon.svg'
+import ArticlesIcon from '../../../../../shared/assets/icons/ArticlesIcon.svg'
 
 export interface ListProps {
     path: string
@@ -28,4 +29,10 @@ export const SideBarItemList: Array<ListProps> = [
         icon: ProfileIcon,
         isauth: true
     },
+    {
+        text: 'Статьи',
+        path: PathRoutes.articles,
+        icon: ArticlesIcon,
+        isauth: true
+    }
 ]
