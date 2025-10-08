@@ -1,0 +1,15 @@
+.img_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.img_title_wrapper{
+    margin-bottom: 10px;
+}

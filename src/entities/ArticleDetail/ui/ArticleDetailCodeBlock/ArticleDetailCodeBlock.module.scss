@@ -1,0 +1,25 @@
+.code_wrapper{
+    border: 1px solid var(--primary-color);
+    padding: 20px;
+    position: relative;
+    background: var(--code-bg);
+    overflow: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.copy_button_wrapper{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+        :hover{
+        fill: var(--inverted-primary-color)
+    }
+}
+
+.copy_icon{
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-color);
+}

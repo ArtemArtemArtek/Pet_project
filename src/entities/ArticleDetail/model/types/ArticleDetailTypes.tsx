@@ -15,16 +15,16 @@ interface ArticleBase {
     type: ArticleBlockType
 }
 
-interface ArticleImage extends ArticleBase {
+export interface ArticleImage extends ArticleBase {
     src: string;
     title: string
 }
 
-interface ArticleCode extends ArticleBase {
+export interface ArticleCode extends ArticleBase {
     code: string
 }
 
-interface ArticleText extends ArticleBase {
+export interface ArticleText extends ArticleBase {
     paragraphs: string[];
     title?: string;
 }
