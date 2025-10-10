@@ -12,7 +12,7 @@ export const ArticleDetailImageBlock:React.FC<ArticleDetailImageBlock_props>=(pr
 
     return(
         <div className={cls.img_wrapper}>
-            <img src={image.src}/>
+            <img className={cls.img_current} src={image.src}/>
             <div className={cls.img_title_wrapper}>{image.title}</div>
             </div>
     )

@@ -15,24 +15,28 @@
     {
       "id": 1,
       "body": "some comment",
-      "postId": 1
+      "user_id": 1,
+      "article_id": 1
     },
     {
       "id": 2,
-      "body": "Hello world!",
-      "postId": 2
+      "body": "some comment",
+      "user_id": 1,
+      "article_id": 1
     }
   ],
   "users": [
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
     },
     {
       "id": 2,
       "username": "septiena",
-      "password": "22334411"
+      "password": "22334411",
+      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
     }
   ],
   "profile": {
@@ -53,7 +57,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

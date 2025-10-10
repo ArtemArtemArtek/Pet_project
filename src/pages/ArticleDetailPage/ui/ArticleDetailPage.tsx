@@ -6,9 +6,12 @@ import { articleDetailReducer } from "../../../entities/ArticleDetail/model/slic
 import { useEffect } from "react";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/config/store";
 import { fetchArticleDetail } from "../../../entities/ArticleDetail/model/service/getArticleDetail";
+import { commentReducer } from "../../../entities/CommentData/model/slice/commentDataSlice";
+import { fetchCommentsData } from "../../../entities/CommentData/model/service/fetchCommentsService";
 
 const inputReducers: ReducerList = {
-    article_detail: articleDetailReducer
+    article_detail: articleDetailReducer,
+    comments: commentReducer
 }
 
 export const ArticleDetailPage: React.FC = React.memo(() => {
@@ -16,6 +19,7 @@ export const ArticleDetailPage: React.FC = React.memo(() => {
     
     useEffect(()=>{
         dispatch(fetchArticleDetail(1))
+        dispatch(fetchCommentsData(1))
     },[dispatch])
 
     return (

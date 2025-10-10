@@ -6,6 +6,7 @@ import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@redux
 import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profileSchema";
 import { AxiosInstance } from "axios";
 import { NavigateOptions, To } from "react-router-dom";
+import { CommentSchema } from "../../../../entities/CommentData/model/types/types";
 
 export interface StateSchema {
     counter: counterSchema
@@ -14,6 +15,7 @@ export interface StateSchema {
     auth?: authSchema
     profile?:ProfileSchema
     article_detail?: ArticleDetailSchema
+    comments?:CommentSchema
 }
 
 export interface ReducerManagerInterface {

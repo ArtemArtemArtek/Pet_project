@@ -3,7 +3,7 @@ import cls from './Avatar.module.scss'
 
 
 export enum AvatarSize{
-    SMALL = '50px',
+    SMALL = '30px',
     MEDIUM = '200px',
     BIG = '350px'
 }
