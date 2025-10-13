@@ -14,15 +14,27 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "user_id": 1,
-      "article_id": 1
+      "body": "some comment 1",
+      "userId": 1,
+      "articleId": 1
     },
     {
       "id": 2,
-      "body": "some comment",
-      "user_id": 1,
-      "article_id": 1
+      "body": "some comment 2",
+      "userId": 1,
+      "articleId": 1
+    },
+    {
+      "id": 3,
+      "body": "some comment 3",
+      "userId": 1,
+      "articleId": 2
+    },
+    {
+      "id": 4,
+      "body": "some comment 4",
+      "userId": 2,
+      "articleId": 1
     }
   ],
   "users": [

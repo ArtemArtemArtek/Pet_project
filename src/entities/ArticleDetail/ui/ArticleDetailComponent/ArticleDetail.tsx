@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { StateSchema } from "../../../../app/providers/StoreProvider";
@@ -13,6 +12,7 @@ import { ArticleDetailImageBlock } from "../ArticleDetailImageBlock/ArticleDetai
 import { ArticleDetailTextBlock } from "../ArticleDetailTextBlock/ArticleDetailTextBlock";
 import { CommentComponent } from "../../../../features/Comment";
 import { commentSelectors } from "../../../../entities/CommentData";
+import { AddComment } from "../../../../features/AddComment";
 import cls from './ArticleDetail.module.scss'
 
 export const ArticleDetail: React.FC = React.memo(() => {
@@ -20,17 +20,7 @@ export const ArticleDetail: React.FC = React.memo(() => {
     const articleData = useSelector((state: StateSchema) => state.article_detail)
     const { t } = useTranslation()
 
-    console.log('COMMENTS'+JSON.stringify(comments[0]))
-
-    const com = {
-        id: 1,
-        text: "some comment",
-        user: {
-            id: 1,
-            username: 'dsdsdsd',
-            avatar: 'https://papik.pro/uploads/posts/2023-03/1678233251_papik-pro-p-avatarki-malenkie-risunki-12.jpg'
-        },
-    }
+    // console.log(comments[0])
 
     const renderBlock = useCallback((el: ArticleBlock) => {
         switch (el.type) {
@@ -91,9 +81,10 @@ export const ArticleDetail: React.FC = React.memo(() => {
             <div>
                 <hr className={cls.line_design} />
                 <div className={cls.coment_title}>{t('Комментарии')}</div>
+                <AddComment/>
                 {comments.map((el)=>{
-                return(     
-                    <CommentComponent comment={el} />
+                return(    
+                    <CommentComponent key={el.id} comment={el} />
                 )
                 })}
             </div>

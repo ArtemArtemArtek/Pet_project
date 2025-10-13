@@ -5,8 +5,7 @@ import { useEffect } from "react";
 import { fetchProfileData } from "../../../entities/ProfileData";
 import { AsyncReducerWrapper, ReducerList } from "../../../shared/lib/asyncReducerWrapper/asyncReducerWrapper";
 import { profileReducer } from "../../../entities/ProfileData/model/slice/profileSlice";
-import { getProfileData } from "../../../entities/ProfileData";
-import { useSelector } from "react-redux";
+import cls from './ProfilePage.module.scss'
 import { ProfileCard } from "../../../entities/ProfileData/ui/ProfileCard";
 
 interface ProfilePageProps{

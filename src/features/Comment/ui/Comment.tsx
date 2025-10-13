@@ -10,7 +10,7 @@ interface CommentComponentProps{
 export const CommentComponent:React.FC<CommentComponentProps>=(props)=>{
     
     const {comment}=props
-    console.log('Rjvvtynfjhbsadbsa'+comment)
+    console.log(comment)
     return(
         <div className={cls.comment_wrapper}>
             <div className={cls.title_wrapper}>
@@ -18,7 +18,7 @@ export const CommentComponent:React.FC<CommentComponentProps>=(props)=>{
                 <div className={cls.username_wrapper}>{comment?.user?.username}</div>
             </div>
             <div className={cls.text_wrapper}>
-                {comment?.text}
+                {comment?.body}
             </div>
         </div>
     )

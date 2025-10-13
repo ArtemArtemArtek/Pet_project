@@ -33,6 +33,7 @@
 .created_data_wrapper {
     display: flex;
     padding: 5px;
+    align-items: center; 
     
     p{
         margin-left: 8px;
@@ -42,6 +43,7 @@
 .views_wrapper {
     padding: 5px;
     display: flex;
+        align-items: center;
     
     p{
         margin-left: 8px;

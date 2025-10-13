@@ -10,8 +10,6 @@ export const ArticleDetailTextBlock:React.FC<ArticleDetailTextBlock_props>=(prop
     
     const {block} = props
 
-    console.log(block)
-
     return(
         <div>
                {block.title&&<div className={cls.titleWrapper}>
@@ -19,7 +17,7 @@ export const ArticleDetailTextBlock:React.FC<ArticleDetailTextBlock_props>=(prop
                     </div>}
             {block.paragraphs.map((par)=>{
             return(
-                <div className={cls.par_wrapper}>{par}</div>
+                <div key={par} className={cls.par_wrapper}>{par}</div>
             )
         })}</div>
     )
