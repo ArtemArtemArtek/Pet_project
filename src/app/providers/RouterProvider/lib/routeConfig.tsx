@@ -1,4 +1,4 @@
-import { RouteProps } from "react-router-dom"
+import { Navigate, RouteProps } from "react-router-dom"
 import React from "react";
 import { PathRoutes, AppRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import { NotFoundPage } from "../../../../pages/NotFounPage/index";
@@ -35,7 +35,7 @@ export const RouteConfigWrapper = () => {
             element: <NotFoundPage />
         },
         [AppRoutes.PROFILE]: {
-            path: PathRoutes.profile,
+            path: `${PathRoutes.profile}:userId`,
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <ProfilePageLazy />
@@ -70,30 +70,3 @@ export const RouteConfigWrapper = () => {
 
     return RouteConfig
 }
-
-// export const RouteConfig: Record<AppRoutes, RouteProps> = {
-//     [AppRoutes.MAIN]: {
-//         path: PathRoutes.main,
-//         element: <MainPageLazy />
-//     },
-//     [AppRoutes.ABOUT]: {
-//         path: PathRoutes.about,
-//         element: <AboutPageLazy />
-//     },
-//     [AppRoutes.NOT_FOUND]: {
-//         path: PathRoutes.not_found,
-//         element: <NotFoundPage />
-//     },
-//     [AppRoutes.PROFILE]:{
-//         path: PathRoutes.profile,
-//         element: (
-//             <PrivateRouteWrapper user={userData}>
-//             <ProfilePageLazy />
-//             </PrivateRouteWrapper>
-//             )
-//     },
-//     [AppRoutes.EDIT_PROFILE]:{
-//         path: PathRoutes.edit,
-//         element: <EditProfilePageLazy />
-//     },
-// }

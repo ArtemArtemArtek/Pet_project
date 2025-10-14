@@ -45,7 +45,7 @@ describe('fetchProfileData thunk', () => {
         mockedApi.get.mockResolvedValueOnce({ data: mockUserProfile })
         const extra = { api: mockedApi }
 
-        const response = await fetchProfileData()(dispatch, state, extra)
+        const response = await fetchProfileData('1')(dispatch, state, extra)
 
         expect(mockedApi.get).toHaveBeenCalledWith('/profile')
         expect(dispatch).toHaveBeenCalledTimes(2)

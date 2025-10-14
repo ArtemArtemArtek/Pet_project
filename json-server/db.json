@@ -35,6 +35,48 @@
       "body": "some comment 4",
       "userId": 2,
       "articleId": 1
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Новый комент",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Еще один",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "++++",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Соглы",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Интересная статья",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Как дела?",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "articleId": "1",
+      "body": "Ghb",
+      "id": 11
     }
   ],
   "users": [
@@ -48,19 +90,33 @@
       "id": 2,
       "username": "septiena",
       "password": "22334411",
-      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Артём",
-    "lastname": "Программист",
-    "age": "20",
-    "currency": "USD",
-    "country": "Kazakhstan",
-    "city": "Saratov",
-    "username": "ASa",
-    "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Артём",
+      "lastname": "Программист",
+      "age": "20",
+      "currency": "USD",
+      "country": "Kazakhstan",
+      "city": "Saratov",
+      "username": "ASa",
+      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Septa",
+      "lastname": "asf",
+      "age": "40",
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "septiena",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",

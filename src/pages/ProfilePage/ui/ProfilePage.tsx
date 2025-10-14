@@ -7,6 +7,10 @@ import { AsyncReducerWrapper, ReducerList } from "../../../shared/lib/asyncReduc
 import { profileReducer } from "../../../entities/ProfileData/model/slice/profileSlice";
 import cls from './ProfilePage.module.scss'
 import { ProfileCard } from "../../../entities/ProfileData/ui/ProfileCard";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getUser } from "../../../entities/User";
+import { PathRoutes } from "../../../shared/configs/routeConfig/routeConfig";
 
 interface ProfilePageProps{
     data?: string
@@ -14,20 +18,31 @@ interface ProfilePageProps{
 
 const inputReducers: ReducerList={
     profile: profileReducer
-}
+}   
+
 const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
     const {t} = useTranslation('profile')
-    
+    const navigate = useNavigate();
+    const {isAuth} = useSelector(getUser)
+    const {userId} = useParams()
     const dispatch = useAppDispatch()
 
+//       useEffect(() => {
+//     if (!userId) {
+//       navigate(`${PathRoutes.profile}${isAuth.id}`, { replace: true });
+//     }
+//   }, [userId, navigate, isAuth.id]);
+
+
     useEffect(()=>{
-        dispatch(fetchProfileData()) 
+        dispatch(fetchProfileData(userId)) 
         // eslint-disable-next-line
     },[])
 
+    console.log('USERID:'+userId)
     return(
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
-            <ProfileCard/>
+            <ProfileCard userID={userId}/>
         </AsyncReducerWrapper>
     )
 }

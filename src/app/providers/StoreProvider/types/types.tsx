@@ -39,6 +39,7 @@ export interface ThunkExtraArgument{
 export interface ThunkType<T>{
     rejectWithValue: T
     extra: ThunkExtraArgument
+    state: StateSchema
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

@@ -3,13 +3,13 @@ import { ThunkExtraArgument, ThunkType } from "../../../../app/providers/StorePr
 import { UserProfile } from "../type/profileSchema"
 
 
-export const fetchProfileData = createAsyncThunk<UserProfile, void, ThunkType<string>>(
+export const fetchProfileData = createAsyncThunk<UserProfile, string, ThunkType<string>>(
     'profile/userData',
-    async (_, thunkAPI) => {
+    async (userID:string, thunkAPI) => {
         console.log('Попали в редюсер профиля')
         const {extra, rejectWithValue} = thunkAPI
         try {
-            const response = await extra.api.get<UserProfile>('/profile')
+            const response = await extra.api.get<UserProfile>(`/profile/${userID}`)
             return response.data
         } catch (err) {
             console.log(err)

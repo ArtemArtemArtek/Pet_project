@@ -12,13 +12,14 @@ interface AvatarProps{
     src: string
     size: AvatarSize
     bordered?:boolean
+    onClick?:()=>void
 }
 
 export const Avatar:React.FC<AvatarProps>=(props)=>{
-    const {size, src, bordered = false} = props
+    const {size, src, bordered = false, onClick=null} = props
 
     return(    
-        <img src={src} style={{
+        <img onClick={onClick} src={src} style={{
             width: size,
             height: size,
             borderRadius: '50%',

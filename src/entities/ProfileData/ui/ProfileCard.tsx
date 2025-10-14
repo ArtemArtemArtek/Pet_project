@@ -8,18 +8,23 @@ import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import cls from './ProfileCard.module.scss'
 import { useNavigate } from "react-router-dom";
+import { getUser } from "../../../entities/User";
+import { useParams } from "react-router-dom";
 
 interface ProfileCardProps{
     className?: string
+    userID: string
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     console.log('ProfileCard')
     
-    // const {profileData} = props
+    const {userID} = props
     const navigate = useNavigate();
     const profileData = useSelector(getProfileData)
     const { t } = useTranslation('profile')
+    const {isAuth} = useSelector(getUser)
+    // const {userId} = useParams()
 
     if(profileData?.error){
         return(
@@ -64,7 +69,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                         {t('Валюта: ')}
                         {profileData?.data?.currency}
                     </div>
-                    <Button onClick={()=>navigate('/edit')} theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.editProfileButton}>{t('Редактировать профиль')}</Button>
+                    {isAuth.id.toString()===userID?
+                    <Button onClick={()=>navigate('/edit')} theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.editProfileButton}>{t('Редактировать профиль')}</Button>:null}
                 </div>
     )
 }

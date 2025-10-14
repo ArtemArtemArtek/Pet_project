@@ -6,8 +6,9 @@ import { articleDetailReducer } from "../../../entities/ArticleDetail/model/slic
 import { useEffect } from "react";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/config/store";
 import { fetchArticleDetail } from "../../../entities/ArticleDetail/model/service/getArticleDetail";
-import { commentReducer } from "../../../entities/CommentData/model/slice/commentDataSlice";
+import { commentReducer, commentSelectors } from "../../../entities/CommentData/model/slice/commentDataSlice";
 import { fetchCommentsData } from "../../../entities/CommentData/model/service/fetchCommentsService";
+import { useSelector } from "react-redux";
 
 const inputReducers: ReducerList = {
     article_detail: articleDetailReducer,
@@ -16,6 +17,8 @@ const inputReducers: ReducerList = {
 
 export const ArticleDetailPage: React.FC = React.memo(() => {
     const dispatch = useAppDispatch()
+
+    // const comments = useSelector(commentSelectors.selectAll)
     
     useEffect(()=>{
         dispatch(fetchArticleDetail(1))
