@@ -1,0 +1,121 @@
+.article_card{
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+    min-width: 150px;
+}
+
+.avatar_wrapper{
+    // align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.sub_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.views{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// .text_wrapper{
+//     height: 200px;
+//     overflow-y: hidden;
+// }
+
+.fade_text {
+    margin-top: 10px;
+  position: relative;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.fade_text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--bg-color)
+  );
+  pointer-events: none;
+}
+
+// .types_wrapper{
+//     display: flex;
+//     flex-direction: row;
+//     max-width: 200px;
+//     overflow-x: hidden;
+// }
+
+.type_item{
+    border: 2px solid var(--primary-color);
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.types_wrapper {
+  position: relative;
+   display: flex;
+    flex-direction: row;
+    max-width: 200px;
+  overflow: hidden;
+//   overflow-y: auto;0
+}
+
+.button_style{
+color: var(--primary-color);
+}
+
+// .types_wrapper::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   width: 60px;
+//   background: linear-gradient(
+//     to right,
+//     transparent,
+//      var(--bg-color)
+//   );
+//   pointer-events: none;
+// }
+
+// @media (min-width: 100px) {
+//   .types_wrapper::after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     width: 60px;
+//     background: linear-gradient(
+//       to right,
+//       transparent,
+//       var(--bg-color)
+//     );
+//     pointer-events: none;
+//   }
+// }

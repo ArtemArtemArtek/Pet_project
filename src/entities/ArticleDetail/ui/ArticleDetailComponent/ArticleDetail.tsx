@@ -13,14 +13,22 @@ import { ArticleDetailTextBlock } from "../ArticleDetailTextBlock/ArticleDetailT
 import { CommentComponent } from "../../../../features/Comment";
 import { commentSelectors } from "../../../../entities/CommentData";
 import { AddComment } from "../../../../features/AddComment";
+import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Button";
+import { useNavigate } from "react-router-dom";
+import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import cls from './ArticleDetail.module.scss'
 
 export const ArticleDetail: React.FC = React.memo(() => {
     const comments = useSelector(commentSelectors.selectAll)
     const articleData = useSelector((state: StateSchema) => state.article_detail)
     const { t } = useTranslation()
+    const navigate =useNavigate()
 
     // console.log(comments[0])
+
+    const back_to_articles =useCallback(()=>{
+        navigate(PathRoutes.articles)
+    },[navigate])
 
     const renderBlock = useCallback((el: ArticleBlock) => {
         switch (el.type) {
@@ -56,12 +64,16 @@ export const ArticleDetail: React.FC = React.memo(() => {
 
     if (articleData?.error) {
         return (
+            <>
+            <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
             <h1 className={cls.server_error}>{t('Ошибка сервера')}</h1>
+            </>
         )
     }
 
     return (
         <>
+        <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
             <div className={cls.avatar_wrapper}>
                 <Avatar size={AvatarSize.MEDIUM} src={articleData?.data?.img} />
             </div>
