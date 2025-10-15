@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { PathRoutes } from "../../../../../shared/configs/routeConfig/routeConfig";
+import { getUser } from "../../../../../entities/User";
 import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import ProfileIcon from '../../../../../shared/assets/icons/ProfileIcon.svg'
@@ -12,7 +14,11 @@ export interface ListProps {
     isauth?: boolean
 }
 
-export const SideBarItemList: Array<ListProps> = [
+
+export const selectSidebarItem=()=>{
+    const userData = useSelector(getUser)
+
+    return [
     {
         text: 'Главная',
         path: PathRoutes.main,
@@ -25,7 +31,7 @@ export const SideBarItemList: Array<ListProps> = [
     },
     {
         text: 'Профиль',
-        path: PathRoutes.profile,
+        path: PathRoutes.profile+userData?.isAuth?.id,
         icon: ProfileIcon,
         isauth: true
     },
@@ -36,3 +42,4 @@ export const SideBarItemList: Array<ListProps> = [
         isauth: true
     }
 ]
+}

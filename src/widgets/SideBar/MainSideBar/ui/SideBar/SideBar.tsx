@@ -9,9 +9,10 @@ import { AppLink, AppLinkTheme } from "../../../../../shared/ui/AppLink/AppLink"
 import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import { SideBarItem } from "../SideBarItem/SideBarItem";
-import { SideBarItemList } from "../SideBarItemList/SideBarItemList";
+// import { SideBarItemList } from "../SideBarItemList/SideBarItemList";
 import { useSelector } from "react-redux";
 import { getUser } from "../../../../../entities/User";
+import { selectSidebarItem } from "../selector/selectSidebar";
 
 interface SidebarProps {
     className?: string;
@@ -22,7 +23,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
     const { t } = useTranslation('sidebar')
         const {isAuth} = useSelector(getUser)||{}
 
-    const filtredArray = SideBarItemList.filter((item) => {
+    const filtredArray = selectSidebarItem().filter((item) => {
         if ('isauth' in item) {
             return item
         }
@@ -35,7 +36,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
     return (
         <div data-testid='sidebar' className={ClassNameHelper(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <div className={cls.linkWrapper}>
-                {SideBarItemList.filter((item) => {
+                {selectSidebarItem().filter((item) => {
                     if ('isauth' in item) {
                         if(isAuth){
                             return item
