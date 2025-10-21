@@ -10,7 +10,7 @@ import { ProfileCard } from "../../../entities/ProfileData/ui/ProfileCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getUser } from "../../../entities/User";
-import { PathRoutes } from "../../../shared/configs/routeConfig/routeConfig";
+import { PageWrapper } from "../../../shared/ui/PageWrapper/PageWrapper";
 
 interface ProfilePageProps{
     data?: string
@@ -27,12 +27,6 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
     const {userId} = useParams()
     const dispatch = useAppDispatch()
 
-//       useEffect(() => {
-//     if (!userId) {
-//       navigate(`${PathRoutes.profile}${isAuth.id}`, { replace: true });
-//     }
-//   }, [userId, navigate, isAuth.id]);
-
 
     useEffect(()=>{
         dispatch(fetchProfileData(userId)) 
@@ -41,9 +35,11 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
 
     console.log('USERID:'+userId)
     return(
+        <PageWrapper>
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
             <ProfileCard userID={userId}/>
         </AsyncReducerWrapper>
+        </PageWrapper>
     )
 }
 

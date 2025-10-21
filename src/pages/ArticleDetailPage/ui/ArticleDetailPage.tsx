@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../../app/providers/StoreProvider/config/stor
 import { fetchArticleDetail } from "../../../entities/ArticleDetail/model/service/getArticleDetail";
 import { commentReducer, commentSelectors } from "../../../entities/CommentData/model/slice/commentDataSlice";
 import { fetchCommentsData } from "../../../entities/CommentData/model/service/fetchCommentsService";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const inputReducers: ReducerList = {
@@ -19,11 +20,12 @@ export const ArticleDetailPage: React.FC = React.memo(() => {
     const dispatch = useAppDispatch()
 
     // const comments = useSelector(commentSelectors.selectAll)
-    
+    const {id} = useParams()
+
     useEffect(()=>{
-        dispatch(fetchArticleDetail(1))
-        dispatch(fetchCommentsData(1))
-    },[dispatch])
+        dispatch(fetchArticleDetail(Number(id)))
+        dispatch(fetchCommentsData(id))
+    },[dispatch, id])
 
     return (
         <div className={cls.ArticleDetailPage}>

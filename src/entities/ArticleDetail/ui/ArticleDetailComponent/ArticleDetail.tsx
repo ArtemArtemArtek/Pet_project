@@ -16,6 +16,7 @@ import { AddComment } from "../../../../features/AddComment";
 import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
+import { PageWrapper } from "../../../../shared/ui/PageWrapper/PageWrapper";
 import cls from './ArticleDetail.module.scss'
 
 export const ArticleDetail: React.FC = React.memo(() => {
@@ -53,26 +54,26 @@ export const ArticleDetail: React.FC = React.memo(() => {
 
     if (articleData?.isLoading) {
         return (
-            <div className={cls.skeleton_wrapper}>
+            <PageWrapper className={cls.skeleton_wrapper}>
                 <Skeleton borderRadius="50%" width="150px" height="150px" className={cls.image_skeleton} />
                 <Skeleton height="3px" width="18%" className={cls.title_skeleton} />
                 <Skeleton width="10%" className={cls.subtitle_skeleton} />
                 <Skeleton width="95%" height="70%" className={cls.content_skeleton} />
-            </div>
+            </PageWrapper>
         )
     }
 
     if (articleData?.error) {
         return (
-            <>
+            <PageWrapper>
             <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
             <h1 className={cls.server_error}>{t('Ошибка сервера')}</h1>
-            </>
+            </PageWrapper>
         )
     }
 
     return (
-        <>
+        <PageWrapper>
         <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
             <div className={cls.avatar_wrapper}>
                 <Avatar size={AvatarSize.MEDIUM} src={articleData?.data?.img} />
@@ -100,6 +101,6 @@ export const ArticleDetail: React.FC = React.memo(() => {
                 )
                 })}
             </div>
-        </>
+        </PageWrapper>
     )
 })

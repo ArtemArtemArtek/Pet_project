@@ -7,6 +7,8 @@ import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profi
 import { AxiosInstance } from "axios";
 import { NavigateOptions, To } from "react-router-dom";
 import { CommentSchema } from "../../../../entities/CommentData/model/types/types";
+import { ArticleSchema } from "../../../../features/ArticleItems";
+
 
 export interface StateSchema {
     counter: counterSchema
@@ -15,6 +17,7 @@ export interface StateSchema {
     auth?: authSchema
     profile?:ProfileSchema
     article_detail?: ArticleDetailSchema
+    articles?:ArticleSchema
     comments?:CommentSchema
 }
 

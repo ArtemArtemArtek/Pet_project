@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../../app/providers/StoreProvider/config/store";
 import { EditProfileCard } from "../../entities/ProfileData/ui/EditProfileCard/EditProfileCard";
 import { getUser } from "../../entities/User";
+import { PageWrapper } from "../../shared/ui/PageWrapper/PageWrapper"
+
 
 const inputReducers: ReducerList = {
     profile: profileReducer
@@ -29,8 +31,10 @@ export const EditProfilePage: React.FC = () => {
     // const [userData, setUserData] = useState(data)
 
     return (
+        <PageWrapper>
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
            {profileData?<EditProfileCard />:null}
         </AsyncReducerWrapper>
+        </PageWrapper>
     )
 }

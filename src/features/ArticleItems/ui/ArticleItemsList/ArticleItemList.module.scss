@@ -2,5 +2,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+    margin-left: -15px;
+}
+
+.button_change{
+    display: flex;
+    margin-left: auto;
+    border-radius: 10px;
+}
+.view_icons{
+    fill: var(--primary-color);
+    // width: 30px;
+    // height: 30px;
 }

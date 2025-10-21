@@ -1,3 +1,5 @@
+import { user } from "../../../../entities/User";
+
 export enum ArticleType {
     CODE = 'CODE',
     IT = 'IT',
@@ -34,6 +36,7 @@ export type ArticleBlock = ArticleImage | ArticleCode | ArticleText
 export interface ArticleDetailType {
     id: string;
     title: string;
+    user:user
     subtitle: string;
     img: string;
     views: number;

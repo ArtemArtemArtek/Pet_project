@@ -79,13 +79,44 @@
   position: relative;
    display: flex;
     flex-direction: row;
-    max-width: 200px;
+    max-width: 70%;
   overflow: hidden;
 //   overflow-y: auto;0
 }
 
 .button_style{
 color: var(--primary-color);
+}
+
+.button_big_style{
+  display: flex;
+color: var(--primary-color);
+margin-left: auto;
+}
+
+.button_big_style:hover{
+color: var(--inverted-primary-color);
+}
+.button_style:hover{
+color: var(--inverted-primary-color);
+}
+
+.article_big_card{
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    min-width: 500px;
+}
+
+.avatar_big_wrapper{
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  width: 100%;
+
+
 }
 
 // .types_wrapper::after {
