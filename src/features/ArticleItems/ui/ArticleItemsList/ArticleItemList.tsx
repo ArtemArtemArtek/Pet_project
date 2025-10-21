@@ -52,7 +52,7 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
                 </Button>
             <div className={cls.articlesWrapper}>
             {articles.map((element) => (
-                <ArticleItem article={element} articles_view={viewArticle}/>
+                <ArticleItem key={element.id} article={element} articles_view={viewArticle}/>
             ))}
             {articlesData.isLoading&&<div>Загрузка</div>}
             </div>

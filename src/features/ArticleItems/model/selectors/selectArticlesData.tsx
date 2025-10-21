@@ -11,3 +11,4 @@ export const getArticlesPageIsLoading = (state: StateSchema) => state.articles?.
 export const getArticlesPageNum = (state: StateSchema) => state.articles?.page || 1;
 export const getArticlesPageHasMore = (state: StateSchema) => state.articles?.hasMore;
 export const getArticlesPageLimit = (state: StateSchema) => state.articles?.blocks || 9;
+export const getArticlesPageInited = (state: StateSchema) => state.articles?._inited || false;

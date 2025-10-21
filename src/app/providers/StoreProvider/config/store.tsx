@@ -24,6 +24,8 @@ export const universalStore = (initialState?: StateSchema, navigate?: (to: To, o
         navigate
     }
 
+    console.log('RENDER')
+
     const store = configureStore<StateSchema>({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,

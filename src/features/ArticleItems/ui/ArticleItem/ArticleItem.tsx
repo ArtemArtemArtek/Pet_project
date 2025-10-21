@@ -56,7 +56,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
             </div>
             <div className={cls.title}>{article.title}</div>
             <div className={cls.sub_title}>
-                <div className={cls.types_wrapper}>{article.type.map((el) => (<div className={cls.type_item}>{el}</div>))}</div>
+                <div className={cls.types_wrapper}>{article.type.map((el) => (<div key={el} className={cls.type_item}>{el}</div>))}</div>
                 <div className={cls.views}>
                     <p>{article.views}</p>
                     <Eye_icon />

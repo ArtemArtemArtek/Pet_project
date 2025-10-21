@@ -7,12 +7,12 @@ import { articlesReducer } from "../../../../features/ArticleItems";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { fetchArticlesData } from "../../../../features/ArticleItems/model/service/articleThunk";
 import { PageWrapper } from "../../../../shared/ui/PageWrapper/PageWrapper";
-import { getArticlesView } from "../../../../features/ArticleItems";
-import { useSelector } from "react-redux";
 import { ArticlesView } from "../../../../features/ArticleItems/model/types/articleTypes";
 import { LOCAL_ARTICLES_VIEW } from "../../../../shared/consts/consts";
 import { articlesActions } from "../../../../features/ArticleItems";
 import { fetchNextArticlesPage } from "../../../../features/ArticleItems/model/service/fetchNextArticlesPage";
+import { getArticlesPageInited } from "../../../../features/ArticleItems/model/selectors/selectArticlesData";
+import { useSelector } from "react-redux";
 
 const inputReducers: ReducerList = {
     articles: articlesReducer
@@ -21,8 +21,9 @@ const inputReducers: ReducerList = {
 export const ArticlesPage: React.FC = () => {
 
     const dispatch = useAppDispatch()
+    const inited = useSelector(getArticlesPageInited)
 
-        const onChangeView = useCallback((view: ArticlesView) => {
+    const onChangeView = useCallback((view: ArticlesView) => {
         dispatch(articlesActions.setView(view));
     }, [dispatch]);
 
@@ -31,24 +32,21 @@ export const ArticlesPage: React.FC = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(articlesActions.initState())
-        dispatch(fetchArticlesData({
-            page: 1,
-        }))
+        if (!inited) {
+            dispatch(articlesActions.initState())
+            dispatch(fetchArticlesData({
+                page: 1,
+            }))
+        }
         // eslint-disable-next-line
     }, [])
 
     const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) || ArticlesView.SMALL
-
-    // const onScrol = () => {
-    //     dispatch(fetchArticlesData(2))
-    // }
-
     const { t } = useTranslation()
 
     return (
         <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>
-            <AsyncReducerWrapper reducers={inputReducers}>
+            <AsyncReducerWrapper removeAfterClose={false} reducers={inputReducers}>
                 <ArticleItemList view={view as ArticlesView} />
             </AsyncReducerWrapper>
         </PageWrapper>

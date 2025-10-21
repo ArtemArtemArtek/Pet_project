@@ -19,7 +19,8 @@ const articletSlice = createSlice({
     ids: [],
     entities: {},
     view: ArticlesView.SMALL,
-            hasMore: true
+    hasMore: true,
+    _inited: false
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticlesView>) => {
@@ -33,10 +34,11 @@ const articletSlice = createSlice({
       const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) as ArticlesView;
       state.view = view;
       state.blocks = view === ArticlesView.BIG ? 4 : 9;
+      state._inited = true
     },
-            setPage: (state, action: PayloadAction<number>) => {
-            state.page = action.payload;
-        },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder

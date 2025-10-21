@@ -27,9 +27,13 @@ export const AsyncReducerWrapper: React.FC<asyncReducerWrapperProps> = (props) =
     const store = useStore() as ReducerManagerStore
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap() 
         Object.entries(reducers).forEach(([name, reducer]: EntryReducerList) => {
-            store.reducerManager.add(name, reducer)
-            dispatch({ type: `INIT ${name} reducer` })
+            const mounted = mountedReducers[name as StateSchemaKeys]
+            if(!mounted){
+                store.reducerManager.add(name, reducer)
+                dispatch({ type: `INIT ${name} reducer` })
+            }
         })
 
         return () => {

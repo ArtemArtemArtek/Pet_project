@@ -13,4 +13,6 @@ export interface ArticleSchema extends EntityState<ArticleDetailType, number>{
     blocks?: number
     page?:number
     hasMore:boolean
+
+    _inited?:boolean
 }
