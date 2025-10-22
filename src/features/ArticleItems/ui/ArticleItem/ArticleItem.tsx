@@ -42,7 +42,9 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
                     <Eye_icon />
                 </div>
             </div>
-                <div className={cls.fade_text}>{article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
+                <div className={cls.fade_text}>{
+                //@ts-ignore
+                article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
             <Button onClick={redirectArticle} className={cls.button_big_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
             </div>
         )
@@ -62,7 +64,9 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
                     <Eye_icon />
                 </div>
             </div>
-            <div className={cls.fade_text}>{article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
+            <div className={cls.fade_text}>{
+            //@ts-ignore
+            article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
             <Button onClick={redirectArticle} className={cls.button_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
         </div>
     )

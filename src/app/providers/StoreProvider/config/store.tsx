@@ -7,13 +7,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from '../../../../shared/api/instanceApi'
 import { NavigateOptions, To, useNavigate } from 'react-router-dom'
+import { saveScrollReducer } from '../../../../widgets/SaveScroll'
 
 
 export const universalStore = (initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) => {
 
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
+        save_scroll: saveScrollReducer
     }
 
     const reducerManager = createReducerManager(rootReducers)

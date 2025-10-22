@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../../app/providers/StoreProvider/config/store";
 import { EditProfileCard } from "../../entities/ProfileData/ui/EditProfileCard/EditProfileCard";
 import { getUser } from "../../entities/User";
-import { PageWrapper } from "../../shared/ui/PageWrapper/PageWrapper"
+import { PageWrapper } from "../../widgets/PageWrapper/PageWrapper"
 
 
 const inputReducers: ReducerList = {

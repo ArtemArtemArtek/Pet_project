@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
 import ClassNameHelper from "../../../shared/lib/classNames/classNames";
 import cls from "./NotFoundPage.module.scss"
-import { PageWrapper } from "../../../shared/ui/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper";
 import { Loader } from "../../../shared/ui/Loader/Loader";
 
 interface NotFoundPageProps {

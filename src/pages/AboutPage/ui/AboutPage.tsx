@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import { Counter } from "../../../features/Counter/index"
-import { PageWrapper } from "../../../shared/ui/PageWrapper/PageWrapper"
+import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper"
 
 export const AboutPage = () => {
     const {t} = useTranslation('about')

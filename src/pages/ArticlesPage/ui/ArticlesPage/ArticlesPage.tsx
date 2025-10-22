@@ -6,7 +6,7 @@ import { AsyncReducerWrapper, ReducerList } from "../../../../shared/lib/asyncRe
 import { articlesReducer } from "../../../../features/ArticleItems";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { fetchArticlesData } from "../../../../features/ArticleItems/model/service/articleThunk";
-import { PageWrapper } from "../../../../shared/ui/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
 import { ArticlesView } from "../../../../features/ArticleItems/model/types/articleTypes";
 import { LOCAL_ARTICLES_VIEW } from "../../../../shared/consts/consts";
 import { articlesActions } from "../../../../features/ArticleItems";

@@ -8,11 +8,13 @@ import { AxiosInstance } from "axios";
 import { NavigateOptions, To } from "react-router-dom";
 import { CommentSchema } from "../../../../entities/CommentData/model/types/types";
 import { ArticleSchema } from "../../../../features/ArticleItems";
+import { SaveScrollSchema } from "../../../../widgets/SaveScroll";
 
 
 export interface StateSchema {
     counter: counterSchema
     user: userSchema
+    save_scroll: SaveScrollSchema
     
     auth?: authSchema
     profile?:ProfileSchema

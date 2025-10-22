@@ -10,7 +10,7 @@ import { ProfileCard } from "../../../entities/ProfileData/ui/ProfileCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getUser } from "../../../entities/User";
-import { PageWrapper } from "../../../shared/ui/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper";
 
 interface ProfilePageProps{
     data?: string

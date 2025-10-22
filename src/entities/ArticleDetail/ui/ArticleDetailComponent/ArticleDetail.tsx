@@ -16,7 +16,7 @@ import { AddComment } from "../../../../features/AddComment";
 import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
-import { PageWrapper } from "../../../../shared/ui/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
 import cls from './ArticleDetail.module.scss'
 
 export const ArticleDetail: React.FC = React.memo(() => {
