@@ -6,6 +6,7 @@ import { saveScrollActions, getScrollData } from "../SaveScroll"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch } from "../../app/providers/StoreProvider/config/store"
+import { useThrottle } from "../../shared/hooks/useThrottle"
 import { StateSchema } from "../../app/providers/StoreProvider"
 
 interface PageWrapperProps {
@@ -34,14 +35,14 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
         //eslint-disable-next-line
     },[])
 
-    const ScrollFunction = (event: React.UIEvent<HTMLElement>) => {
+    const ScrollFunction = useThrottle((event: React.UIEvent<HTMLElement>) => {
         console.log(event.currentTarget.scrollTop)
         dispatch(saveScrollActions.setScroll({
             path: pathname,
             scroll: event.currentTarget.scrollTop
         }))
 
-    }
+    }, 500)
 
     return (
         <section
