@@ -51,7 +51,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
             className={ClassNameHelper(cls.pageWrapper, {}, [className])}
         >
             {children}
-            <div ref={triggerRef} />
+            <div className={cls.trigger} ref={triggerRef} />
         </section>
     )
 }

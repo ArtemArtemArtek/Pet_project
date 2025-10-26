@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import cls from './ArticlesPage.module.scss'
 import { useTranslation } from "react-i18next";
 import { ArticleItemList } from "../../../../features/ArticleItems";
@@ -13,6 +13,10 @@ import { articlesActions } from "../../../../features/ArticleItems";
 import { fetchNextArticlesPage } from "../../../../features/ArticleItems/model/service/fetchNextArticlesPage";
 import { getArticlesPageInited } from "../../../../features/ArticleItems/model/selectors/selectArticlesData";
 import { useSelector } from "react-redux";
+import { SortArticleOptions } from "../../../../features/SortArticleOptions";
+import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
+import { sortOrder } from "../../../../shared/types";
+import { sortOrderData, sortFieldData } from "../../../../features/SortArticleOptions/ui/SortArticleOptions";
 
 const inputReducers: ReducerList = {
     articles: articlesReducer
@@ -41,12 +45,39 @@ export const ArticlesPage: React.FC = () => {
         // eslint-disable-next-line
     }, [])
 
+    const sortOptions=useMemo<sortFieldData[]>(()=>[
+           {
+            value: ArticleSortFields.CREATED_AT,
+            title: 'Сортировать по дате'
+        },
+        {
+            value: ArticleSortFields.VIEWS,
+            title: 'Сортировать по просмотрам'
+        },
+        {
+            value: ArticleSortFields.TITLE,
+            title: 'Сортировать по типу'
+        }
+    ], [])
+
+    const sortOptionsOrder=useMemo<sortOrderData[]>(()=>[
+        {
+            value: 'desc',
+            title: 'В порядке убывания'
+        },
+        {
+            value: 'asc',
+            title: 'В порядке возрастания'
+        }
+    ], []) 
+
     const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) || ArticlesView.SMALL
     const { t } = useTranslation()
 
     return (
         <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>
             <AsyncReducerWrapper removeAfterClose={false} reducers={inputReducers}>
+                <SortArticleOptions sortFieldsOptions={sortOptions} sortOrderOptions={sortOptionsOrder}/>
                 <ArticleItemList view={view as ArticlesView} />
             </AsyncReducerWrapper>
         </PageWrapper>
