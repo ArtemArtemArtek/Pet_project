@@ -17,6 +17,7 @@ import { SortArticleOptions } from "../../../../features/SortArticleOptions";
 import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
 import { sortOrder } from "../../../../shared/types";
 import { sortOrderData, sortFieldData } from "../../../../features/SortArticleOptions/ui/SortArticleOptions";
+import { useParams, useSearchParams } from 'react-router-dom';
 
 const inputReducers: ReducerList = {
     articles: articlesReducer
@@ -26,7 +27,10 @@ export const ArticlesPage: React.FC = () => {
 
     const dispatch = useAppDispatch()
     const inited = useSelector(getArticlesPageInited)
+    // const params = useParams();
+    const [searchParams] = useSearchParams();
 
+    console.log(searchParams)
     const onChangeView = useCallback((view: ArticlesView) => {
         dispatch(articlesActions.setView(view));
     }, [dispatch]);
@@ -37,7 +41,7 @@ export const ArticlesPage: React.FC = () => {
 
     useEffect(() => {
         if (!inited) {
-            dispatch(articlesActions.initState())
+            dispatch(articlesActions.initState(searchParams))
             dispatch(fetchArticlesData({
                 page: 1,
             }))
@@ -77,7 +81,7 @@ export const ArticlesPage: React.FC = () => {
     return (
         <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>
             <AsyncReducerWrapper removeAfterClose={false} reducers={inputReducers}>
-                <SortArticleOptions sortFieldsOptions={sortOptions} sortOrderOptions={sortOptionsOrder}/>
+                <SortArticleOptions defaultSearchParams={searchParams} sortFieldsOptions={sortOptions} sortOrderOptions={sortOptionsOrder}/>
                 <ArticleItemList view={view as ArticlesView} />
             </AsyncReducerWrapper>
         </PageWrapper>

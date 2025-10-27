@@ -7,6 +7,8 @@ import { ArticlesView } from '../types/articleTypes'
 import { LOCAL_ARTICLES_VIEW } from '../../../../shared/consts/consts'
 import { sortOrder } from '../../../../shared/types'
 import { ArticleSortFields } from '../../../../entities/ArticleDetail/model/types/ArticleDetailTypes'
+import { Params } from 'react-router-dom'
+// import { sortOrder } from '../../../../shared/types'
 
 // import { fetchCommentsData } from '../service/fetchCommentsService'
 
@@ -37,10 +39,20 @@ const articletSlice = createSlice({
       state.blocks = action.payload === ArticlesView.BIG ? 4 : 9
       console.log(state.blocks)
     },
-    initState: (state) => {
+    initState: (state, action: PayloadAction<URLSearchParams>) => {
       const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) as ArticlesView;
       state.view = view;
       state.blocks = view === ArticlesView.BIG ? 4 : 9;
+      console.log(action.payload)
+      if(action.payload.get('sort_field')){
+        state.sort_field = action.payload.get('sort_field') as ArticleSortFields
+      }
+      if(action.payload.get('order')){
+        state.sort_order = action.payload.get('order') as sortOrder
+      }
+      if(action.payload.get('search_field')){
+        state.search = action.payload.get('search_field')
+      }
       state._inited = true
     },
     setPage: (state, action: PayloadAction<number>) => {
@@ -73,7 +85,7 @@ const articletSlice = createSlice({
           articlesAdapter.addMany(state, action.payload)
         }
         // articlesAdapter.setAll(state, action.payload)
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length >= state.blocks;
         state.isRerender = false
         state.isLoading = false
       })

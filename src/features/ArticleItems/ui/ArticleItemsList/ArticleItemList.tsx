@@ -44,6 +44,11 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
     //     </div>
     //     )
     // }
+    if(articles.length===0 && !articlesData.isLoading){
+        return(
+            <div className={cls.not_found}>Статьи не найдены</div>
+        )
+    }
 
     return (
         <div>

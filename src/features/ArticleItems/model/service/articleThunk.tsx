@@ -1,7 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ThunkType } from "../../../../app/providers/StoreProvider"
 import { ArticleDetailType } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes"
 import { getArticlesPageLimit, getArticlesOrder, getArticlesSearchField, getArticlesSortField, getArticlesPageNum } from "../selectors/selectArticlesData"
+import { addQueryParams } from "../../../../shared/url/addQueryParams";
 
 interface FetchArticlesListProps {
     page?: number;
@@ -16,9 +19,15 @@ export const fetchArticlesData = createAsyncThunk<ArticleDetailType[], FetchArti
         const sort_field = getArticlesSortField(getState());
         const order = getArticlesOrder(getState());
         const search_field = getArticlesSearchField(getState());
-        const page = getArticlesPageNum(getState())||1
+        const page = getArticlesPageNum(getState()) || 1
+        // const [searchParams, setSearchParams] = useSearchParams();
+
+            // setSearchParams({ sort: 'fdsfsfd' })
 
         try {
+            addQueryParams({
+                sort_field, order, search_field
+            })
             const response = await extra.api.get<ArticleDetailType[]>('/articles', {
                 params: {
                     _expand: 'user',
