@@ -1,0 +1,22 @@
+.filtersWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+select{
+    margin-right: 20px;
+}
+
+.tabs{
+    margin-top: 20px;
+}
+
+.tab{
+    margin-right: 10px;
+}
+
+.selectedTab{
+    color: var(--inverted-primary-color);
+    border: 1px solid var(--inverted-primary-color);
+    margin-right: 10px
+}

@@ -1,5 +1,6 @@
 import { StateSchema } from "../../../../app/providers/StoreProvider"
 import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes"
+import { ArticleTabs } from "../types/articleTypes"
 export const getArticlesData=(state:StateSchema)=>{
     return state.articles
 }
@@ -15,3 +16,4 @@ export const getArticlesPageInited = (state: StateSchema) => state.articles?._in
 export const getArticlesSortField = (state: StateSchema) => state.articles?.sort_field || ArticleSortFields.CREATED_AT;
 export const getArticlesOrder = (state: StateSchema) => state.articles?.sort_order || 'asc';
 export const getArticlesSearchField = (state: StateSchema) => state.articles?.search || '';
+export const getArticlesTabs = (state: StateSchema)=> state.articles?.tabs|| ArticleTabs.ALL

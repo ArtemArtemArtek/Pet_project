@@ -1,7 +1,7 @@
 import { counterSchema } from "../../../../features/Counter";
 import { authSchema } from "../../../../features/AuthModal";
 import { userSchema } from "../../../../entities/User";
-import { ArticleDetailSchema } from "../../../../../src/entities/ArticleDetail";
+import { ArticleDetailSchema, RecomendationSchema } from "../../../../../src/entities/ArticleDetail";
 import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profileSchema";
 import { AxiosInstance } from "axios";
@@ -21,6 +21,7 @@ export interface StateSchema {
     article_detail?: ArticleDetailSchema
     articles?:ArticleSchema
     comments?:CommentSchema
+    recomendation?:RecomendationSchema
 }
 
 export interface ReducerManagerInterface {

@@ -34,16 +34,7 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
         dispatch(articlesActions.setView(viewArticle===ArticlesView.BIG? ArticlesView.SMALL: ArticlesView.BIG))
         onViewClick?.(viewArticle===ArticlesView.BIG? ArticlesView.SMALL: ArticlesView.BIG);
     }
-
-    const onClick = (newView: ArticlesView) => () => {
-    };
-    // if(articlesData.isLoading){
-    //     return(
-    //     <div>
-    //         Загрузка...
-    //     </div>
-    //     )
-    // }
+ 
     if(articles.length===0 && !articlesData.isLoading){
         return(
             <div className={cls.not_found}>Статьи не найдены</div>

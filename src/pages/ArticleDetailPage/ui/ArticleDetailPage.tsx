@@ -9,11 +9,15 @@ import { fetchArticleDetail } from "../../../entities/ArticleDetail/model/servic
 import { commentReducer, commentSelectors } from "../../../entities/CommentData/model/slice/commentDataSlice";
 import { fetchCommentsData } from "../../../entities/CommentData/model/service/fetchCommentsService";
 import { useParams } from "react-router-dom";
+import { recomendationReducer, recomendationActions } from "../../../entities/ArticleDetail";
+import { fetchRecomendationData } from "../../../entities/ArticleDetail";
+import { ArticleType } from "../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
 import { useSelector } from "react-redux";
 
 const inputReducers: ReducerList = {
     article_detail: articleDetailReducer,
-    comments: commentReducer
+    comments: commentReducer,
+    recomendation: recomendationReducer
 }
 
 export const ArticleDetailPage: React.FC = React.memo(() => {
@@ -25,6 +29,7 @@ export const ArticleDetailPage: React.FC = React.memo(() => {
     useEffect(()=>{
         dispatch(fetchArticleDetail(Number(id)))
         dispatch(fetchCommentsData(id))
+        // dispatch(fetchRecomendationData('IT'))
     },[dispatch, id])
 
     return (

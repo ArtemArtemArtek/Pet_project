@@ -6,6 +6,9 @@ import { articlesActions } from "../../../features/ArticleItems";
 import { fetchArticlesData } from "../../../features/ArticleItems";
 import { useDebounce } from "../../../shared/hooks/useDebounce";
 import { useSearchParams } from "react-router-dom";
+import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
+import { ArticleTabs } from "../../../features/ArticleItems/model/types/articleTypes";
+import cls from './SortArticleOptions.module.scss'
 
 export interface sortFieldData {
     title: string
@@ -21,15 +24,18 @@ interface SortArticleOptionsProps {
     sortFieldsOptions: sortFieldData[]
     sortOrderOptions: sortOrderData[]
     defaultSearchParams: URLSearchParams
+    cards: string[]
 }
 
 export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => {
 
-    const { sortFieldsOptions, sortOrderOptions, defaultSearchParams } = props
+    const { sortFieldsOptions, sortOrderOptions, defaultSearchParams, cards } = props
     const dispatch = useAppDispatch()
     const sort_field = defaultSearchParams.get('sort_field')
     const order = defaultSearchParams.get('order')
     const search_field = defaultSearchParams.get('search_field')
+    const tabs = defaultSearchParams.get('tabs')
+    const [selectTab, setSelectTab] = useState(tabs||'ALL')
     const fetchData = useCallback(() => dispatch(fetchArticlesData({
         page: 1
     })), [dispatch])
@@ -61,9 +67,20 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
         // }))
     }
 
+    const sendTabs = (e: React.MouseEvent<HTMLButtonElement>) => {
+        setSelectTab(e.currentTarget.value)
+        dispatch(articlesActions.setTabs(e.currentTarget.value as ArticleTabs))
+        dispatch(articlesActions.setPage(1))
+        dispatch(fetchArticlesData({
+            page: 1
+        }))
+    }
+
 
     return (
-        <section>
+        <section className={cls.filtersWrapper}>
+            <div>
+            Сортировать по
             <select onChange={changeSortField}>
                 {sortFieldsOptions.map((element, id) => {
                     return (
@@ -71,6 +88,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
                     )
                 })}
             </select>
+            В порядке
             <select onChange={changeSortOrder}>
                 {sortOrderOptions.map((element, id) => {
                     return (
@@ -79,6 +97,14 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
                 })}
             </select>
             <input defaultValue={search_field} onChange={changeSearchField} />
+            </div>
+            <div className={cls.tabs}>
+            {cards.map((el) => {
+                return (
+                    <Button className={selectTab===el?cls.selectedTab:cls.tab} theme={ButtonTheme.OUTLINE} onClick={sendTabs} value={el}>{el}</Button>
+                )
+            })}
+            </div>
         </section>
     )
 }

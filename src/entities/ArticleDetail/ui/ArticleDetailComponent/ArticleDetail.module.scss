@@ -84,3 +84,13 @@
     padding: 5px;
     font-size: 30px; 
 }
+
+.recomendations{
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: auto;
+    max-width: 1500px;
+    flex-wrap: nowrap;
+    // width: 100%;
+}

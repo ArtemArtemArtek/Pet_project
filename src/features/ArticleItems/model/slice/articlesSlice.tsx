@@ -7,6 +7,7 @@ import { ArticlesView } from '../types/articleTypes'
 import { LOCAL_ARTICLES_VIEW } from '../../../../shared/consts/consts'
 import { sortOrder } from '../../../../shared/types'
 import { ArticleSortFields } from '../../../../entities/ArticleDetail/model/types/ArticleDetailTypes'
+import { ArticleTabs } from '../types/articleTypes'
 import { Params } from 'react-router-dom'
 // import { sortOrder } from '../../../../shared/types'
 
@@ -29,7 +30,8 @@ const articletSlice = createSlice({
     sort_order: 'desc',
     sort_field: ArticleSortFields.CREATED_AT,
     search: '',
-    isRerender: false
+    isRerender: false,
+    tabs: ArticleTabs.ALL
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticlesView>) => {
@@ -43,7 +45,6 @@ const articletSlice = createSlice({
       const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) as ArticlesView;
       state.view = view;
       state.blocks = view === ArticlesView.BIG ? 4 : 9;
-      console.log(action.payload)
       if(action.payload.get('sort_field')){
         state.sort_field = action.payload.get('sort_field') as ArticleSortFields
       }
@@ -52,6 +53,9 @@ const articletSlice = createSlice({
       }
       if(action.payload.get('search_field')){
         state.search = action.payload.get('search_field')
+      }
+      if(action.payload.get('tabs')){
+        state.tabs = action.payload.get('tabs') as ArticleTabs
       }
       state._inited = true
     },
@@ -69,6 +73,10 @@ const articletSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+      state.isRerender = true
+    },
+    setTabs: (state, action: PayloadAction<ArticleTabs>) => {
+      state.tabs = action.payload;
       state.isRerender = true
     },
   },

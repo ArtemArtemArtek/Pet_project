@@ -20,3 +20,17 @@
     flex-grow: 1;
     padding: 20px 20px 20px 45px;
 }
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track-piece {
+  background-color: var(--secondary-color);
+}
+
+*::-webkit-scrollbar-thumb:vertical {
+  height: 10px;
+  background-color: var(--inverted-primary-color);
+}

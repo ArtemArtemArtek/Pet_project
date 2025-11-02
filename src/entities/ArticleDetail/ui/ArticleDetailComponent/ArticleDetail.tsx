@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { StateSchema } from "../../../../app/providers/StoreProvider";
@@ -17,15 +17,28 @@ import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Bu
 import { useNavigate } from "react-router-dom";
 import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
+import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
+import { fetchRecomendationData } from "../../model/service/getRecomendation";
+import { ArticleType } from "../../model/types/ArticleDetailTypes";
+import { recomendationsSelectors } from "../../model/slice/RecomendationArticleSlice";
+import { ArticleItem } from "../../../../features/ArticleItems/ui/ArticleItem/ArticleItem"; 
 import cls from './ArticleDetail.module.scss'
+import { ArticlesView } from "../../../../features/ArticleItems/model/types/articleTypes";
+
 
 export const ArticleDetail: React.FC = React.memo(() => {
     const comments = useSelector(commentSelectors.selectAll)
+    const dispatch = useAppDispatch()
     const articleData = useSelector((state: StateSchema) => state.article_detail)
     const { t } = useTranslation()
+    const recomendationsData = useSelector(recomendationsSelectors.selectAll)
     const navigate =useNavigate()
 
     // console.log(comments[0])
+    useEffect(()=>{
+        console.log(articleData)
+        dispatch(fetchRecomendationData( articleData?.data?.type[1]))
+    },[])
 
     const back_to_articles =useCallback(()=>{
         navigate(PathRoutes.articles)
@@ -92,9 +105,21 @@ export const ArticleDetail: React.FC = React.memo(() => {
                 {articleData?.data?.blocks?.map(renderBlock)}
             </div>
             <div>
+                 <hr className={cls.line_design} />
+                <div className={cls.coment_title}>{t('Рекомендуем')}</div>
+                <div className={cls.recomendations}>
+                {recomendationsData.map((el)=>{
+                    return (
+                        <ArticleItem articles_view={ArticlesView.SMALL} article={el}/>   
+                    )
+                })}
+                </div>
+            </div>
+            <div>
                 <hr className={cls.line_design} />
                 <div className={cls.coment_title}>{t('Комментарии')}</div>
                 <AddComment/>
+                
                 {comments.map((el)=>{
                 return(    
                     <CommentComponent key={el.id} comment={el} />

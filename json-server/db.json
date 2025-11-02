@@ -83,6 +83,12 @@
       "articleId": "6",
       "body": "Hello!!!",
       "id": 12
+    },
+    {
+      "userId": 1,
+      "articleId": "3",
+      "body": "Ghb",
+      "id": 13
     }
   ],
   "users": [
@@ -133,7 +139,8 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -203,7 +210,7 @@
       "createdAt": "26.02.2020",
       "userId": "1",
       "type": [
-        "IT"
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -273,7 +280,8 @@
       "createdAt": "28.03.2024",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -623,7 +631,8 @@
       "createdAt": "20.11.2017",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMY"
       ],
       "blocks": [
         {
@@ -693,7 +702,8 @@
       "createdAt": "26.05.2016",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMY"
       ],
       "blocks": [
         {
@@ -903,7 +913,8 @@
       "createdAt": "25.04.2019",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMY"
       ],
       "blocks": [
         {
