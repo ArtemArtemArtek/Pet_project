@@ -12,7 +12,7 @@ interface wrapperTestProps{
     store?: DeepPartial<StateSchema>
 }
 
-export const wrapperTest = (component: ReactNode, options:wrapperTestProps={}  ) => {
+export const wrapperTest = (component: ReactNode, options:wrapperTestProps={store:{auth:{username:'admin', password:'123', error:'', isLoading:false}}}  ) => {
     
     const { store} = options
 

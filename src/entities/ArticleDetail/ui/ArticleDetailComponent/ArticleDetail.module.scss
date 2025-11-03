@@ -87,10 +87,9 @@
 
 .recomendations{
     display: flex;
-    flex-direction: row;
-    overflow-y: hidden;
-    overflow-x: auto;
+    flex-flow: row nowrap;
+    overflow: auto hidden;
     max-width: 1500px;
-    flex-wrap: nowrap;
+
     // width: 100%;
 }

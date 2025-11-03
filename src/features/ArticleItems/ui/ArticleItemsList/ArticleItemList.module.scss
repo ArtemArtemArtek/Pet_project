@@ -1,7 +1,6 @@
 .articlesWrapper{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     margin-left: -15px;
 }
 
@@ -10,8 +9,10 @@
     margin-left: auto;
     border-radius: 10px;
 }
+
 .view_icons{
     fill: var(--primary-color);
+
     // width: 30px;
     // height: 30px;
 }

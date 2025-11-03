@@ -8,6 +8,7 @@ import { useDebounce } from "../../../shared/hooks/useDebounce";
 import { useSearchParams } from "react-router-dom";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { ArticleTabs } from "../../../features/ArticleItems/model/types/articleTypes";
+import { useTranslation } from "react-i18next";
 import cls from './SortArticleOptions.module.scss'
 
 export interface sortFieldData {
@@ -36,6 +37,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     const search_field = defaultSearchParams.get('search_field')
     const tabs = defaultSearchParams.get('tabs')
     const [selectTab, setSelectTab] = useState(tabs||'ALL')
+    const {t} = useTranslation()
     const fetchData = useCallback(() => dispatch(fetchArticlesData({
         page: 1
     })), [dispatch])
@@ -80,7 +82,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     return (
         <section className={cls.filtersWrapper}>
             <div>
-            Сортировать по
+                {t('Сортировать по')}
             <select onChange={changeSortField}>
                 {sortFieldsOptions.map((element, id) => {
                     return (
@@ -88,7 +90,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
                     )
                 })}
             </select>
-            В порядке
+            {t('В порядке')}
             <select onChange={changeSortOrder}>
                 {sortOrderOptions.map((element, id) => {
                     return (

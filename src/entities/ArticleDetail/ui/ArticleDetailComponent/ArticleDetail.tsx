@@ -38,7 +38,7 @@ export const ArticleDetail: React.FC = React.memo(() => {
     useEffect(()=>{
         console.log(articleData)
         dispatch(fetchRecomendationData( articleData?.data?.type[1]))
-    },[])
+    },[articleData, dispatch])
 
     const back_to_articles =useCallback(()=>{
         navigate(PathRoutes.articles)

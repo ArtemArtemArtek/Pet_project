@@ -12,6 +12,7 @@ import { getArticlesData } from "../../model/selectors/selectArticlesData";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { articlesActions } from "../../model/slice/articlesSlice";
 import { ArticlesView } from "../../model/types/articleTypes";
+import {  } from "react-i18next";
 
 interface ArticleItemListProps{
     view: ArticlesView
@@ -37,7 +38,7 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
  
     if(articles.length===0 && !articlesData.isLoading){
         return(
-            <div className={cls.not_found}>Статьи не найдены</div>
+            <div className={cls.not_found}>{t('Статьи не найдены')}</div>
         )
     }
 
@@ -50,7 +51,7 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
             {articles.map((element) => (
                 <ArticleItem key={element.id} article={element} articles_view={viewArticle}/>
             ))}
-            {articlesData.isLoading&&<div>Загрузка</div>}
+            {articlesData.isLoading&&<div>{t('Загрузка')}</div>}
             </div>
         </div>
     )
