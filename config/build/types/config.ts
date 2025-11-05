@@ -4,7 +4,9 @@ export interface buildPath {
     html: string
     entry: string
     output: string,
-    src: string
+    src: string,
+    from: string,
+    to: string
 }
 
 export interface webpackOptions {
@@ -12,9 +14,11 @@ export interface webpackOptions {
     mode: mode
     isDev: boolean
     port: number
+    url:string
 }
 
 export interface envData{
     port: number
     mode: mode
+    url: string
 }

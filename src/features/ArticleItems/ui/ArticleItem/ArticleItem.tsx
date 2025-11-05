@@ -22,9 +22,8 @@ interface ArticleItemProps {
 export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
 
     const { article, articles_view} = props
-    const { t } = useTranslation('article')
+    const { t } = useTranslation('articles')
     const navigate = useNavigate()
-
     const redirectArticle = () => {
         navigate(PathRoutes.article_detail + article.id)
     }

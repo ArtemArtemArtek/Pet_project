@@ -28,7 +28,6 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
             return item
         }
     })
-    console.log('Элементы сайдбара:' + filtredArray)
 
     const setCollapsedSideBar = () => {
         setCollapsed(collapsed => !collapsed)

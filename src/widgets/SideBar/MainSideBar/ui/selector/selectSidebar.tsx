@@ -6,7 +6,7 @@ import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import ProfileIcon from '../../../../../shared/assets/icons/ProfileIcon.svg'
 import ArticlesIcon from '../../../../../shared/assets/icons/ArticlesIcon.svg'
-
+import { useTranslation } from "react-i18next";
 export interface ListProps {
     path: string
     text: string
@@ -17,26 +17,27 @@ export interface ListProps {
 
 export const selectSidebarItem=()=>{
     const userData = useSelector(getUser)
+    const {t} = useTranslation()
 
     return [
     {
-        text: 'Главная',
+        text: t('Главная'),
         path: PathRoutes.main,
         icon: MainIcon,
     },
     {
-        text: 'О нас',
+        text: t('О нас'),
         path: PathRoutes.about,
         icon: AboutUsIcon,
     },
     {
-        text: 'Профиль',
+        text: t('Профиль'),
         path: PathRoutes.profile+userData?.isAuth?.id,
         icon: ProfileIcon,
         isauth: true
     },
     {
-        text: 'Статьи',
+        text: t('Статьи'),
         path: PathRoutes.articles,
         icon: ArticlesIcon,
         isauth: true

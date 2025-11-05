@@ -9,5 +9,9 @@
     "Перезагрузить страницу": "Reload page",
     "Короткий язык":"En",
     "Введите логин": "Enter login",
-    "Введите пароль": "Enter password" 
+    "Введите пароль": "Enter password",
+    "Главная":"Main",
+    "О нас":"About us",
+    "Профиль":"Profile",
+    "Статьи":"Articles"
 }

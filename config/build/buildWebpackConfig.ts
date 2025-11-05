@@ -7,7 +7,7 @@ import { buildDevSrever } from './buildDevServer';
 
 export function webpackConfig(options: webpackOptions): webpack.Configuration {
 
-    const { mode, path, isDev } = options
+    const { mode, path, isDev, url } = options
 
     return {
         mode,
@@ -18,7 +18,7 @@ export function webpackConfig(options: webpackOptions): webpack.Configuration {
             clean: true,
             publicPath: '/'
         },
-        plugins: buildPlugins(path.html, isDev),
+        plugins: buildPlugins(path, isDev, url),
         module: {
             rules: buildRules(options),
         },

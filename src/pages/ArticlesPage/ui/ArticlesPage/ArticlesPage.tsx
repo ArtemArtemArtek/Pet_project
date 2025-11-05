@@ -26,6 +26,7 @@ const inputReducers: ReducerList = {
 export const ArticlesPage: React.FC = () => {
 
     const dispatch = useAppDispatch()
+    const {t} = useTranslation('articles')
     const inited = useSelector(getArticlesPageInited)
     // const params = useParams();
     const [searchParams] = useSearchParams();
@@ -52,28 +53,28 @@ export const ArticlesPage: React.FC = () => {
     const sortOptions=useMemo<sortFieldData[]>(()=>[
            {
             value: ArticleSortFields.CREATED_AT,
-            title: 'Сортировать по дате'
+            title: t('Дате')
         },
         {
             value: ArticleSortFields.VIEWS,
-            title: 'Сортировать по просмотрам'
+            title: t('Просмотрам')
         },
         {
             value: ArticleSortFields.TITLE,
-            title: 'Сортировать по типу'
+            title: t('Типу')
         }
-    ], [])
+    ], [t])
 
     const sortOptionsOrder=useMemo<sortOrderData[]>(()=>[
         {
             value: 'desc',
-            title: 'В порядке убывания'
+            title: t('Убывания')
         },
         {
             value: 'asc',
-            title: 'В порядке возрастания'
+            title: t('Возрастания')
         }
-    ], []) 
+    ], [t]) 
 
     const tabs = useMemo<string[]>(()=>[
         'ALL',
@@ -83,7 +84,6 @@ export const ArticlesPage: React.FC = () => {
     ], [])
 
     const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) || ArticlesView.SMALL
-    const { t } = useTranslation()
 
     return (
         <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>

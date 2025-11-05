@@ -9,15 +9,18 @@ export default (env: envData) => {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         output: path.resolve(__dirname, 'build'),
-        src: path.resolve(__dirname, 'src')
+        src: path.resolve(__dirname, 'src'),
+        from: path.resolve(__dirname, 'public', 'locales'),
+        to:  path.resolve(__dirname, 'build')
     }
 
     const mode = env.mode||'development'
+    const url = env.url||'http://localhost:8000'
     const port = env.port||3000
 
     const isDev = mode === 'development'
 
-    const config: webpack.Configuration = webpackConfig({ path: paths, mode, port, isDev })
+    const config: webpack.Configuration = webpackConfig({ path: paths, mode, port, isDev, url })
 
     return config
 }

@@ -9,7 +9,7 @@ export function buildDevSrever(options: webpackOptions): devServerConfiguration{
         hot: true,
         client:{
             overlay:{
-                errors:null
+                errors:undefined
             }
         }
     }

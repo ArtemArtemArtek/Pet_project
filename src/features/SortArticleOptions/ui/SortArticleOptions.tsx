@@ -37,7 +37,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     const search_field = defaultSearchParams.get('search_field')
     const tabs = defaultSearchParams.get('tabs')
     const [selectTab, setSelectTab] = useState(tabs||'ALL')
-    const {t} = useTranslation()
+    const {t} = useTranslation('articles')
     const fetchData = useCallback(() => dispatch(fetchArticlesData({
         page: 1
     })), [dispatch])
@@ -83,7 +83,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
         <section className={cls.filtersWrapper}>
             <div>
                 {t('Сортировать по')}
-            <select onChange={changeSortField}>
+            <select className={cls.select_field} onChange={changeSortField}>
                 {sortFieldsOptions.map((element, id) => {
                     return (
                         <option value={element.value} key={id} selected={sort_field == element.value ? true : false}>{element.title}</option>
@@ -91,14 +91,15 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
                 })}
             </select>
             {t('В порядке')}
-            <select onChange={changeSortOrder}>
+            <select className={cls.select_field} onChange={changeSortOrder}>
                 {sortOrderOptions.map((element, id) => {
                     return (
                         <option value={element.value} key={id} selected={order == element.value ? true : false}>{element.title}</option>
                     )
                 })}
             </select>
-            <input defaultValue={search_field} onChange={changeSearchField} />
+            {t('Найти')}
+            <input className={cls.select_field} defaultValue={search_field} onChange={changeSearchField} />
             </div>
             <div className={cls.tabs}>
             {cards.map((el) => {
