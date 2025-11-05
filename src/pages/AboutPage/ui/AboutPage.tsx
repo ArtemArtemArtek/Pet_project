@@ -7,6 +7,7 @@ export const AboutPage = () => {
     const {t} = useTranslation('about')
     return (
         <PageWrapper>
+            <button>_+</button>
             {t('О нас')}
             <Counter/>
         </PageWrapper>
