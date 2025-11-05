@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000 --no-client-overlay",
-    "build:prod": "webpack --env url='https://petprojectserver2.vercel.app' mode=production",
+    "build:prod": "webpack --env url=\"https://petprojectserver2.vercel.app\" mode=production",
     "start:all": "concurrently \"npm run server\" \"npm start\"",
     "build:dev": "webpack --env mode=development",
     "eslint": "npx eslint \"**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\"",
