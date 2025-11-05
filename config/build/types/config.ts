@@ -14,11 +14,9 @@ export interface webpackOptions {
     mode: mode
     isDev: boolean
     port: number
-    url:string
 }
 
 export interface envData{
     port: number
     mode: mode
-    url: string
 }

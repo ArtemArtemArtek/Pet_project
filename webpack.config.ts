@@ -15,12 +15,12 @@ export default (env: envData) => {
     }
 
     const mode = env.mode||'development'
-    const url = env.url||'http://localhost:8000'
+    // const url = env.url||'http://localhost:8000'
     const port = env.port||3000
 
     const isDev = mode === 'development'
 
-    const config: webpack.Configuration = webpackConfig({ path: paths, mode, port, isDev, url })
+    const config: webpack.Configuration = webpackConfig({ path: paths, mode, port, isDev})
 
     return config
 }

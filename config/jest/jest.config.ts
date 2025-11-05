@@ -20,7 +20,6 @@ const config: Config = {
 
     globals: {
       __IS_DEV__:true,
-      __URL__:'http://localhost:8000'
     },
   clearMocks: true,
   testEnvironment: "jsdom",

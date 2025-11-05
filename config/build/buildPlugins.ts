@@ -6,7 +6,7 @@ import BundleAnalyzerPlugin from "webpack-bundle-analyzer"
 import { buildPath } from './types/config';
 import CopyPlugin from "copy-webpack-plugin";
 
-export function buildPlugins(paths: buildPath, isDev: boolean, url: string): webpack.WebpackPluginInstance[] {
+export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackPluginInstance[] {
     const plugins: webpack.WebpackPluginInstance[] = [
         new HtmlWebpackPlugin({
             template: paths.html
@@ -18,7 +18,6 @@ export function buildPlugins(paths: buildPath, isDev: boolean, url: string): web
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: isDev,
-            __URL__:url
         }),
         new CopyPlugin({
             patterns: [
