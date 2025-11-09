@@ -7,6 +7,9 @@ import { ThemeDecorator } from "../../src/shared/configs/storybook/ThemeDecorato
 import 'loki/configure-react'
 
 export const preview: Preview = {
+  args:{
+    __IS_DEV__: true
+  },
   decorators:[StyleDecorator, RouterDecorator, ThemeDecorator(Themes.LIGHT)],
   parameters: {
     controls: {

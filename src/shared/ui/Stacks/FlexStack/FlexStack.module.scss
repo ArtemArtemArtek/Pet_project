@@ -1,0 +1,19 @@
+.elementWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.alignItemCenter{
+    align-items: center;
+}
+
+.alignItemEnd{
+    align-items: end;
+}
+.alignItemBaseline{
+    align-items: baseline;
+}

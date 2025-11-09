@@ -18,6 +18,7 @@ import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/type
 import { sortOrder } from "../../../../shared/types";
 import { sortOrderData, sortFieldData } from "../../../../features/SortArticleOptions/ui/SortArticleOptions";
 import { useParams, useSearchParams } from 'react-router-dom';
+import { Button } from "src/shared/ui/Button/Button";
 
 const inputReducers: ReducerList = {
     articles: articlesReducer
@@ -88,6 +89,7 @@ export const ArticlesPage: React.FC = () => {
     return (
         <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>
             <AsyncReducerWrapper removeAfterClose={false} reducers={inputReducers}>
+                <Button>+_</Button>
                 <SortArticleOptions cards={tabs} defaultSearchParams={searchParams} sortFieldsOptions={sortOptions} sortOrderOptions={sortOptionsOrder}/>
                 <ArticleItemList view={view as ArticlesView} />
             </AsyncReducerWrapper>
