@@ -1,19 +1,56 @@
-.elementWrapper{
+.elementWrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     text-align: center;
-    justify-content: center;
-    gap: 15px;
 }
 
-.alignItemCenter{
+.flexDirectionRow {
+    flex-direction: row;
+}
+
+.flexDirectionColumn {
+    flex-direction: column;
+}
+
+.alignItemCenter {
     align-items: center;
 }
 
-.alignItemEnd{
+.alignItemEnd {
     align-items: end;
 }
-.alignItemBaseline{
+
+.alignItemBaseline {
     align-items: baseline;
+}
+
+.gap8 {
+    gap: 8px;
+}
+
+.gap16 {
+    gap: 16px;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.gap24 {
+    gap: 24px;
+}
+
+.justifyContentCenter {
+    justify-content: center;
+}
+
+.justifyContentSpaceBetween {
+    justify-content: space-between;
+}
+
+.justifyContentStart {
+    justify-content: start;
+}
+
+.justifyContentEnd {
+    justify-content: end;
 }
