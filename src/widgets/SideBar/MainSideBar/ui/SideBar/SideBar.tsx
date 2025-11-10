@@ -13,6 +13,7 @@ import { SideBarItem } from "../SideBarItem/SideBarItem";
 import { useSelector } from "react-redux";
 import { getUser } from "../../../../../entities/User";
 import { selectSidebarItem } from "../selector/selectSidebar";
+import { VStack } from "../../../../..//shared/ui/Stacks";
 
 interface SidebarProps {
     className?: string;
@@ -34,7 +35,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
     }
     return (
         <div data-testid='sidebar' className={ClassNameHelper(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <div className={cls.linkWrapper}>
+            <VStack justifyContent="start" allignItem="baseline" className={cls.linkWrapper}>
                 {selectSidebarItem().filter((item) => {
                     if ('isauth' in item) {
                         if(isAuth){
@@ -46,7 +47,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
                 }).map((item) =>
                     <SideBarItem key={item.text} itemData={item} collapsed={collapsed} />
                 )}
-            </div>
+            </VStack>
 
             <Button
                 size={ButtonSize.SIZE_XL}

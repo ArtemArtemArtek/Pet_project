@@ -3,7 +3,7 @@ import { FlexStack, FlexStackProps } from "../FlexStack/FlexStack";
 
 type VStackProps = Omit<FlexStackProps,"flexDirection">
 
-export const HStack:React.FC<VStackProps>=(props)=>{
+export const VStack:React.FC<VStackProps>=(props)=>{
 
     const {children} = props
 
