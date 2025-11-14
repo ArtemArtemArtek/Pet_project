@@ -1,0 +1,57 @@
+ul,
+li {
+  list-style: none;
+}
+
+.HListBox{
+   position: relative;
+}
+
+.hlist_button {
+  padding: 10px 15px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  width: 200px;
+  background: none;
+}
+
+.hlist_options {
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 200px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  
+}
+
+*:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 1;
+}
+
+.hlist_option {
+  padding: 10px 15px;
+  min-width: 100%;
+}
+
+.hlist_option_active{
+    padding: 10px 15px;
+  min-width: 100%;
+   color: var(--inverted-primary-color);
+}
+
+
+.optionsTop {
+    bottom: 100%;
+  }
+
+.optionsBottom {
+    // margin-top: 155px;
+    bottom: 1;
+
+
+}

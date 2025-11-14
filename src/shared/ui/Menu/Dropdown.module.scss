@@ -1,0 +1,32 @@
+.DropdownWrapper{
+    position: relative;
+}
+
+.DropdownButton {
+    background-color: var(--inverted-bg-color);
+    border: none;
+    cursor: pointer;
+}
+
+.DropdownOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    bottom: 1;
+    right: 1%;
+}
+
+.DropdownOption {
+    padding: 5px;
+    text-decoration: none;
+}
+
+.active {
+    color: var(--inverted-primary-color);
+    padding: 5px;
+    text-decoration: none;
+}

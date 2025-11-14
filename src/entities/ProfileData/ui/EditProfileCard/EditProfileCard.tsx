@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { Input } from "../../../../shared/ui/Input/Input";
 import { getProfileData } from "../../model/selectors/getProfileData";
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { updateProfileData } from "../../model/service/updateProfileDataThunk";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { Country, Cities, Currency } from "../../../../shared/consts/enums";
+import { ListBox, ListboxItem } from "../../../../shared/ui/ListBox/ListBox";
 
 // interface EditProfileCardProps {
 //     profileData: ProfileSchema
@@ -35,13 +36,30 @@ export const EditProfileCard: React.FC = React.memo(() => {
         navigate(-1)
         //eslint-disable-next-line
     },[])
+
+    const ChangeHandler = useCallback((event) => setUserData({ ...userData, currency: event as Currency }), [userData])
     
     useEffect(() => {
         setUserData(profileData?.data)
         //eslint-disable-next-line
     }, [])
 
-    console.log(profileData)
+    const CurrencyItems: ListboxItem[] = useMemo(()=>[
+        {
+         value: Currency.EUR,
+         content: t('Евро')   
+        },
+        {
+         value: Currency.RUB,
+         content: t('Рубли')   
+        },
+        {
+         value: Currency.USD,
+         content: t('Доллары')   
+        }
+    ], [t])
+
+    console.log(userData?.currency)
 
     return (
         <div className={cls.EditCardWrapper}>
@@ -93,12 +111,14 @@ export const EditProfileCard: React.FC = React.memo(() => {
                 </select>
             </div>
             <div className={cls.inputMargin}>
-                {t('Выберите валюту: ')}
+                <ListBox  value={userData?.currency} items={CurrencyItems} onChangeHandler={ChangeHandler}/>
+
+                {/* {t('Выберите валюту: ')}
                 <select onChange={(event) => setUserData({ ...userData, currency: event.currentTarget.value as Currency })}>
                     {Object.values(Currency).map((value) => (
                         <option value={value}>{value}</option>
                     ))}
-                </select>
+                </select> */}
             </div>
             <div className={cls.buttonWrapper}>
                 <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.cancelUpgradeButton} onClick={cancelButton}>{t('Отменить')}</Button>

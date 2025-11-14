@@ -7,6 +7,9 @@ import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { getUser } from "../../../entities/User";
 import { useSelector, useDispatch } from "react-redux";
 import { userActions } from "../../../entities/User";
+import { Dropdown, DropdownItem } from "../../../shared/ui/Menu/Dropdown";
+import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
+import { PathRoutes } from "../../../shared/configs/routeConfig/routeConfig";
 
 const ModalLazy = React.lazy(() => import('../../../features/AuthModal').then(module=>({default: module.AuthModal})))
 const LogoutModalLazy = React.lazy(() => import('../../../features/LogoutModal').then(module=>({default: module.LogoutModal})))
@@ -29,13 +32,25 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         dispatch(userActions.logout())
     }
 
+    const DropdownItems:DropdownItem[] = [
+        {
+            label:'Профиль',
+            href:  PathRoutes.profile+isAuth?.id
+        },
+        {
+            label: 'Выйти',
+            onClick: ()=>setIsOpenedLogoutModal(true)
+        }
+    ]
+
     return (
         <div className={ClassNameHelper(cls.navbar, {}, [className])}>
             <div className={cls.links}>
                 {isAuth? 
                 <div>
                 {/* <h3>{isAuth.username}</h3>    */}
-                <Button onClick={()=>setIsOpenedLogoutModal(true)} theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Выйти')}</Button>
+                <Dropdown items={DropdownItems} trigger={<Avatar size={AvatarSize.SMALL} src={isAuth.avatar}/>}/>
+                {/* <Button onClick={()=>setIsOpenedLogoutModal(true)} theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Выйти')}</Button> */}
                 <LogoutModalLazy className={ClassNameHelper(cls.logoutModal)} opened={openedLogoutModal} setOpen={()=>setIsOpenedLogoutModal(false)} logOut={()=>logOut()}/>
                 </div>
                 :

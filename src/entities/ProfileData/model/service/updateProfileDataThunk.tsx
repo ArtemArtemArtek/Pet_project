@@ -11,8 +11,6 @@ export const updateProfileData = createAsyncThunk<UserProfile, UserProfile, Thun
         const {extra, rejectWithValue} = thunkAPI
         try {
             const validateError = validateProfileData(userData)
-            console.log('Ошибка валидации:'+validateError)
-            console.log(Object.keys(validateError).length)
             if(Object.keys(validateError).length){
                 return rejectWithValue(validateError)
             }
