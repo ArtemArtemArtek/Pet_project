@@ -1,0 +1,13 @@
+.coment_title{
+    padding: 5px;
+    font-size: 30px; 
+}
+
+.recomendations{
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto hidden;
+    max-width: 1500px;
+
+    // width: 100%;
+}

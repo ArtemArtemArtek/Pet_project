@@ -2,19 +2,21 @@ import { counterSchema } from "../../../../features/Counter";
 import { authSchema } from "../../../../features/AuthModal";
 import { userSchema } from "../../../../entities/User";
 import { ArticleDetailSchema, RecomendationSchema } from "../../../../../src/entities/ArticleDetail";
-import { EnhancedStore, UnknownAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
+import { EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { ProfileSchema } from "../../../../entities/ProfileData/model/type/profileSchema";
 import { AxiosInstance } from "axios";
 import { NavigateOptions, To } from "react-router-dom";
 import { CommentSchema } from "../../../../entities/CommentData/model/types/types";
 import { ArticleSchema } from "../../../../features/ArticleItems";
 import { SaveScrollSchema } from "../../../../widgets/SaveScroll";
+import { rtkApi } from "../../../../shared/api/RTKApi";
 
 
 export interface StateSchema {
     counter: counterSchema
     user: userSchema
     save_scroll: SaveScrollSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
     
     auth?: authSchema
     profile?:ProfileSchema

@@ -1,4 +1,4 @@
-import { combineReducers, configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { combineReducers, configureStore, ReducersMapObject, Tuple } from '@reduxjs/toolkit'
 import { StateSchema, ThunkExtraArgument } from '../types/types'
 import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice'
 import { authReducer } from '../../../../features/AuthModal'
@@ -8,6 +8,7 @@ import { createReducerManager } from './reducerManager'
 import { $api } from '../../../../shared/api/instanceApi'
 import { NavigateOptions, To, useNavigate } from 'react-router-dom'
 import { saveScrollReducer } from '../../../../widgets/SaveScroll'
+import { rtkApi } from '../../../../shared/api/RTKApi'
 
 
 export const universalStore = (initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) => {
@@ -15,7 +16,8 @@ export const universalStore = (initialState?: StateSchema, navigate?: (to: To, o
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
-        save_scroll: saveScrollReducer
+        save_scroll: saveScrollReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -33,11 +35,13 @@ export const universalStore = (initialState?: StateSchema, navigate?: (to: To, o
         devTools: __IS_DEV__,
         preloadedState: initialState,
 
-        middleware:(getDefaultMiddleware) => getDefaultMiddleware({
+        middleware:(getDefaultMiddleware) => 
+            getDefaultMiddleware({
             thunk:{
                 extraArgument: extraArg
             }
-        }),
+        }).concat(rtkApi.middleware) 
+
     })
 
     // @ts-ignore

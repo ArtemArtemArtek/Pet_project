@@ -47,7 +47,7 @@ describe('fetchProfileData thunk', () => {
 
         const response = await fetchProfileData('1')(dispatch, state, extra)
 
-        expect(mockedApi.get).toHaveBeenCalledWith('/profile')
+        expect(mockedApi.get).toHaveBeenCalledWith('/profile/1')
         expect(dispatch).toHaveBeenCalledTimes(2)
         expect(response.payload).toEqual(mockUserProfile)
         expect(response.meta.requestStatus).toBe('fulfilled')

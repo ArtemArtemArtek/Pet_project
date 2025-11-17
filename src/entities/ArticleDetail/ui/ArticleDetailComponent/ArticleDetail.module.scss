@@ -79,17 +79,3 @@
 	background: linear-gradient(45deg, var(--inverted-bg-color), #ddd);
     margin-top: 80px;
 }
-
-.coment_title{
-    padding: 5px;
-    font-size: 30px; 
-}
-
-.recomendations{
-    display: flex;
-    flex-flow: row nowrap;
-    overflow: auto hidden;
-    max-width: 1500px;
-
-    // width: 100%;
-}
