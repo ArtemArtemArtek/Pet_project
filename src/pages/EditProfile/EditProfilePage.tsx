@@ -27,13 +27,10 @@ export const EditProfilePage: React.FC = () => {
 
     const profileData = useSelector(getProfileData)
 
-    const { t } = useTranslation('profile')
-    // const [userData, setUserData] = useState(data)
-
     return (
         <PageWrapper>
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
-           {profileData?<EditProfileCard />:null}
+           <EditProfileCard />
         </AsyncReducerWrapper>
         </PageWrapper>
     )

@@ -41,7 +41,7 @@ export const ListBox: React.FC<ListBoxProps> = memo((props) => {
     const optionsClasses = [mapDirectionClass[direction]];
     console.log('rerender listbox')
     return (
-        <HStack gap="16">
+        <HStack gap="8">
             {label&& <span>{`${label}:`}</span>}
         <HListBox as="div" className={cls.HListBox} value={defaultValue} onChange={onChangeHandler} >
             <HListBox.Button className={cls.hlist_button}>{value ?? defaultValue}</HListBox.Button>

@@ -5,14 +5,10 @@ import { Currency, Cities, Country } from "../../../../../shared/consts/enums";
 
 export const validateProfileData = (userData: UserProfile): validateErrorEnum => {
     const { age, avatar, city, country, currency, firstname, lastname, username } = userData
-    console.log('UserData:'+userData.age)
 
     const regex = /^\d+$/;
 
     const Errors: validateErrorEnum = {}
-
-
-    console.log(userData)
     
     if (!regex.test(age)) {
         Errors.ageError = '*Введите цифры в строку возраста'

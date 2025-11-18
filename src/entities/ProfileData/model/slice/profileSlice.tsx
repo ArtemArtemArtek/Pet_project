@@ -5,6 +5,7 @@ import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts'
 import { fetchProfileData } from '../service/getProfileDataThunk'
 import { updateProfileData } from '../service/updateProfileDataThunk'
 import { validateErrorEnum } from '../type/profileSchema'
+import { Currency, Country, Cities } from "../../../../shared/consts/enums";
 // import { UserProfile } from '../type/profileSchema'
 
 const initialState: ProfileSchema = {
@@ -18,7 +19,32 @@ const initialState: ProfileSchema = {
 const profileSlice = createSlice({
     name: 'profile',
     initialState,
-    reducers: {},
+    reducers: {
+        setFirstName(state, action:PayloadAction<string>){
+            state.data.firstname = action.payload
+        },
+        setLastName(state, action:PayloadAction<string>){
+            state.data.lastname = action.payload
+        },
+        setAge(state, action:PayloadAction<string>){
+            state.data.age = action.payload
+        },
+        setAvatar(state, action:PayloadAction<string>){
+            state.data.avatar = action.payload
+        },
+        setUsername(state, action:PayloadAction<string>){
+            state.data.username = action.payload
+        },
+        setCurrency(state, action:PayloadAction<Currency>){
+            state.data.currency = action.payload
+        },
+        setCountry(state, action:PayloadAction<Country>){
+            state.data.country = action.payload
+        },
+        setCity(state, action:PayloadAction<Cities>){
+            state.data.city = action.payload
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
