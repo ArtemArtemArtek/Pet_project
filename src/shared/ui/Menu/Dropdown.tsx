@@ -29,6 +29,7 @@ export const Dropdown:React.FC<DropdownProps>=(props)=> {
         {items.map((item)=>{  
           const content = ({ active }:{active:boolean}) => (
             <Button 
+              key={item.label}
               theme={ButtonTheme.BACKGROUND}
               className={active?cls.active:cls.DropdownOption}
               onClick = {item.onClick}
@@ -39,7 +40,7 @@ export const Dropdown:React.FC<DropdownProps>=(props)=> {
 
           if(item.href){
             return(
-              <Menu.Item as={AppLink} to={item.href}>
+              <Menu.Item key={item.label} as={AppLink} to={item.href}>
                 {content}
               </Menu.Item>
             )

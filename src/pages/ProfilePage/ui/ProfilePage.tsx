@@ -27,7 +27,6 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
     const {userId} = useParams()
     const dispatch = useAppDispatch()
 
-
     useEffect(()=>{
         dispatch(fetchProfileData(userId)) 
         // eslint-disable-next-line

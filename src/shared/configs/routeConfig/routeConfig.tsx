@@ -5,7 +5,8 @@ export enum AppRoutes{
     PROFILE = 'profile',
     EDIT_PROFILE = 'edit',
     ARTICLES_PAGE = 'articles',
-    ARTICLE_DETAIL_PAGE='article_detail'
+    ARTICLE_DETAIL_PAGE='article_detail',
+    ADMIN_PAGE = 'admin_page'
 }
 
 export const PathRoutes:Record<AppRoutes, string>={
@@ -15,5 +16,6 @@ export const PathRoutes:Record<AppRoutes, string>={
     [AppRoutes.PROFILE]: '/profile/',
     [AppRoutes.EDIT_PROFILE]: '/edit',
     [AppRoutes.ARTICLES_PAGE]: '/articles',
-    [AppRoutes.ARTICLE_DETAIL_PAGE]: '/articles/'
+    [AppRoutes.ARTICLE_DETAIL_PAGE]: '/articles/',
+    [AppRoutes.ADMIN_PAGE]: '/adminpanel'
 }
