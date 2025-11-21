@@ -8,6 +8,7 @@ import "./shared/configs/i18n/i18n";
 import { store } from './app/providers/StoreProvider/config/store';
 import { Provider } from 'react-redux';
 import { StoreProvider } from './app/providers/StoreProvider/ui/StoreProvider';
+// import { createRoot } from 'react-dom';
 
 render(
     <StoreProvider>
