@@ -13,13 +13,10 @@ const ProfilePageLazy = React.lazy(() => import('../../../../pages/ProfilePage')
 const EditProfilePageLazy = React.lazy(() => import('../../../../pages/EditProfile').then(module => ({ default: module.EditProfilePage })));
 const ArticleDetailPageLazy = React.lazy(() => import('../../../../pages/ArticleDetailPage').then(module => ({ default: module.ArticleDetailPage })))
 const ArticlesPageLazy = React.lazy(() => import('../../../../pages/ArticlesPage').then(module => ({ default: module.ArticlesPage })))
+const AdminPageLazy = React.lazy(()=>import('../../../../pages/AdminPage/AdminPage').then(module => ({ default: module.AdminPage })))
 
 export const RouteConfigWrapper = () => {
     const userData: user = JSON.parse(localStorage.getItem('user')) || null
-
-    // useEffect(()=>{
-    //     userData = JSON.parse(localStorage.getItem('user')) as user
-    // },[localStorage.getItem('user')])
 
     const RouteConfig: Record<AppRoutes, RouteProps> = {
         [AppRoutes.MAIN]: {
@@ -63,6 +60,14 @@ export const RouteConfigWrapper = () => {
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <ArticleDetailPageLazy />
+                </PrivateRouteWrapper>
+            )
+        },
+        [AppRoutes.ADMIN_PAGE]:{
+            path: PathRoutes.admin_page,
+            element: (
+                <PrivateRouteWrapper user={userData}>
+                    <AdminPageLazy />
                 </PrivateRouteWrapper>
             )
         }

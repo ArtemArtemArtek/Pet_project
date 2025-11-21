@@ -73,14 +73,23 @@ export const EditProfileCard: React.FC = React.memo(() => {
     const ChangeAge=(event:ChangeEvent<HTMLInputElement>)=>{
         dispatch(profileActions.setAge(event.currentTarget.value))
     }
-    const ChangeCurrency = useCallback(
+    const ChangeCity=(event:ChangeEvent<HTMLInputElement>)=>{
+        dispatch(profileActions.setCity(event.currentTarget.value as Cities))
+    }
+    const ChangeCountry=(event:ChangeEvent<HTMLInputElement>)=>{
+        dispatch(profileActions.setCountry(event.currentTarget.value as Country))
+    }
+    const ChangeCurrency=(event:ChangeEvent<HTMLInputElement>)=>{
+        dispatch(profileActions.setCurrency(event.currentTarget.value as Currency))
+    }
+    // const ChangeCurrency = useCallback(
         
-        // (value:string) => dispatch(profileActions.setCurrency(value as Currency)), 
-        (value:string) =>{
-            // console.log('dsd')
-        }, 
-        //eslint-disable-next-line
-        [])
+    //     // (value:string) => dispatch(profileActions.setCurrency(value as Currency)), 
+    //     (value:string) =>{
+    //         // console.log('dsd')
+    //     }, 
+    //     //eslint-disable-next-line
+    //     [])
 
     return (
         <div className={cls.EditCardWrapper}>         
@@ -114,7 +123,7 @@ export const EditProfileCard: React.FC = React.memo(() => {
             </div>
             <div className={cls.inputMargin}>
                 {t('Выберите страну: ')}
-                <select onChange={(event) => setUserData({ ...userData, country: event.currentTarget.value as Country })}>
+                <select onChange={ChangeCountry} defaultValue={profileData?.data?.country}>
                     {Object.values(Country).map((value) => (
                         <option key={value} value={value}>{value}</option>
                     ))}
@@ -122,21 +131,21 @@ export const EditProfileCard: React.FC = React.memo(() => {
             </div>
             <div className={cls.inputMargin}>
                 {t('Выберите город: ')}
-                <select onChange={(event) => setUserData({ ...userData, city: event.currentTarget.value as Cities })}>
+                <select onChange={ChangeCity} defaultValue={profileData?.data?.city}>
                     {Object.values(Cities).map((value) => (
                         <option key={value} value={value}>{value}</option>
                     ))}
                 </select>
             </div>
             <div className={cls.inputMargin}>
-                <ListBox label={t('Выберите валюту')} value={profileData?.data?.currency} items={CurrencyItems} onChangeHandler={ChangeCurrency}/>
+                {/* <ListBox label={t('Выберите валюту')} value={profileData?.data?.currency} items={CurrencyItems} onChangeHandler={ChangeCurrency}/> */}
 
-                {/* {t('Выберите валюту: ')}
-                <select onChange={(event) => setUserData({ ...userData, currency: event.currentTarget.value as Currency })}>
+                {t('Выберите валюту: ')}
+                <select onChange={ChangeCurrency} defaultValue={profileData?.data?.currency}>
                     {Object.values(Currency).map((value) => (
                         <option value={value}>{value}</option>
                     ))}
-                </select> */}
+                </select>
             </div>
             <div className={cls.buttonWrapper}>
                 <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.cancelUpgradeButton} onClick={cancelButton}>{t('Отменить')}</Button>

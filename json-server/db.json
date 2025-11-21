@@ -102,13 +102,22 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
+      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg",
+      "role": ["ADMIN"]
     },
     {
       "id": 2,
       "username": "septiena",
       "password": "22334411",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+      "role": ["USER"]
+    },
+    {
+      "id": 3,
+      "username": "calt",
+      "password": "102938",
+      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg",
+      "role": ["MANAGER", "USER"]
     }
   ],
   "profile": [
@@ -116,8 +125,8 @@
       "id": "1",
       "firstname": "Артём",
       "lastname": "Программист4",
-      "age": "24",
-      "currency": "USD",
+      "age": "23",
+      "currency": "RUB",
       "country": "Kazakhstan",
       "city": "Saratov",
       "username": "ASas",
@@ -133,6 +142,17 @@
       "city": "Moscow",
       "username": "septiena",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "firstname": "Garold",
+      "lastname": "Bugiman",
+      "age": "32",
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "bublgum",
+      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg"
     }
   ],
   "articles": [

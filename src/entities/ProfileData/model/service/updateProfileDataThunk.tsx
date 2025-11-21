@@ -6,20 +6,20 @@ import { getProfileData } from "../selectors/getProfileData"
 import { validateProfileData } from "./validateProfileData/validateProfileData"
 import { getUser } from "../../../../entities/User"
 
-export const updateProfileData = createAsyncThunk<UserProfile, UserProfile, ThunkType<string>>(
+export const updateProfileData = createAsyncThunk<UserProfile, undefined, ThunkType<string>>(
     'profile/updateUserData',
-    async (userData: UserProfile, thunkAPI) => {
+    async (_, thunkAPI) => {
         console.log('Попали в редюсер обновления профиля')
         const {extra, rejectWithValue,getState } = thunkAPI
         try {
             const {data: profileData} = getProfileData(getState())
             const {isAuth:authData} = getUser(getState())
             
-            // const validateError = validateProfileData(userData)
-            // console.log('ERRORS',validateError)
-            // if(Object.keys(validateError).length){
-            //     return rejectWithValue(validateError)
-            // }
+            const validateError = validateProfileData(profileData)
+            console.log('ERRORS',validateError)
+            if(Object.keys(validateError).length){
+                return rejectWithValue(validateError)
+            }
             const response = await extra.api.put<UserProfile>(`/profile/${authData.id}`, profileData)
             return response.data
         } catch (err) {
