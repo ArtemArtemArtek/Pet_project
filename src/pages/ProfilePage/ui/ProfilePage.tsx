@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/config/store";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { fetchProfileData } from "../../../entities/ProfileData";
 import { AsyncReducerWrapper, ReducerList } from "../../../shared/lib/asyncReducerWrapper/asyncReducerWrapper";
 import { profileReducer } from "../../../entities/ProfileData/model/slice/profileSlice";

@@ -5,7 +5,6 @@ import { useAppDispatch } from "../../../app/providers/StoreProvider/config/stor
 import { articlesActions } from "../../../features/ArticleItems";
 import { fetchArticlesData } from "../../../features/ArticleItems";
 import { useDebounce } from "../../../shared/hooks/useDebounce";
-import { useSearchParams } from "react-router-dom";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { ArticleTabs } from "../../../features/ArticleItems/model/types/articleTypes";
 import { useTranslation } from "react-i18next";

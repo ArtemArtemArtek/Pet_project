@@ -5,6 +5,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import BundleAnalyzerPlugin from "webpack-bundle-analyzer"
 import { buildPath } from './types/config';
 import CopyPlugin from "copy-webpack-plugin";
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackPluginInstance[] {
     const plugins: webpack.WebpackPluginInstance[] = [
@@ -23,6 +24,15 @@ export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackP
             patterns: [
                 { from: paths.from, to: paths.to },
             ],
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
         }),
         // isDev? new webpack.HotModuleReplacementPlugin(): null,
         // isDev? new ReactRefreshWebpackPlugin(): null

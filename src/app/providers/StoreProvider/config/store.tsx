@@ -1,12 +1,12 @@
 import { combineReducers, configureStore, ReducersMapObject, Tuple } from '@reduxjs/toolkit'
-import { StateSchema, ThunkExtraArgument } from '../types/types'
+import type { StateSchema, ThunkExtraArgument } from '../types/types'
 import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice'
 import { authReducer } from '../../../../features/AuthModal'
 import { userReducer } from '../../../../entities/User'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from '../../../../shared/api/instanceApi'
-import { NavigateOptions, To, useNavigate } from 'react-router-dom'
+import { NavigateOptions, To } from 'react-router-dom'
 import { saveScrollReducer } from '../../../../widgets/SaveScroll'
 import { rtkApi } from '../../../../shared/api/RTKApi'
 
@@ -36,6 +36,7 @@ export const universalStore = (initialState?: StateSchema, navigate?: (to: To, o
         preloadedState: initialState,
 
         middleware:(getDefaultMiddleware) => 
+            //@ts-ignore
             getDefaultMiddleware({
             thunk:{
                 extraArgument: extraArg

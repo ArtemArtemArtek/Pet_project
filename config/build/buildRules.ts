@@ -1,8 +1,9 @@
 import webpack from 'webpack';
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { webpackOptions } from './types/config';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildRules({ isDev }: webpackOptions): webpack.RuleSetRule[] {
+export function buildRules(options: webpackOptions): webpack.RuleSetRule[] {
 
     const svgLoader = {
         test: /\.svg$/,
@@ -18,30 +19,32 @@ export function buildRules({ isDev }: webpackOptions): webpack.RuleSetRule[] {
         ],
     }
 
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: "babel-loader",
-            options: {
-                presets: ['@babel/preset-env'],
-                "plugins": [
-                    ["i18next-extract", { locales:['ru', 'en'], keyAsDefaultValue: true}],
+    const babelLoaderTSX = buildBabelLoader({...options, isTSX:true})
+    const babelLoaderTS = buildBabelLoader({...options, isTSX:false})
+    // const babelLoader = {
+    //     test: /\.(js|jsx|tsx)$/,
+    //     exclude: /node_modules/,
+    //     use: {
+    //         loader: "babel-loader",
+    //         options: {
+    //             presets: ['@babel/preset-env'],
+    //             "plugins": [
+    //                 ["i18next-extract", { locales:['ru', 'en'], keyAsDefaultValue: true}],
 
-                ]
-            }
-        }
-    }
+    //             ]
+    //         }
+    //     }
+    // }
     const scssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
-            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             {
                 loader: "css-loader",
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]'
+                        localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]'
                     },
                 },
             },
@@ -55,5 +58,5 @@ export function buildRules({ isDev }: webpackOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     }
 
-    return [fileLoader, svgLoader, babelLoader, typescriptLoader, scssLoader]
+    return [fileLoader, svgLoader, babelLoaderTSX, babelLoaderTS, typescriptLoader, scssLoader]
 }
