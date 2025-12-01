@@ -1,10 +1,11 @@
 import { webpackOptions } from "../types/config";
+import removeTestIdPlugin from "../babel/plugins/removeTestIdPlugin";
 
 interface loadersProps extends webpackOptions {
     isTSX?: boolean
 }
 
-export function buildBabelLoader({ isDev, isTSX }: loadersProps) {
+export function buildBabelLoader({ isTSX }: loadersProps) {
     return {
         test: isTSX ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
@@ -18,6 +19,9 @@ export function buildBabelLoader({ isDev, isTSX }: loadersProps) {
                         {
                         isTSX
                     }],
+                    // isTSX&&[removeTestIdPlugin,{
+                    //     props: ['data-testid']
+                    // }],
                     "@babel/plugin-transform-runtime"
                 ]
             }
