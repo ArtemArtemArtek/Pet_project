@@ -11,6 +11,25 @@
       "userId": 2
     }
   ],
+  "notifications": [
+        {
+            "text": "1text",
+            "title": "Title1",
+            "href": "/profile",
+            "avatar": "https://papik.pro/uploads/posts/2023-02/1676117425_papik-pro-p-risunki-hd-1.jpg"
+
+        },
+        {
+            "text": "2text",
+            "title": "Title1",
+            "href": "/about",
+            "avatar": "https://photofile.ru/wp-content/uploads/2024/04/1684700436047.png"
+        },
+        {
+            "text": "3text",
+            "title": "Title1"
+        }
+    ],
   "comments": [
     {
       "id": 1,

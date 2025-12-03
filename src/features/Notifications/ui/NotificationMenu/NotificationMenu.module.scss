@@ -1,0 +1,23 @@
+.notificationsWrapper{
+    width: 200px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: #ababab;
+    padding: 5px;
+    height: 200px;
+    overflow: auto;
+}
+
+.popoverBody{
+    position: relative;
+}
+
+.popoverPanel{
+    right: 1%;
+    position: absolute;
+}
+
+.popoverButton{
+    border: none;
+    background-color: var(--inverted-bg-color);
+}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import cls from './NavBar.module.scss';
 import ClassNameHelper from '../../../shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '../../../shared/ui/AppLink/AppLink'
 import { useTranslation } from "react-i18next"
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { getUser } from "../../../entities/User";
@@ -12,6 +11,8 @@ import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
 import { PathRoutes } from "../../../shared/configs/routeConfig/routeConfig";
 import { UserRoles } from "../../../entities/User/model/type/userSchema";
 import { useNavigate } from "react-router-dom";
+import { Notifications } from "../../..//features/Notifications";
+import NotificationsIcon from '../../../shared/assets/icons/NotificationsIcon.svg'
 
 const ModalLazy = React.lazy(() => import('../../../features/AuthModal').then(module => ({ default: module.AuthModal })))
 const LogoutModalLazy = React.lazy(() => import('../../../features/LogoutModal').then(module => ({ default: module.LogoutModal })))
@@ -38,7 +39,6 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
 
     const isAdmin = isAuth?.role.includes(UserRoles.ADMIN) || isAuth?.role.includes(UserRoles.MANAGER)
 
-    console.log('ISADMIN', isAdmin)
     const DropdownItems: DropdownItem[] = [
         {
             label: 'Профиль',
@@ -58,10 +58,9 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         <div className={ClassNameHelper(cls.navbar, {}, [className])}>
             <div className={cls.links}>
                 {isAuth ?
-                    <div>
-                        {/* <h3>{isAuth.username}</h3>    */}
+                    <div className={cls.wrapper_actions}>
+                        <Notifications className={cls.notification_position} trigger={NotificationsIcon}/>
                         <Dropdown items={DropdownItems} trigger={<Avatar size={AvatarSize.SMALL} src={isAuth.avatar} />} />
-                        {/* <Button onClick={()=>setIsOpenedLogoutModal(true)} theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Выйти')}</Button> */}
                         <LogoutModalLazy className={ClassNameHelper(cls.logoutModal)} opened={openedLogoutModal} setOpen={() => setIsOpenedLogoutModal(false)} logOut={() => logOut()} />
                     </div>
                     :

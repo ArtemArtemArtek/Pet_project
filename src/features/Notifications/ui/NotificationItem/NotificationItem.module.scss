@@ -1,0 +1,25 @@
+.notification_wrapper{
+    width: 100%;
+    background-color: var(--inverted-primary-color);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.title{
+    left: auto;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.link_style{
+    font-style: italic;
+}
+
+.notification_body_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 6px;
+}
