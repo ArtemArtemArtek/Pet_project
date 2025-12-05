@@ -13,6 +13,7 @@ import { UserRoles } from "../../../entities/User/model/type/userSchema";
 import { useNavigate } from "react-router-dom";
 import { Notifications } from "../../..//features/Notifications";
 import NotificationsIcon from '../../../shared/assets/icons/NotificationsIcon.svg'
+import { BrowserView, MobileView } from "react-device-detect";
 
 const ModalLazy = React.lazy(() => import('../../../features/AuthModal').then(module => ({ default: module.AuthModal })))
 const LogoutModalLazy = React.lazy(() => import('../../../features/LogoutModal').then(module => ({ default: module.LogoutModal })))
