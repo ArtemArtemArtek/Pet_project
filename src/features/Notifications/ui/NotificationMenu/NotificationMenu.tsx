@@ -1,68 +1,30 @@
-import React, { ReactNode, useState } from 'react'
-import { Popover } from '@headlessui/react'
-import { VStack } from '../../../../shared/ui/Stacks'
-import { NotificationItem, NotificationItemProps, NotificationItemData } from '../NotificationItem/NotificationItem'
+import React, { ReactNode } from 'react'
 import { useGetNotifications } from '../../service/fetchNotifications'
-import Drawer from '../../../../shared/ui/Drawer/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect';
-import ClassNameHelper from '../../../../shared/lib/classNames/classNames'
-import cls from './NotificationMenu.module.scss'
-import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton'
+import { BrowserView as BrowserViewComponent } from '../BrowserView/BrowserView'
+import { MobileView as MobileViewComponent } from '../MobileView/MobileView'
+import { AnimationProvider } from '../../../../shared/lib/animationProvider';
 
 interface NotificationMenuProps {
     trigger: ReactNode
     className?: string
-    // menuItems: NotificationItemData[]
 }
 
 export const NotificationMenu: React.FC<NotificationMenuProps> = (props) => {
 
     const { data: notifictionsData, isLoading } = useGetNotifications(null, { pollingInterval: 5000 })
 
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [drawerPosition, setDrawerPosition] = useState<'bottom'>('bottom');
     const { trigger, className } = props
 
     return (
         <div>
             <MobileView>
-                <button className={cls.mobile_button} onClick={() => {
-                    setDrawerPosition('bottom');
-                    setIsDrawerOpen(true);
-                }}>
-                    {trigger}
-                </button>
-                <Drawer title="Уведомления" height="70%"
-                    position={drawerPosition} isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} >
-                               {isLoading ?
-                            <Skeleton /> :
-                            // <VStack justifyContent='start' allignItem='baseline'>
-                            <div >
-                                {notifictionsData.map((element) => (
-                                    <NotificationItem item={element} />
-                                ))}
-                            </div>
-                            // </VStack>
-                        }
-                </Drawer>
+                <AnimationProvider>
+                    <MobileViewComponent isLoading={isLoading} notifictionsData={notifictionsData} trigger={trigger} />
+                </AnimationProvider>
             </MobileView>
             <BrowserView>
-                <Popover className={ClassNameHelper(cls.popoverBody, {}, [className])}>
-                    <Popover.Button className={cls.popoverButton}>{trigger}</Popover.Button>
-
-                    <Popover.Panel className={cls.popoverPanel}>
-                        {isLoading ?
-                            <Skeleton /> :
-                            // <VStack justifyContent='start' allignItem='baseline'>
-                            <div className={cls.notificationsWrapper}>
-                                {notifictionsData.map((element) => (
-                                    <NotificationItem item={element} />
-                                ))}
-                            </div>
-                            // </VStack>
-                        }
-                    </Popover.Panel>
-                </Popover>
+                <BrowserViewComponent isLoading={isLoading} notifictionsData={notifictionsData} trigger={trigger} className={className} />
             </BrowserView>
         </div>
     )
