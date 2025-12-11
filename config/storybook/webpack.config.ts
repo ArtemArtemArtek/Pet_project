@@ -4,6 +4,7 @@ import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildPath } from '../build/types/config';
 
 export default ({ config }: {config: webpack.Configuration}) => {
+    //@ts-ignore
     const paths: buildPath = {
         html: '',
         entry: '',
@@ -15,6 +16,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
 
     if(config.module?.rules){
+        //@ts-ignore
         config.module.rules = config.module.rules.map((rule: RuleSetRule|"...") => {
             if (rule!="..."&&/svg/.test(rule.test as string)) {
                 return { ...rule, exclude: /\.svg$/i };

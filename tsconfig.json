@@ -8,7 +8,7 @@
         "allowJs": true,
         "baseUrl": ".",
         "paths": {
-            "src/*": ["src/*"]
+            "*": ["./src/*"]
         },
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,

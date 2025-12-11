@@ -27,7 +27,9 @@ export const ArticleDetailPage: React.FC = React.memo(() => {
     const {id} = useParams()
 
     useEffect(()=>{
+        //@ts-ignore
         dispatch(fetchArticleDetail(Number(id)))
+        //@ts-ignore
         dispatch(fetchCommentsData(id))
         // dispatch(fetchRecomendationData('IT'))
     },[dispatch, id])

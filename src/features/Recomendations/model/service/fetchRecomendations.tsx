@@ -1,6 +1,6 @@
 import { rtkApi } from "../../../../shared/api/RTKApi";
 import { ArticleDetailType } from "../../../../entities/ArticleDetail";
-import { ArticleSortFields } from "src/entities/ArticleDetail/model/types/ArticleDetailTypes";
+import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
 
 interface RecomendatinProps{
         limit: number,

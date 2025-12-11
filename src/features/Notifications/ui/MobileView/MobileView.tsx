@@ -50,6 +50,7 @@ export const MobileViewComponent: React.FC<MobileViewProps> = (props) => {
 
     return (
         <div>
+            {/* @ts-ignore */}
             <button className={cls.mobile_button} onClick={open}>
                 {trigger}
             </button>
@@ -58,7 +59,7 @@ export const MobileViewComponent: React.FC<MobileViewProps> = (props) => {
                     <Skeleton /> :
                     <div >
                         {notifictionsData.map((element) => (
-                            <NotificationItem item={element} />
+                            <NotificationItem key={element.title} item={element} />
                         ))}
                     </div>
                 }

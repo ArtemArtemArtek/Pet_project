@@ -1,5 +1,5 @@
 import React from "react";
-import { ArticleDetailType } from "src/entities/ArticleDetail";
+import { ArticleDetailType } from "../../../../entities/ArticleDetail";
 import { Avatar, AvatarSize } from "../../../../shared/ui/Avatar/Avatar";
 import Eye_icon from '../../../../shared/assets/icons/Eye.svg'
 import cls from './ArticleItem.module.scss'

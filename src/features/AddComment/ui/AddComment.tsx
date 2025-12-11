@@ -16,6 +16,7 @@ export const AddComment:React.FC=()=>{
     }, [])
 
     const sendComment = useCallback(()=>{
+        //@ts-ignore
         dispatch(addNewCommentData(commentText))
         setCommentText('')
         const input = document.getElementById('comInput') as HTMLInputElement

@@ -21,6 +21,7 @@ export const EditProfilePage: React.FC = () => {
     const {isAuth} = useSelector(getUser)
 
     useEffect(() => {
+        //@ts-ignore
         dispatch(fetchProfileData(isAuth.id.toString()))
         // eslint-disable-next-line
     }, [])

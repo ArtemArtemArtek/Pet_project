@@ -25,7 +25,7 @@ export const BrowserView: React.FC<BrowserViewProps> = (props) => {
                     <Skeleton /> :
                     <div className={cls.notificationsWrapper}>
                         {notifictionsData.map((element) => (
-                            <NotificationItem item={element} />
+                            <NotificationItem key={element.title} item={element} />
                         ))}
                     </div>
                 }

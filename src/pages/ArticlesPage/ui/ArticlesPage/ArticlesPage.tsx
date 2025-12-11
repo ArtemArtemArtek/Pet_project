@@ -37,12 +37,14 @@ export const ArticlesPage: React.FC = () => {
     }, [dispatch]);
 
     const onLoadNextPart = useCallback(() => {
+        //@ts-ignore
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useEffect(() => {
         if (!inited) {
             dispatch(articlesActions.initState(searchParams))
+            //@ts-ignore
             dispatch(fetchArticlesData({
                 page: 1,
             }))

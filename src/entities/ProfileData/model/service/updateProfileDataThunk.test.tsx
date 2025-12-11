@@ -39,6 +39,7 @@ describe('updateProfileData thunk', () => {
         mockedApi.put.mockResolvedValueOnce({ data: mockUserProfile })
         const extra = { api: mockedApi }
 
+        //@ts-ignore
         const response = await updateProfileData(mockUserProfile)(dispatch, state, extra)
 
         expect(dispatch).toHaveBeenCalledTimes(2)
@@ -60,6 +61,7 @@ describe('updateProfileData thunk', () => {
         mockedApi.put.mockResolvedValueOnce({ data: mockUserProfile2 })
         const extra = { api: mockedApi }
 
+        //@ts-ignore
         const response = await updateProfileData(mockUserProfile2)(dispatch, state, extra)
 
         expect(dispatch).toHaveBeenCalledTimes(2)

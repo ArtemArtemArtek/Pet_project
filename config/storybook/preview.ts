@@ -10,6 +10,7 @@ export const preview: Preview = {
   args:{
     __IS_DEV__: true
   },
+  //@ts-ignore
   decorators:[StyleDecorator, RouterDecorator, ThemeDecorator(Themes.LIGHT)],
   parameters: {
     controls: {

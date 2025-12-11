@@ -37,6 +37,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     const tabs = defaultSearchParams.get('tabs')
     const [selectTab, setSelectTab] = useState(tabs||'ALL')
     const {t} = useTranslation('articles')
+    //@ts-ignore
     const fetchData = useCallback(() => dispatch(fetchArticlesData({
         page: 1
     })), [dispatch])
@@ -46,6 +47,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     const changeSortField = (e: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(articlesActions.setSortField(e.target.value as ArticleSortFields))
         dispatch(articlesActions.setPage(1))
+        //@ts-ignore
         dispatch(fetchArticlesData({
             page: 1
         }))
@@ -54,6 +56,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
     const changeSortOrder = (e: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(articlesActions.setOrder(e.target.value as sortOrder))
         dispatch(articlesActions.setPage(1))
+        //@ts-ignore
         dispatch(fetchArticlesData({
             page: 1
         }))
@@ -72,6 +75,7 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
         setSelectTab(e.currentTarget.value)
         dispatch(articlesActions.setTabs(e.currentTarget.value as ArticleTabs))
         dispatch(articlesActions.setPage(1))
+        //@ts-ignore
         dispatch(fetchArticlesData({
             page: 1
         }))

@@ -10,6 +10,8 @@
 .popoverButton{
     border: none;
     background-color: var(--inverted-bg-color);
+    fill: var(--inverted-primary-color);
+     outline: none;
 }
 
 .notificationsWrapper{

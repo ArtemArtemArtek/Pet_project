@@ -29,6 +29,7 @@ export const EditProfileCard: React.FC = React.memo(() => {
     const profileData = useSelector(getProfileData)
 
     const updateUserData = useCallback(() => {
+        //@ts-ignore
         dispatch(updateProfileData(userData))
     }, [userData, dispatch])
 
@@ -73,13 +74,13 @@ export const EditProfileCard: React.FC = React.memo(() => {
     const ChangeAge=(event:ChangeEvent<HTMLInputElement>)=>{
         dispatch(profileActions.setAge(event.currentTarget.value))
     }
-    const ChangeCity=(event:ChangeEvent<HTMLInputElement>)=>{
+    const ChangeCity=(event:ChangeEvent<HTMLSelectElement>)=>{
         dispatch(profileActions.setCity(event.currentTarget.value as Cities))
     }
-    const ChangeCountry=(event:ChangeEvent<HTMLInputElement>)=>{
+    const ChangeCountry=(event:ChangeEvent<HTMLSelectElement>)=>{
         dispatch(profileActions.setCountry(event.currentTarget.value as Country))
     }
-    const ChangeCurrency=(event:ChangeEvent<HTMLInputElement>)=>{
+    const ChangeCurrency=(event:ChangeEvent<HTMLSelectElement>)=>{
         dispatch(profileActions.setCurrency(event.currentTarget.value as Currency))
     }
     // const ChangeCurrency = useCallback(

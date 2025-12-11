@@ -54,6 +54,7 @@ export const AuthModal: React.FC<AuthModalProps> = React.memo((props) => {
     }, [dispatch])
 
     const sendData = useCallback(() => {
+        //@ts-ignore
         dispatch(authUser({ password: password, username: username }))
     }, [dispatch, password, username])
 
