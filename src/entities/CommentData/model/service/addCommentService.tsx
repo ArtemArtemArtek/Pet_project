@@ -21,7 +21,6 @@ export const addNewCommentData = createAsyncThunk<CommentType, string, ThunkType
                 body: commentText
             })
             dispatch(fetchCommentsData(articleData.data.id))
-            console.log(response)
             return response.data
         } catch (err) {
             return rejectWithValue(err)

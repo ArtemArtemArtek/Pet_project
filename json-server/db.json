@@ -11,25 +11,81 @@
       "userId": 2
     }
   ],
+  "article-rating": [
+    {
+      "id": 1,
+      "userID": "1",
+      "articleID": "1",
+      "rating": 4,
+      "feedback": "Хорошая статья"
+    },
+    {
+      "id": 2,
+      "userID": "2",
+      "articleID": "1",
+      "rating": 3,
+      "feedback": "Ни о чем..."
+    },
+    {
+      "id": 3,
+      "userID": "1",
+      "articleID": "2",
+      "rating": 5,
+      "feedback": "Отлично!"
+    },
+    {
+      "id": 4,
+      "userID": "1",
+      "articleID": "3",
+      "rating": 1,
+      "feedback": "На мусор"
+    },
+    {
+      "articleID": "6",
+      "userID": "1",
+      "rating": 4,
+      "id": 5
+    },
+    {
+      "articleID": "7",
+      "userID": "1",
+      "rating": 5,
+      "feedback": null,
+      "id": 6
+    },
+    {
+      "articleID": "8",
+      "userID": "1",
+      "rating": 4,
+      "feedback": "Прелесть",
+      "id": 7
+    },
+    {
+      "articleID": "9",
+      "userID": "1",
+      "rating": 3,
+      "feedback": null,
+      "id": 8
+    }
+  ],
   "notifications": [
-        {
-            "text": "1text",
-            "title": "Title1",
-            "href": "/profile",
-            "avatar": "https://papik.pro/uploads/posts/2023-02/1676117425_papik-pro-p-risunki-hd-1.jpg"
-
-        },
-        {
-            "text": "2text",
-            "title": "Title1",
-            "href": "/about",
-            "avatar": "https://photofile.ru/wp-content/uploads/2024/04/1684700436047.png"
-        },
-        {
-            "text": "3text",
-            "title": "Title1"
-        }
-    ],
+    {
+      "text": "1text",
+      "title": "Title1",
+      "href": "/profile",
+      "avatar": "https://papik.pro/uploads/posts/2023-02/1676117425_papik-pro-p-risunki-hd-1.jpg"
+    },
+    {
+      "text": "2text",
+      "title": "Title1",
+      "href": "/about",
+      "avatar": "https://photofile.ru/wp-content/uploads/2024/04/1684700436047.png"
+    },
+    {
+      "text": "3text",
+      "title": "Title1"
+    }
+  ],
   "comments": [
     {
       "id": 1,

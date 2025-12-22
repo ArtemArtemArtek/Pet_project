@@ -3,19 +3,20 @@ import { useTranslation } from "react-i18next"
 import { TestButton } from "../../../app/providers/ErrorBoundary/ui/TestButton"
 import { useState } from "react"
 import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper"
-import Drawer from "../../../shared/ui/Drawer/Drawer"
+import { Rating } from "../../../features/Rating"
 
 export const MainPage = () => {
     const { t } = useTranslation('main')
-     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-     const [drawerPosition, setDrawerPosition] = useState<'left' | 'right' | 'bottom'>('bottom');
+
+    const testfunc=(star: number)=>{
+        console.log(star)
+    }
 
     return (
         <PageWrapper>
             {t('Главная страница')}
             <TestButton />
+            <Rating title="Выберите рейтинг" hasFeedback onSelectStar={testfunc}/>
         </PageWrapper>
     )
 }
-
-// export default MainPage

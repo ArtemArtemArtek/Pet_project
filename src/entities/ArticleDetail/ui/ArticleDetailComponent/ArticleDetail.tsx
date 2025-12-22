@@ -18,7 +18,8 @@ import { useNavigate } from "react-router-dom";
 import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
-import { fetchRecomendationData } from "../../model/service/getRecomendation";
+import { RatingArticle } from "../../../../entities/RatingArticle";
+import { getUser } from "../../../../entities/User";
 import cls from './ArticleDetail.module.scss'
 import { Recomendations } from "../../../../features/Recomendations/ui/Recomendations";
 
@@ -26,6 +27,7 @@ export const ArticleDetail: React.FC = React.memo(() => {
     const comments = useSelector(commentSelectors.selectAll)
     const dispatch = useAppDispatch()
     const articleData = useSelector((state: StateSchema) => state.article_detail)
+    const {isAuth} = useSelector(getUser)||{}
     const { t } = useTranslation()
     const navigate =useNavigate()
 
@@ -98,6 +100,8 @@ export const ArticleDetail: React.FC = React.memo(() => {
             <div className={cls.blocks_wrapper}>
                 {articleData?.data?.blocks?.map(renderBlock)}
             </div>
+            <hr className={cls.line_design} />
+            <RatingArticle articleID={articleData?.data?.id} userID={isAuth?.id} />
             <hr className={cls.line_design} />
             <Recomendations articleType={articleData?.data?.type[1]}/>
             <div>
