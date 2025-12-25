@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '../../../../shared/configs/storybook/ThemeDecorator';
-import { Themes } from '../../../../app/providers/ThemeProvider/index';
 import { FlexStack } from './FlexStack';
 // import '../../../app/styles/index.scss'
 

@@ -1,7 +1,7 @@
 import React from "react";
 import cls from './ArticleDetailCodeBlock.module.scss'
 import { ArticleCode } from "../../model/types/ArticleDetailTypes";
-import { Button, ButtonSize, ButtonTheme } from "../../../../shared/ui/Button/Button";
+import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
 import CopyIcon from '../../../../shared/assets/icons/Copy.svg'
 
 interface ArticleDetailCodeBlock_props {

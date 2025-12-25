@@ -1,5 +1,4 @@
 import { webpackOptions } from "../types/config";
-import removeTestIdPlugin from "../babel/plugins/removeTestIdPlugin";
 
 interface loadersProps extends webpackOptions {
     isTSX?: boolean

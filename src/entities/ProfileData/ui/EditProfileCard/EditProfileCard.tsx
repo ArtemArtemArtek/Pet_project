@@ -1,15 +1,15 @@
-import React, { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { Input } from "../../../../shared/ui/Input/Input";
 import { useTranslation } from "react-i18next";
-import { ProfileSchema, UserProfile } from "../../model/type/profileSchema";
+import { UserProfile } from "../../model/type/profileSchema";
 import cls from './EditProfileCard.module.scss'
 import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { updateProfileData } from "../../model/service/updateProfileDataThunk";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { Country, Cities, Currency } from "../../../../shared/consts/enums";
-import { ListBox, ListboxItem } from "../../../../shared/ui/ListBox/ListBox";
+import { ListboxItem } from "../../../../shared/ui/ListBox/ListBox";
 import { profileActions } from "../../model/slice/profileSlice";
 import { getProfileData } from "../../model/selectors/getProfileData";
 import { Loader } from "../../../../shared/ui/Loader/Loader";

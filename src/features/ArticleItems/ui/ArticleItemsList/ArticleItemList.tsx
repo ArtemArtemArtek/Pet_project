@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ArticleItem } from "../ArticleItem/ArticleItem";
 import cls from './ArticleItemList.module.scss'
-import { viewArticles } from "../ArticleItem/ArticleItem";
 import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import ListIcon from '../../../../shared/assets/icons/list.svg'
@@ -12,8 +11,6 @@ import { getArticlesData } from "../../model/selectors/selectArticlesData";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { articlesActions } from "../../model/slice/articlesSlice";
 import { ArticlesView } from "../../model/types/articleTypes";
-import { List } from "react-window";
-import { ArticleDetailType } from "../../../../entities/ArticleDetail";
 
 interface ArticleItemListProps {
     view: ArticlesView

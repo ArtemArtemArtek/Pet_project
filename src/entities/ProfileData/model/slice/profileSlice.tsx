@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { ProfileSchema, UserProfile } from '../type/profileSchema'
-import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts'
 import { fetchProfileData } from '../service/getProfileDataThunk'
 import { updateProfileData } from '../service/updateProfileDataThunk'
 import { validateErrorEnum } from '../type/profileSchema'

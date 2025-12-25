@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch } from "../../..//app/providers/StoreProvider/config/store";
 import { useStore } from "react-redux";
 import { ReducerManagerStore, StateSchemaKeys } from "../../../app/providers/StoreProvider";

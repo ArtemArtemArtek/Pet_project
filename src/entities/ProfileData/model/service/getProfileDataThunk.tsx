@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkExtraArgument, ThunkType } from "../../../../app/providers/StoreProvider"
+import { ThunkType } from "../../../../app/providers/StoreProvider"
 import { UserProfile } from "../type/profileSchema"
 
 

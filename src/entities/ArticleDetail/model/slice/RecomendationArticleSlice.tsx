@@ -3,7 +3,6 @@ import { ArticleDetailType } from '../../../../entities/ArticleDetail/model/type
 import { StateSchema } from '../../../../app/providers/StoreProvider'
 import { fetchRecomendationData } from '../service/getRecomendation'
 import { RecomendationSchema } from '../types/ArticleDetailSchema'
-import { Params } from 'react-router-dom'
 
 const recomendationAdapter = createEntityAdapter<ArticleDetailType, number>({
   selectId: (article: ArticleDetailType) => Number(article.id),

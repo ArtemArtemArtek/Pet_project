@@ -1,5 +1,4 @@
 import React from "react";
-import cls from './Avatar.module.scss'
 
 
 export enum AvatarSize{

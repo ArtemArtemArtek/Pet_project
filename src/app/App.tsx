@@ -7,8 +7,6 @@ import { AppRouter } from './providers/RouterProvider';
 import { NavBar } from '../widgets/NavBar/index';
 import { SideBar } from '../widgets/SideBar/MainSideBar/index';
 import { Loader } from '../shared/ui/Loader/Loader';
-import Modal from '../shared/ui/Modal/Modal';
-import {LOCAL_USER_AUTH_KEY} from '../shared/consts/consts'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../entities/User';
 import { getUser } from '../entities/User';

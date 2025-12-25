@@ -1,4 +1,4 @@
-import React, { Children, FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import cls from './Modal.module.scss'
 import ClassNameHelper from "../../../shared/lib/classNames/classNames";
 import useTheme from "../../../app/providers/ThemeProvider/lib/useTheme";

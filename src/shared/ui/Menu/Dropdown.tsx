@@ -1,6 +1,5 @@
 import { Menu } from '@headlessui/react'
 import cls from './Dropdown.module.scss'
-import { VStack } from '../Stacks'
 import { ReactNode, Fragment } from 'react'
 import { AppLink } from '../AppLink/AppLink'
 import { Button, ButtonTheme } from '../Button/Button'

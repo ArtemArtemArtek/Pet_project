@@ -1,4 +1,4 @@
-import React, { HTMLInputTypeAttribute, useCallback } from "react";
+import React, { useCallback } from "react";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import SendMessage from '../../../shared/assets/icons/SendMessage.svg'
 import { useAppDispatch } from "..//../../app/providers/StoreProvider/config/store";

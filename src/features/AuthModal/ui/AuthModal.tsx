@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import Modal from "../../../shared/ui/Modal/Modal";
 import { Button, ButtonSize, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
@@ -9,8 +9,6 @@ import { authUser } from "../model/service/asyncThunk";
 import { authActions, authReducer } from "../model/slice/AuthSlice";
 import { getAuth } from "../model/selectors/selectAuthData";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/config/store";
-import { useStore } from "react-redux";
-import { ReducerManagerStore } from "../../../app/providers/StoreProvider";
 import { AsyncReducerWrapper } from "../../../shared/lib/asyncReducerWrapper/asyncReducerWrapper";
 import { ReducerList } from "../../../shared/lib/asyncReducerWrapper/asyncReducerWrapper";
 

@@ -2,14 +2,12 @@ import React from "react";
 import { getProfileData } from "../model/selectors/getProfileData";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { ProfileSchema } from "../model/type/profileSchema";
 import { Loader } from "../../../shared/ui/Loader/Loader";
 import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import cls from './ProfileCard.module.scss'
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../../entities/User";
-import { useParams } from "react-router-dom";
 
 interface ProfileCardProps{
     className?: string

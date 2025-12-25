@@ -1,6 +1,5 @@
 import React, { memo, ReactNode } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
-import { useState } from 'react'
 import { HStack } from "../Stacks";
 import cls from './ListBox.module.scss'
 import ClassNameHelper from "../../../shared/lib/classNames/classNames";

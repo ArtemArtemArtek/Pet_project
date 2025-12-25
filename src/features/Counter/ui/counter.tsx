@@ -1,10 +1,7 @@
 import React from "react";
 import { Button } from "../../../shared/ui/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../../../app/providers/StoreProvider/index";
 import { counterActions } from "../model/slice/counterSlice";
-import type { StateSchema } from "../../../app/providers/StoreProvider/index";
-import { getCounter } from "../model/selectors/selectCount/selectCount";
 import { getCounterValue } from "../model/selectors/selectCounterValue/selectCountValue";
 
 

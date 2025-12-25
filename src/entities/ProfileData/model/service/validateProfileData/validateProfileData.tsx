@@ -1,4 +1,3 @@
-import React from "react";
 import { UserProfile } from "../../type/profileSchema";
 import { validateErrorEnum } from "../../type/profileSchema";
 import { Currency, Cities, Country } from "../../../../../shared/consts/enums";

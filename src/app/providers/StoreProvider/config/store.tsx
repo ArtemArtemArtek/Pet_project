@@ -1,7 +1,6 @@
-import { combineReducers, configureStore, ReducersMapObject, Tuple } from '@reduxjs/toolkit'
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
 import type { StateSchema, ThunkExtraArgument } from '../types/types'
 import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice'
-import { authReducer } from '../../../../features/AuthModal'
 import { userReducer } from '../../../../entities/User'
 import { useDispatch } from 'react-redux'
 import { createReducerManager } from './reducerManager'

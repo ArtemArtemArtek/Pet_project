@@ -7,7 +7,6 @@ import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch } from "../../app/providers/StoreProvider/config/store"
 import { useThrottle } from "../../shared/hooks/useThrottle"
-import { StateSchema } from "../../app/providers/StoreProvider"
 
 interface PageWrapperProps {
     className?: string

@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from "react";
 import { Skeleton } from "../../../../shared/ui/Skeleton/Skeleton";
-import Drawer from "../../../../shared/ui/Drawer/Drawer";
 import { NotificationItem, NotificationItemData } from "../NotificationItem/NotificationItem";
 import cls from './MobileView.module.scss'
 import { useAnimationLibs, AnimationProvider } from "../../../../shared/lib/animationProvider";

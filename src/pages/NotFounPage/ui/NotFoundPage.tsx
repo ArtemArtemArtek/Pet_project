@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import ClassNameHelper from "../../../shared/lib/classNames/classNames";
 import cls from "./NotFoundPage.module.scss"
 import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper";
-import { Loader } from "../../../shared/ui/Loader/Loader";
 
 interface NotFoundPageProps {
     className?: string

@@ -15,9 +15,8 @@ import { getArticlesPageInited } from "../../../../features/ArticleItems/model/s
 import { useSelector } from "react-redux";
 import { SortArticleOptions } from "../../../../features/SortArticleOptions";
 import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
-import { sortOrder } from "../../../../shared/types";
 import { sortOrderData, sortFieldData } from "../../../../features/SortArticleOptions/ui/SortArticleOptions";
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const inputReducers: ReducerList = {
     articles: articlesReducer

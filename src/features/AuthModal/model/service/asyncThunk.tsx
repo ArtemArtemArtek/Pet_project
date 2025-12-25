@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
 import { user, userActions } from "../../../../entities/User"
-import { useDispatch } from "react-redux"
-import { BASE_SERVER_URL, LOCAL_USER_AUTH_KEY } from "../../../../shared/consts/consts"
-import { ThunkExtraArgument, ThunkType } from "../../../../app/providers/StoreProvider"
+import { LOCAL_USER_AUTH_KEY } from "../../../../shared/consts/consts"
+import { ThunkType } from "../../../../app/providers/StoreProvider"
 
 export interface useData {
     password: string

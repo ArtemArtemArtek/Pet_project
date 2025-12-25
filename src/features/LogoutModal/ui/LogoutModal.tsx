@@ -1,12 +1,9 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Modal from "../../../shared/ui/Modal/Modal";
-import { Button, ButtonSize, ButtonTheme } from "../../../shared/ui/Button/Button";
+import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
-import { Input, InputThemes } from "../../../shared/ui/Input/Input";
 import cls from "./LogoutModal.module.scss"
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "../../../entities/User";
 
 interface LogoutModalProps {
     className: string,

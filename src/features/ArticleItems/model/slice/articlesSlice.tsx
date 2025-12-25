@@ -8,7 +8,6 @@ import { LOCAL_ARTICLES_VIEW } from '../../../../shared/consts/consts'
 import { sortOrder } from '../../../../shared/types'
 import { ArticleSortFields } from '../../../../entities/ArticleDetail/model/types/ArticleDetailTypes'
 import { ArticleTabs } from '../types/articleTypes'
-import { Params } from 'react-router-dom'
 // import { sortOrder } from '../../../../shared/types'
 
 // import { fetchCommentsData } from '../service/fetchCommentsService'

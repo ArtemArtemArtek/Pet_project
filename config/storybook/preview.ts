@@ -1,4 +1,3 @@
-import { addDecorator } from '@storybook/react'
 import type { Preview } from '@storybook/react-webpack5'
 import { Themes } from '../../src/app/providers/ThemeProvider'
 import { RouterDecorator } from "../../src/shared/configs/storybook/RouterDecorator"

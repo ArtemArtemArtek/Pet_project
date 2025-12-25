@@ -1,5 +1,4 @@
-import React, { useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import React from "react";
 import { useSelector } from "react-redux";
 import { fetchProfileData, getProfileData } from "../..//entities/ProfileData";
 import { profileReducer } from "../../entities/ProfileData/model/slice/profileSlice";

@@ -5,9 +5,6 @@ import { ThemeSwitcher } from "../../../../../shared/ui/ThemeSwitcher/index"
 import { LanguageChanger } from "../../../../../shared/ui/LanguageChanger/LanguageChanger"
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme, ButtonSize } from "../../../../../shared/ui/Button/Button";
-import { AppLink, AppLinkTheme } from "../../../../../shared/ui/AppLink/AppLink";
-import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
-import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
 import { SideBarItem } from "../SideBarItem/SideBarItem";
 // import { SideBarItemList } from "../SideBarItemList/SideBarItemList";
 import { useSelector } from "react-redux";

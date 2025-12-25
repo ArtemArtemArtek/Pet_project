@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkType } from "../../../../app/providers/StoreProvider"
 import { ArticleDetailType } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes"
 import { ArticleSortFields } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
-import { ArticleType } from "../../../../entities/ArticleDetail/model/types/ArticleDetailTypes";
 
 // interface FetchRecomendationProps {
 //     type: ArticleType;

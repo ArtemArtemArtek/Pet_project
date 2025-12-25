@@ -1,11 +1,9 @@
-import { Navigate, RouteProps } from "react-router-dom"
+import { RouteProps } from "react-router-dom"
 import React from "react";
 import { PathRoutes, AppRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
 import { NotFoundPage } from "../../../../pages/NotFounPage/index";
 import { PrivateRouteWrapper } from "./PrivateRouteWrapper";
 import { user } from "../../../../../src/entities/User";
-import { ProfilePage } from "../../../../pages/ProfilePage";
-import { useEffect } from "react";
 
 const AboutPageLazy = React.lazy(() => import('../../../../pages/AboutPage').then(module => ({ default: module.AboutPage })));
 const MainPageLazy = React.lazy(() => import('../../../../pages/MainPage').then(module => ({ default: module.MainPage })));
