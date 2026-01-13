@@ -11,6 +11,29 @@
       "userId": 2
     }
   ],
+  "profile-rating": [
+    {
+      "id": 1,
+      "userID": "1",
+      "profileID": "1",
+      "rating": 4,
+      "feedback": "Хороший профиль"
+    },
+    {
+      "id": 2,
+      "userID": "2",
+      "profileID": "1",
+      "rating": 3,
+      "feedback": "Ни о чем..."
+    },
+    {
+      "profileID": "2",
+      "userID": "1",
+      "rating": 4,
+      "feedback": "Хорошо",
+      "id": 3
+    }
+  ],
   "article-rating": [
     {
       "id": 1,

@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 50%);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -28,8 +28,8 @@
 .drawer {
   position: fixed;
   background-color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 
+              0 2px 4px -1px rgb(0 0 0 / 6%);
   transition: transform 0.3s ease, 
               left 0.3s ease, 
               right 0.3s ease, 
@@ -118,7 +118,7 @@
 }
 
 /* Для мобильных устройств */
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .drawer.left,
   .drawer.right {
     width: 100% !important;

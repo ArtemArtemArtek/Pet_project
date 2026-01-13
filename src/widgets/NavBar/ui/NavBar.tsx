@@ -54,8 +54,10 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         }
     ]
 
+
     return (
         <div className={ClassNameHelper(cls.navbar, {}, [className])}>
+        <h1 className={cls.main_Logo_Sign}>Artem Rumbens</h1>
             <div className={cls.links}>
                 {isAuth ?
                     <div className={cls.wrapper_actions}>

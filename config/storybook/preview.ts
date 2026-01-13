@@ -12,6 +12,7 @@ export const preview: Preview = {
   //@ts-ignore
   decorators:[StyleDecorator, RouterDecorator, ThemeDecorator(Themes.LIGHT)],
   parameters: {
+    layout: false,
     controls: {
       matchers: {
         color: /(background|color)$/i,

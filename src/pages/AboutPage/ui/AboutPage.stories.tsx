@@ -4,9 +4,17 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '../../../shared/configs/storybook/ThemeDecorator';
 import { Themes } from '../../../app/providers/ThemeProvider/index';
 import { AboutPage } from './AboutPage';
+import { MemoryRouter } from 'react-router-dom';
 
 export default {
     title: 'pages/AboutPage',
+      decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
     component: AboutPage,
     argTypes: {
         backgroundColor: { control: 'color' },

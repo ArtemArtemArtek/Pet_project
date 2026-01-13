@@ -10,7 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getUser } from "../../../entities/User";
 import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper";
-
+import { ProfileRating } from "../../../entities/ProfileRating";
 interface ProfilePageProps{
     data?: string
 }
@@ -32,11 +32,12 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
         // eslint-disable-next-line
     },[])
 
-    console.log('USERID:'+userId)
+    
     return(
         <PageWrapper>
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
             <ProfileCard userID={userId}/>
+            {userId!=isAuth.id.toString()?<ProfileRating profileID={userId} userID={isAuth.id}/>:null}
         </AsyncReducerWrapper>
         </PageWrapper>
     )
