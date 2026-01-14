@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { PathRoutes } from "../../../../../shared/configs/routeConfig/routeConfig";
+import { getAboutPath, getProfilePath, getMainPath, getArticlesPath } from "../../../../../shared/configs/routeConfig/routeConfig";
 import { getUser } from "../../../../../entities/User";
 import AboutUsIcon from '../../../../../shared/assets/icons/AboutUsIcon.svg'
 import MainIcon from '../../../../../shared/assets/icons/MainIcon.svg'
@@ -22,23 +22,23 @@ export const selectSidebarItem=()=>{
     return [
     {
         text: t('Главная'),
-        path: PathRoutes.main,
+        path: getMainPath(),
         icon: MainIcon,
     },
     {
         text: t('О нас'),
-        path: PathRoutes.about,
+        path: getAboutPath(),
         icon: AboutUsIcon,
     },
     {
         text: t('Профиль'),
-        path: PathRoutes.profile+userData?.isAuth?.id,
+        path: getProfilePath(userData?.isAuth?.id),
         icon: ProfileIcon,
         isauth: true
     },
     {
         text: t('Статьи'),
-        path: PathRoutes.articles,
+        path: getArticlesPath(),
         icon: ArticlesIcon,
         isauth: true
     }

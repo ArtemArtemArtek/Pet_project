@@ -6,7 +6,7 @@ import cls from './ArticleItem.module.scss'
 import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
+import { getArticleDetailPagePath } from "../../../../shared/configs/routeConfig/routeConfig";
 import { ArticlesView } from "../../model/types/articleTypes";
 
 export enum viewArticles{
@@ -25,7 +25,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
     const { t } = useTranslation('articles')
     const navigate = useNavigate()
     const redirectArticle = () => {
-        navigate(PathRoutes.article_detail + article.id)
+        navigate(getArticleDetailPagePath(article.id))
     }
     if(articles_view===ArticlesView.BIG){
         return(

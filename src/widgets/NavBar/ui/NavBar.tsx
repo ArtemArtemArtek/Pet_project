@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { userActions } from "../../../entities/User";
 import { Dropdown, DropdownItem } from "../../../shared/ui/Menu/Dropdown";
 import { Avatar, AvatarSize } from "../../../shared/ui/Avatar/Avatar";
-import { PathRoutes } from "../../../shared/configs/routeConfig/routeConfig";
+import { getProfilePath } from "../../../shared/configs/routeConfig/routeConfig";
 import { UserRoles } from "../../../entities/User/model/type/userSchema";
 import { useNavigate } from "react-router-dom";
 import { Notifications } from "../../..//features/Notifications";
@@ -42,7 +42,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
     const DropdownItems: DropdownItem[] = [
         {
             label: 'Профиль',
-            href: PathRoutes.profile + isAuth?.id
+            href: getProfilePath(isAuth?.id)
         },
         ...(isAdmin ? [{
             label: 'Админпанель',

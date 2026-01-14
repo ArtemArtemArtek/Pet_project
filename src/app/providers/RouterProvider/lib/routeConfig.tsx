@@ -1,6 +1,11 @@
 import { RouteProps } from "react-router-dom"
 import React from "react";
-import { PathRoutes, AppRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
+import {
+    AppRoutes, getAboutPath,
+    getAdminPagePath, getArticleDetailPagePath,
+    getArticlesPath, getEditPath, getMainPath,
+    getNotFoundPath, getProfilePath
+} from "../../../../shared/configs/routeConfig/routeConfig";
 import { NotFoundPage } from "../../../../pages/NotFounPage/index";
 import { PrivateRouteWrapper } from "./PrivateRouteWrapper";
 import { user } from "../../../../../src/entities/User";
@@ -11,26 +16,26 @@ const ProfilePageLazy = React.lazy(() => import('../../../../pages/ProfilePage')
 const EditProfilePageLazy = React.lazy(() => import('../../../../pages/EditProfile').then(module => ({ default: module.EditProfilePage })));
 const ArticleDetailPageLazy = React.lazy(() => import('../../../../pages/ArticleDetailPage').then(module => ({ default: module.ArticleDetailPage })))
 const ArticlesPageLazy = React.lazy(() => import('../../../../pages/ArticlesPage').then(module => ({ default: module.ArticlesPage })))
-const AdminPageLazy = React.lazy(()=>import('../../../../pages/AdminPage/AdminPage').then(module => ({ default: module.AdminPage })))
+const AdminPageLazy = React.lazy(() => import('../../../../pages/AdminPage/AdminPage').then(module => ({ default: module.AdminPage })))
 
 export const RouteConfigWrapper = () => {
     const userData: user = JSON.parse(localStorage.getItem('user')) || null
 
     const RouteConfig: Record<AppRoutes, RouteProps> = {
         [AppRoutes.MAIN]: {
-            path: PathRoutes.main,
+            path: getMainPath(),
             element: <MainPageLazy />
         },
         [AppRoutes.ABOUT]: {
-            path: PathRoutes.about,
+            path: getAboutPath(),
             element: <AboutPageLazy />
         },
         [AppRoutes.NOT_FOUND]: {
-            path: PathRoutes.not_found,
+            path: getNotFoundPath(),
             element: <NotFoundPage />
         },
         [AppRoutes.PROFILE]: {
-            path: `${PathRoutes.profile}:userId`,
+            path: getProfilePath(':userId'),
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <ProfilePageLazy />
@@ -38,7 +43,7 @@ export const RouteConfigWrapper = () => {
             )
         },
         [AppRoutes.EDIT_PROFILE]: {
-            path: PathRoutes.edit,
+            path: getEditPath(),
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <EditProfilePageLazy />
@@ -46,7 +51,7 @@ export const RouteConfigWrapper = () => {
             )
         },
         [AppRoutes.ARTICLES_PAGE]: {
-            path: PathRoutes.articles,
+            path: getArticlesPath(),
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <ArticlesPageLazy />
@@ -54,15 +59,15 @@ export const RouteConfigWrapper = () => {
             )
         },
         [AppRoutes.ARTICLE_DETAIL_PAGE]: {
-            path: `${PathRoutes.article_detail}:id`,
+            path: getArticleDetailPagePath(':id'),
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <ArticleDetailPageLazy />
                 </PrivateRouteWrapper>
             )
         },
-        [AppRoutes.ADMIN_PAGE]:{
-            path: PathRoutes.admin_page,
+        [AppRoutes.ADMIN_PAGE]: {
+            path: getAdminPagePath(),
             element: (
                 <PrivateRouteWrapper user={userData}>
                     <AdminPageLazy />

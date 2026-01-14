@@ -15,7 +15,7 @@ import { commentSelectors } from "../../../../entities/CommentData";
 import { AddComment } from "../../../../features/AddComment";
 import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { PathRoutes } from "../../../../shared/configs/routeConfig/routeConfig";
+import { getArticlesPath } from "../../../../shared/configs/routeConfig/routeConfig";
 import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
 import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
 import { RatingArticle } from "../../../../entities/RatingArticle";
@@ -37,7 +37,7 @@ export const ArticleDetail: React.FC = React.memo(() => {
     // },[articleData, dispatch])
 
     const back_to_articles =useCallback(()=>{
-        navigate(PathRoutes.articles)
+        navigate(getArticlesPath())
     },[navigate])
 
     const renderBlock = useCallback((el: ArticleBlock) => {
