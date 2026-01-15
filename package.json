@@ -19,7 +19,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "loki": "npx loki test",
-    "server": "node ./json-server/index.js"
+    "server": "node ./json-server/index.js",
+    "postinstall": "rimraf ./node_modules/.cache"
   },
   "keywords": [],
   "author": "",

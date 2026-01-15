@@ -8,6 +8,9 @@ import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackPluginInstance[] {
+    
+    const isProd =!isDev
+    
     const plugins: webpack.WebpackPluginInstance[] = [
         new HtmlWebpackPlugin({
             template: paths.html
@@ -20,11 +23,6 @@ export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackP
         new webpack.DefinePlugin({
             __IS_DEV__: isDev,
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: paths.from, to: paths.to },
-            ],
-        }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
@@ -34,14 +32,20 @@ export function buildPlugins(paths: buildPath, isDev: boolean): webpack.WebpackP
                 mode: 'write-references',
             },
         }),
-        // isDev? new webpack.HotModuleReplacementPlugin(): null,
-        // isDev? new ReactRefreshWebpackPlugin(): null
     ]
 
     if (isDev) {
         plugins.push(new webpack.HotModuleReplacementPlugin())
         plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }))
         plugins.push(new BundleAnalyzerPlugin.BundleAnalyzerPlugin({ openAnalyzer: false }),)
+    }
+
+    if(isProd){
+        plugins.push(new CopyPlugin({
+            patterns: [
+                { from: paths.from, to: paths.to },
+            ],
+        }))
     }
     return plugins
 
