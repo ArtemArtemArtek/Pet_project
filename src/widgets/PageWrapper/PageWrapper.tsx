@@ -7,15 +7,17 @@ import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch } from "../../app/providers/StoreProvider/config/store"
 import { useThrottle } from "../../shared/hooks/useThrottle"
+import { dataTestId } from "../../shared/consts/tests"
 
-interface PageWrapperProps {
+interface PageWrapperProps extends dataTestId{
     className?: string
     children: ReactNode
     onScrolledEnd?: () => void
+
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
-    const { children, className, onScrolledEnd } = props
+    const { children, className, onScrolledEnd} = props
     const triggerRef = useRef() as React.MutableRefObject<HTMLDivElement>
     const wrapperRef = useRef() as React.MutableRefObject<HTMLDivElement>
     const { pathname } = useLocation()
@@ -44,13 +46,14 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
     }, 500)
 
     return (
-        <section
+        <main
             onScroll={ScrollFunction}
             ref={wrapperRef}
             className={ClassNameHelper(cls.pageWrapper, {}, [className])}
+            data-testid = {props['data-testid']??'Page'}
         >
             {children}
             <div className={cls.trigger} ref={triggerRef} />
-        </section>
+        </main>
     )
 }

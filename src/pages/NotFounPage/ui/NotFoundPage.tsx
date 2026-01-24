@@ -12,7 +12,7 @@ export const NotFoundPage: FC<NotFoundPageProps> = () => {
     const { t } = useTranslation()
 
     return (
-        <PageWrapper className={ClassNameHelper(cls.maintext, {}, [])}>
+        <PageWrapper data-testid="NotFoundPage" className={ClassNameHelper(cls.maintext, {}, [])}>
             <h1>{t('Извините')}</h1>
             <h1>{t('Страница не найдена')}</h1>
             {/* <Loader/> */}
