@@ -6,7 +6,7 @@ interface useInfiniteScrollProps {
     wrapperRef: React.MutableRefObject<HTMLElement>
 }
 
-export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: useInfiniteScrollProps) {
+export function useInfiniteScroll({ callback=()=>null, triggerRef, wrapperRef }: useInfiniteScrollProps) {
     useEffect(() => {
         const wrapperElement = wrapperRef.current;
         const triggerElement = triggerRef.current;
@@ -20,7 +20,6 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: useInfin
 
         const observer = new IntersectionObserver(([entities]) => {
             if (entities.isIntersecting) {
-                
                 callback()
             }
         }, options);

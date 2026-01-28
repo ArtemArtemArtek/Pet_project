@@ -223,6 +223,15 @@
         "MANAGER",
         "USER"
       ]
+    },
+    {
+      "id": 4,
+      "username": "testuser",
+      "password": "223311",
+      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg",
+      "role": [
+        "USER"
+      ]
     }
   ],
   "profile": [

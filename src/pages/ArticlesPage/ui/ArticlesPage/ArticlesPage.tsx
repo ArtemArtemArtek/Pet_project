@@ -87,7 +87,7 @@ export const ArticlesPage: React.FC = () => {
     const view = localStorage.getItem(LOCAL_ARTICLES_VIEW) || ArticlesView.SMALL
 
     return (
-        <PageWrapper className={cls.ArticlePage} onScrolledEnd={onLoadNextPart}>
+        <PageWrapper data-testid="ArticlesPage" className={cls.ArticlePage} onScrolledEnd={onLoadNextPart} >
             <AsyncReducerWrapper removeAfterClose={false} reducers={inputReducers}>
                 <SortArticleOptions cards={tabs} defaultSearchParams={searchParams} sortFieldsOptions={sortOptions} sortOrderOptions={sortOptionsOrder}/>
                 <ArticleItemList view={view as ArticlesView} />

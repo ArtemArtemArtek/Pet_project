@@ -6,14 +6,14 @@ import { PageWrapper } from "../../../widgets/PageWrapper/PageWrapper"
 export const MainPage = () => {
     const { t } = useTranslation('main')
 
-    const testfunc=(star: number)=>{
+    const testfunc = (star: number) => {
         console.log(star)
     }
 
     return (
-        <PageWrapper>
-            {t('Главная страница')}
-            <TestButton />
-        </PageWrapper>
+            <PageWrapper data-testid='MainPageTest'>
+                {t('Главная страница')}
+                <TestButton />
+            </PageWrapper>
     )
 }

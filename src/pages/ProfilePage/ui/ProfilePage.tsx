@@ -34,7 +34,7 @@ const ProfilePage:React.FC<ProfilePageProps>=(props)=>{
 
     
     return(
-        <PageWrapper>
+        <PageWrapper data-testid="ProfilePage">
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
             <ProfileCard userID={userId}/>
             {userId!=isAuth.id.toString()?<ProfileRating profileID={userId} userID={isAuth.id}/>:null}

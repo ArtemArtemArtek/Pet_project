@@ -34,6 +34,7 @@ describe('AppRouter test', () => {
         expect(page).toBeInTheDocument()
     }),
     test('Forbiden page', async () => {
+        //@ts-ignore
         wrapperTest(<AppRouter />, { route: getAdminPagePath(), store:{user:{isAuth:{role: 'USER'}}} })
         
         const page = await screen.findByTestId('MainPage')
