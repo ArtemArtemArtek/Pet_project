@@ -23,7 +23,7 @@ export default defineConfig([
     languageOptions: { globals: globals.browser }
   },
   tseslint.configs.recommended,
-  globalIgnores(["build", "src/**/**.test.tsx", "json-server/**"]),
+  globalIgnores(["build", "src/**/**.test.tsx", "json-server/**", "cypress"]),
   {
     rules: {
       "no-unused-vars": "off",

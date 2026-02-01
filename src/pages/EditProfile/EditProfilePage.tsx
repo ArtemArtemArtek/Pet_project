@@ -28,7 +28,7 @@ export const EditProfilePage: React.FC = () => {
     const profileData = useSelector(getProfileData)
 
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="EditProfilePage">
         <AsyncReducerWrapper reducers={inputReducers} removeAfterClose>
            <EditProfileCard />
         </AsyncReducerWrapper>

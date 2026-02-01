@@ -13,7 +13,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string
     defaultValue?: string
     disabled?: boolean
-
 }
 
 export const Input: React.FC<InputProps> = React.memo((props) => {
@@ -24,7 +23,8 @@ export const Input: React.FC<InputProps> = React.memo((props) => {
         placeholder = '',
         onChange ,
         defaultValue,
-        disabled=false
+        disabled=false,
+        ...otherProps
     } = props
 
     const mods: Record<string, boolean> = {
@@ -38,6 +38,7 @@ export const Input: React.FC<InputProps> = React.memo((props) => {
             onChange={onChange}
             defaultValue={defaultValue}
             disabled={disabled}
+            {...otherProps}
         />
 
     )

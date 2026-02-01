@@ -29,7 +29,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
     }
     if(articles_view===ArticlesView.BIG){
         return(
-            <div className={cls.article_big_card}>
+            <div data-testid="ArticleListItem" className={cls.article_big_card}>
                 <div className={cls.avatar_big_wrapper}>
                 <Avatar src={article.img} size={AvatarSize.MEDIUM} />
                 </div>
@@ -44,20 +44,20 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
                 <div className={cls.fade_text}>{
                 //@ts-ignore
                 article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
-            <Button onClick={redirectArticle} className={cls.button_big_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
+            <Button data-testid='ArticleItemReadmoreButton' onClick={redirectArticle} className={cls.button_big_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
             </div>
         )
     }
 
     return (
-        <div className={cls.article_card}>
+        <div data-testid="ArticleListItem" className={cls.article_card}>
             <div className={cls.avatar_wrapper}>
 
                 <Avatar src={article.img} size={AvatarSize.MEDIUM} />
             </div>
             <div className={cls.title}>{article.title}</div>
             <div className={cls.sub_title}>
-                <div className={cls.types_wrapper}>{article.type.map((el) => (<div key={el} className={cls.type_item}>{el}</div>))}</div>
+                <div className={cls.types_wrapper}>{article.type.map((el) => (<div key={el} data-testid={'ArticleItemType'+el} className={cls.type_item}>{el}</div>))}</div>
                 <div className={cls.views}>
                     <p>{article.views}</p>
                     <Eye_icon />
@@ -66,7 +66,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = (props) => {
             <div className={cls.fade_text}>{
             //@ts-ignore
             article.blocks.find(el => el.type === 'TEXT').paragraphs}</div>
-            <Button onClick={redirectArticle} className={cls.button_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
+            <Button data-testid='ArticleItemReadmoreButton' onClick={redirectArticle} className={cls.button_style} theme={ButtonTheme.CLEAR}>{t('Читать далее')}</Button>
         </div>
     )
 }

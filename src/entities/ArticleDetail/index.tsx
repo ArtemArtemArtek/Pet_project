@@ -1,5 +1,5 @@
-import { ArticleDetailType } from "./model/types/ArticleDetailTypes";
-import { ArticleDetailSchema, RecomendationSchema } from "./model/types/ArticleDetailSchema";
+import type { ArticleDetailType } from "./model/types/ArticleDetailTypes";
+import type { ArticleDetailSchema, RecomendationSchema } from "./model/types/ArticleDetailSchema";
 import { ArticleDetail } from "./ui/ArticleDetailComponent/ArticleDetail";
 import { getArticleDetailData } from "./model/selectors/getArticleData";
 import { recomendationReducer, recomendationActions, recomendationsSelectors } from "./model/slice/RecomendationArticleSlice";

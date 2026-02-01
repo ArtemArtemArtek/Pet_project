@@ -7,6 +7,7 @@ import { fetchArticlesData } from "../../../features/ArticleItems";
 import { useDebounce } from "../../../shared/hooks/useDebounce";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { ArticleTabs } from "../../../features/ArticleItems/model/types/articleTypes";
+import { Input } from "../../../shared/ui/Input";
 import { useTranslation } from "react-i18next";
 import cls from './SortArticleOptions.module.scss'
 
@@ -66,9 +67,6 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
         dispatch(articlesActions.setSearch(e.target.value))
         dispatch(articlesActions.setPage(1))
         debouncedFetchData()
-        // dispatch(fetchArticlesData({
-        //     page: 1
-        // }))
     }
 
     const sendTabs = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -102,12 +100,12 @@ export const SortArticleOptions: React.FC<SortArticleOptionsProps> = (props) => 
                 })}
             </select>
             {t('Найти')}
-            <input className={cls.select_field} defaultValue={search_field} onChange={changeSearchField} />
+            <Input data-testid="ArrticlesSearchInput" className={cls.select_field} defaultValue={search_field} onChange={changeSearchField} />
             </div>
             <div className={cls.tabs}>
             {cards.map((el) => {
                 return (
-                    <Button className={selectTab===el?cls.selectedTab:cls.tab} theme={ButtonTheme.OUTLINE} onClick={sendTabs} value={el}>{el}</Button>
+                    <Button data-testid={el} className={selectTab===el?cls.selectedTab:cls.tab} theme={ButtonTheme.OUTLINE} onClick={sendTabs} value={el}>{el}</Button>
                 )
             })}
             </div>

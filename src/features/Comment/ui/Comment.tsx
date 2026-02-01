@@ -17,7 +17,7 @@ export const CommentComponent:React.FC<CommentComponentProps>=(props)=>{
             navigate('/profile/'+comment.user.id)
     }
     return(
-        <div className={cls.comment_wrapper}>
+        <div data-testid='CommentOnArticlePage' className={cls.comment_wrapper}>
             <div className={cls.title_wrapper} >
                 <Avatar onClick={profileRedirect} src={comment?.user?.avatar} size={AvatarSize.SMALL}/>
                 <div onClick={profileRedirect} className={cls.username_wrapper}>{comment?.user?.username}</div>

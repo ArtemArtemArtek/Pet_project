@@ -19,7 +19,7 @@ interface SidebarProps {
 const SideBar: React.FC<SidebarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState(false)
     const { t } = useTranslation('sidebar')
-        const {isAuth} = useSelector(getUser)||{}
+    const {isAuth} = useSelector(getUser)||{}
 
     const filtredArray = selectSidebarItem().filter((item) => {
         if ('isauth' in item) {

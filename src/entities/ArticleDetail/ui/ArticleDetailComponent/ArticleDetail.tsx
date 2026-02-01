@@ -82,13 +82,13 @@ export const ArticleDetail: React.FC = React.memo(() => {
     }
 
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="ArticleDetailPage">
         <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
             <div className={cls.avatar_wrapper}>
                 <Avatar size={AvatarSize.MEDIUM} src={articleData?.data?.img} />
             </div>
             <div className={cls.title_wrapper}>{articleData?.data?.title}</div>
-            <div className={cls.sub_title_wrapper}>{articleData?.data?.subtitle}</div>
+            <div data-testid='ArticleDetailSubtitle' className={cls.sub_title_wrapper}>{articleData?.data?.subtitle}</div>
             <div className={cls.created_data_wrapper}>
                 <Calendar />
                 <p>{articleData?.data?.createdAt}</p>

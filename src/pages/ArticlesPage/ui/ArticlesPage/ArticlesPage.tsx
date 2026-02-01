@@ -27,7 +27,6 @@ export const ArticlesPage: React.FC = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation('articles')
     const inited = useSelector(getArticlesPageInited)
-    // const params = useParams();
     const [searchParams] = useSearchParams();
 
     console.log(searchParams)

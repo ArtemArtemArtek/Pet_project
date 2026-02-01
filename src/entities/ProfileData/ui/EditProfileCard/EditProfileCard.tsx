@@ -13,9 +13,6 @@ import { ListboxItem } from "../../../../shared/ui/ListBox/ListBox";
 import { profileActions } from "../../model/slice/profileSlice";
 import { getProfileData } from "../../model/selectors/getProfileData";
 import { Loader } from "../../../../shared/ui/Loader/Loader";
-// interface EditProfileCardProps {
-//     profileData: ProfileSchema
-// }
 
 export const EditProfileCard: React.FC = React.memo(() => {
 
@@ -108,11 +105,11 @@ export const EditProfileCard: React.FC = React.memo(() => {
             </div>
             <div className={cls.inputMargin}>
                 {t('Введите имя: ')}
-                <Input key={2} defaultValue={profileData?.data?.firstname} onChange={ChangeFirstName} />
+                <Input data-testid="EditCardFirstname" key={2} defaultValue={profileData?.data?.firstname} onChange={ChangeFirstName} />
             </div>
             <div className={cls.inputMargin}>
                 {t('Введите фамилию: ')}
-                <Input key={3} defaultValue={profileData?.data?.lastname} onChange={ChangeLastName} />
+                <Input data-testid="EditCardLastname" key={3} defaultValue={profileData?.data?.lastname} onChange={ChangeLastName} />
             </div>
             <div className={cls.inputMargin}>
                 {t('Введите ссылку на аватар: ')}
@@ -150,7 +147,7 @@ export const EditProfileCard: React.FC = React.memo(() => {
             </div>
             <div className={cls.buttonWrapper}>
                 <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.cancelUpgradeButton} onClick={cancelButton}>{t('Отменить')}</Button>
-                <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.saveUpgradeButton} onClick={updateUserData}>{t('Редактировать')}</Button>
+                <Button data-testid="EditCardChangeButton" theme={ButtonTheme.BACKGROUND_INVERTED} className={cls.saveUpgradeButton} onClick={updateUserData}>{t('Редактировать')}</Button>
             </div>            
         </div>
     )

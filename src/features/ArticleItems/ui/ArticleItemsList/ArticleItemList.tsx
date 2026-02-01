@@ -42,7 +42,7 @@ export const ArticleItemList: React.FC<ArticleItemListProps> = (props) => {
 
     return (
         <div>
-            <Button className={cls.button_change} theme={ButtonTheme.CLEAR} onClick={ChangeView}>
+            <Button data-testid="ArticleItemChangeViewButton" className={cls.button_change} theme={ButtonTheme.CLEAR} onClick={ChangeView}>
                 {viewArticle === ArticlesView.BIG ? <Tiles className={cls.view_icons} /> : <ListIcon className={cls.list_icon} />}
             </Button>
             {/*             

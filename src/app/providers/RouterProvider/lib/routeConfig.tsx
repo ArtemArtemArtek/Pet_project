@@ -69,7 +69,7 @@ export const RouteConfigWrapper = () => {
         [AppRoutes.ADMIN_PAGE]: {
             path: getAdminPagePath(),
             element: (
-                <PrivateRouteWrapper user={userData}>
+                <PrivateRouteWrapper user={userData} isAdmin>
                     <AdminPageLazy />
                 </PrivateRouteWrapper>
             )
