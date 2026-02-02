@@ -1,289 +1,7 @@
-{
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "userId": 2
-    }
-  ],
-  "profile-rating": [
-    {
-      "id": 1,
-      "userID": "1",
-      "profileID": "1",
-      "rating": 4,
-      "feedback": "Хороший профиль"
-    },
-    {
-      "id": 2,
-      "userID": "2",
-      "profileID": "1",
-      "rating": 3,
-      "feedback": "Ни о чем..."
-    },
-    {
-      "profileID": "2",
-      "userID": "1",
-      "rating": 4,
-      "feedback": "Хорошо",
-      "id": 3
-    }
-  ],
-  "article-rating": [
-    {
-      "id": 1,
-      "userID": "1",
-      "articleID": "1",
-      "rating": 4,
-      "feedback": "Хорошая статья"
-    },
-    {
-      "id": 2,
-      "userID": "2",
-      "articleID": "1",
-      "rating": 3,
-      "feedback": "Ни о чем..."
-    },
-    {
-      "id": 3,
-      "userID": "1",
-      "articleID": "2",
-      "rating": 5,
-      "feedback": "Отлично!"
-    },
-    {
-      "id": 4,
-      "userID": "1",
-      "articleID": "3",
-      "rating": 1,
-      "feedback": "На мусор"
-    },
-    {
-      "articleID": "6",
-      "userID": "1",
-      "rating": 4,
-      "id": 5
-    },
-    {
-      "articleID": "7",
-      "userID": "1",
-      "rating": 5,
-      "feedback": null,
-      "id": 6
-    },
-    {
-      "articleID": "8",
-      "userID": "1",
-      "rating": 4,
-      "feedback": "Прелесть",
-      "id": 7
-    },
-    {
-      "articleID": "9",
-      "userID": "1",
-      "rating": 3,
-      "feedback": null,
-      "id": 8
-    }
-  ],
-  "notifications": [
-    {
-      "text": "1text",
-      "title": "Title1",
-      "href": "/profile",
-      "avatar": "https://papik.pro/uploads/posts/2023-02/1676117425_papik-pro-p-risunki-hd-1.jpg"
-    },
-    {
-      "text": "2text",
-      "title": "Title1",
-      "href": "/about",
-      "avatar": "https://photofile.ru/wp-content/uploads/2024/04/1684700436047.png"
-    },
-    {
-      "text": "3text",
-      "title": "Title1"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment 1",
-      "userId": 1,
-      "articleId": 1
-    },
-    {
-      "id": 2,
-      "body": "some comment 2",
-      "userId": 1,
-      "articleId": 1
-    },
-    {
-      "id": 3,
-      "body": "some comment 3",
-      "userId": 1,
-      "articleId": 2
-    },
-    {
-      "id": 4,
-      "body": "some comment 4",
-      "userId": 2,
-      "articleId": 1
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Новый комент",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Еще один",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "++++",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Соглы",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Интересная статья",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Как дела?",
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "articleId": "1",
-      "body": "Ghb",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "articleId": "6",
-      "body": "Hello!!!",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "articleId": "3",
-      "body": "Ghb",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "articleId": "11",
-      "body": "bbhbh",
-      "id": 14
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password": "123",
-      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg",
-      "role": [
-        "ADMIN"
-      ]
-    },
-    {
-      "id": 2,
-      "username": "septiena",
-      "password": "22334411",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
-      "role": [
-        "USER"
-      ]
-    },
-    {
-      "id": 3,
-      "username": "calt",
-      "password": "102938",
-      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg",
-      "role": [
-        "MANAGER",
-        "USER"
-      ]
-    },
-    {
-      "id": 4,
-      "username": "testuser",
-      "password": "223311",
-      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg",
-      "role": [
-        "USER"
-      ]
-    }
-  ],
-  "profile": [
+[
     {
       "id": "1",
-      "firstname": "Артём",
-      "lastname": "Программист4",
-      "age": "23",
-      "currency": "RUB",
-      "country": "Kazakhstan",
-      "city": "Saratov",
-      "username": "ASas",
-      "avatar": "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg"
-    },
-    {
-      "id": "2",
-      "firstname": "Septa",
-      "lastname": "asf",
-      "age": "40",
-      "currency": "RUB",
-      "country": "Russia",
-      "city": "Moscow",
-      "username": "septiena",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
-    },
-    {
-      "id": "3",
-      "firstname": "Garold",
-      "lastname": "Bugiman",
-      "age": "32",
-      "currency": "USD",
-      "country": "Russia",
-      "city": "Moscow",
-      "username": "bublgummm",
-      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg"
-    },
-    {
-      "id": "4",
-      "firstname": "Ponchik",
-      "lastname": "Mikro",
-      "age": "28",
-      "currency": "USD",
-      "country": "Russia",
-      "city": "Moscow",
-      "username": "mamamia",
-      "avatar": "https://grizly.club/uploads/posts/2023-08/1693294873_grizly-club-p-kartinki-avatarki-dlya-ds-bez-fona-22.jpg"
-    }
-  ],
-  "articles": [
-    {
-      "id": "1",
-      "title": "Javascript news",
+      "title": "Фикстурные данные",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
@@ -354,7 +72,7 @@
     },
     {
       "id": "2",
-      "title": "Javascript news",
+      "title": "Фикстурные данные 2",
       "subtitle": "Что нового в Python за 2020 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 26073,
@@ -424,7 +142,7 @@
     },
     {
       "id": "3",
-      "title": "Javascript news",
+      "title": "Фикстурные данные 3",
       "subtitle": "Что нового в GameDev за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 3467,
@@ -495,7 +213,7 @@
     },
     {
       "id": "4",
-      "title": "Javascript news",
+      "title": "Фикстурные данные 4",
       "subtitle": "Что нового в Angular за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 349,
@@ -1056,4 +774,3 @@
       ]
     }
   ]
-}
