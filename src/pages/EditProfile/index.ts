@@ -1,3 +1,3 @@
-import { EditProfilePage } from "./EditProfilePage";
+import { EditProfilePage } from './EditProfilePage';
 
-export {EditProfilePage}
+export { EditProfilePage };

@@ -1,59 +1,59 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
-import type { StateSchema, ThunkExtraArgument } from '../types/types'
-import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice'
-import { userReducer } from '../../../../entities/User'
-import { useDispatch } from 'react-redux'
-import { createReducerManager } from './reducerManager'
-import { $api } from '../../../../shared/api/instanceApi'
-import { NavigateOptions, To } from 'react-router-dom'
-import { saveScrollReducer } from '../../../../widgets/SaveScroll'
-import { rtkApi } from '../../../../shared/api/RTKApi'
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import type { StateSchema, ThunkExtraArgument } from '../types/types';
+import { counterReducer } from '../../../../features/Counter/model/slice/counterSlice';
+import { userReducer } from '../../../../entities/User';
+import { useDispatch } from 'react-redux';
+import { createReducerManager } from './reducerManager';
+import { $api } from '../../../../shared/api/instanceApi';
+import { NavigateOptions, To } from 'react-router-dom';
+import { saveScrollReducer } from '../../../../widgets/SaveScroll';
+import { rtkApi } from '../../../../shared/api/RTKApi';
 
-
-export const universalStore = (initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) => {
-
+export const universalStore = (
+    initialState?: StateSchema,
+    navigate?: (to: To, options?: NavigateOptions) => void,
+) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
         save_scroll: saveScrollReducer,
-        [rtkApi.reducerPath]: rtkApi.reducer
-    }
+        [rtkApi.reducerPath]: rtkApi.reducer,
+    };
 
-    const reducerManager = createReducerManager(rootReducers)
+    const reducerManager = createReducerManager(rootReducers);
     // const navigate = useNavigate()
 
-    const extraArg: ThunkExtraArgument={
+    const extraArg: ThunkExtraArgument = {
         api: $api,
-        navigate
-    }
+        navigate,
+    };
 
-    console.log('RENDER')
+    console.log('RENDER');
 
     const store = configureStore<StateSchema>({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
 
-        middleware:(getDefaultMiddleware) => 
+        middleware: (getDefaultMiddleware) =>
             //@ts-ignore
             getDefaultMiddleware({
-            thunk:{
-                extraArgument: extraArg
-            }
-        }).concat(rtkApi.middleware) 
-
-    })
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }).concat(rtkApi.middleware),
+    });
 
     // @ts-ignore
-    store.reducerManager = reducerManager
+    store.reducerManager = reducerManager;
 
-    return store
-}
+    return store;
+};
 
-export const store = universalStore()
+export const store = universalStore();
 
 export type AppDispatch = ReturnType<typeof universalStore>['dispatch'];
 
-export type RootState = ReturnType<typeof store.getState>
-export const useAppDispatch: () => AppDispatch = useDispatch 
+export type RootState = ReturnType<typeof store.getState>;
+export const useAppDispatch: () => AppDispatch = useDispatch;
 // export const useAppDispatch = () => useDispatch<AppDispatch>();

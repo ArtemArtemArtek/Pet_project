@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export enum Themes {
     LIGHT = 'app_light_theme',
@@ -7,10 +7,10 @@ export enum Themes {
 }
 
 export interface ContextProps {
-    theme?: Themes,
-    setTheme?: (theme: Themes) => void
+    theme?: Themes;
+    setTheme?: (theme: Themes) => void;
 }
 
-export const ThemeContext = createContext<ContextProps>({})
+export const ThemeContext = createContext<ContextProps>({});
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme'
+export const LOCAL_STORAGE_THEME_KEY = 'theme';

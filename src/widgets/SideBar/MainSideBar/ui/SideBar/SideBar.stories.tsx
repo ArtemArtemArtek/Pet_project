@@ -15,15 +15,14 @@ export default {
     },
 } as ComponentMeta<typeof SideBar>;
 
-const Template: ComponentStory<typeof SideBar> = (args) => <SideBar {...args} />;
+const Template: ComponentStory<typeof SideBar> = (args) => (
+    <SideBar {...args} />
+);
 
 export const LightSideBar = Template.bind({});
 LightSideBar.args = {};
 LightSideBar.decorators = [ThemeDecorator(Themes.LIGHT), StyleDecorator];
 
-
 export const DarkSideBar = Template.bind({});
 DarkSideBar.args = {};
 DarkSideBar.decorators = [ThemeDecorator(Themes.DARK), StyleDecorator];
-
-

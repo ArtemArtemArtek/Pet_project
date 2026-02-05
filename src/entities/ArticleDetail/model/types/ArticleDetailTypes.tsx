@@ -1,35 +1,35 @@
-import { user } from "../../../../entities/User";
+import { user } from '../../../../entities/User';
 
-export enum ArticleSortFields{
+export enum ArticleSortFields {
     VIEWS = 'views',
     CREATED_AT = 'createdAt',
-    TITLE = 'title'
+    TITLE = 'title',
 }
 
 export enum ArticleType {
     CODE = 'CODE',
     IT = 'IT',
-    MANAGMENT = 'MANAGMENT'
+    MANAGMENT = 'MANAGMENT',
 }
 
 export enum ArticleBlockType {
     CODE = 'CODE',
     TEXT = 'TEXT',
-    IMAGE = 'IMAGE'
+    IMAGE = 'IMAGE',
 }
 
 interface ArticleBase {
-    id: string,
-    type: ArticleBlockType
+    id: string;
+    type: ArticleBlockType;
 }
 
 export interface ArticleImage extends ArticleBase {
     src: string;
-    title: string
+    title: string;
 }
 
 export interface ArticleCode extends ArticleBase {
-    code: string
+    code: string;
 }
 
 export interface ArticleText extends ArticleBase {
@@ -37,16 +37,16 @@ export interface ArticleText extends ArticleBase {
     title?: string;
 }
 
-export type ArticleBlock = ArticleImage | ArticleCode | ArticleText
+export type ArticleBlock = ArticleImage | ArticleCode | ArticleText;
 
 export interface ArticleDetailType {
     id: string;
     title: string;
-    user:user
+    user: user;
     subtitle: string;
     img: string;
     views: number;
     createdAt: string;
     type: ArticleType[];
-    blocks: ArticleBlock[]
+    blocks: ArticleBlock[];
 }

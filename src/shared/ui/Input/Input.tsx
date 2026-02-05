@@ -1,35 +1,34 @@
-import React, { InputHTMLAttributes } from "react";
-import ClassNameHelper from "../../../shared/lib/classNames/classNames";
-import cls from './Input.module.scss'
+import React, { InputHTMLAttributes } from 'react';
+import ClassNameHelper from '../../../shared/lib/classNames/classNames';
+import cls from './Input.module.scss';
 
 export enum InputThemes {
-    CLEAR = "clear",
-    DRFAULT = "default"
+    CLEAR = 'clear',
+    DRFAULT = 'default',
 }
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    className?: string
-    theme?: InputThemes
-    placeholder?: string
-    defaultValue?: string
-    disabled?: boolean
+    className?: string;
+    theme?: InputThemes;
+    placeholder?: string;
+    defaultValue?: string;
+    disabled?: boolean;
 }
 
 export const Input: React.FC<InputProps> = React.memo((props) => {
-
-    const { 
-        className, 
-        theme, 
+    const {
+        className,
+        theme,
         placeholder = '',
-        onChange ,
+        onChange,
         defaultValue,
-        disabled=false,
+        disabled = false,
         ...otherProps
-    } = props
+    } = props;
 
     const mods: Record<string, boolean> = {
-        [cls[theme]]: true
-    }
+        [cls[theme]]: true,
+    };
 
     return (
         <input
@@ -40,6 +39,5 @@ export const Input: React.FC<InputProps> = React.memo((props) => {
             disabled={disabled}
             {...otherProps}
         />
-
-    )
-})
+    );
+});

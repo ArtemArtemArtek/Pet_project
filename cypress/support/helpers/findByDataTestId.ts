@@ -1,3 +1,3 @@
 export function findByDataTestId(dataTestId: string) {
-    return `[data-testid=${dataTestId}]`
+    return `[data-testid=${dataTestId}]`;
 }

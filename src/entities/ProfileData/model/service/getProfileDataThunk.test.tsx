@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { StateSchema } from "../../../../app/providers/StoreProvider/";
+import { StateSchema } from '../../../../app/providers/StoreProvider/';
 import { DeepPartial } from '../../../../app/providers/StoreProvider/types/types';
 import { Dispatch } from '@reduxjs/toolkit';
 import { fetchProfileData } from './getProfileDataThunk';
@@ -9,18 +9,16 @@ import { Cities, Country, Currency } from '../../../../shared/consts/enums';
 import { user, userActions } from '../../../../entities/User';
 import { $api } from '../../../../shared/api/instanceApi';
 
-
 jest.mock('../../../../shared/api/instanceApi', () => ({
     $api: {
         get: jest.fn(),
     },
-}))
+}));
 
-const mockedApi = $api as jest.Mocked<typeof $api>
+const mockedApi = $api as jest.Mocked<typeof $api>;
 
-let dispatch: Dispatch
-let state: () => StateSchema
-
+let dispatch: Dispatch;
+let state: () => StateSchema;
 
 const mockUserProfile: DeepPartial<ProfileSchema> = {
     data: {
@@ -31,27 +29,25 @@ const mockUserProfile: DeepPartial<ProfileSchema> = {
         currency: Currency.RUB,
         firstname: 'dsad',
         lastname: 'dsdwwwwww',
-        username: 'dddawawawaaaaaa'
-    }
-}
+        username: 'dddawawawaaaaaa',
+    },
+};
 describe('fetchProfileData thunk', () => {
     beforeEach(() => {
-        jest.clearAllMocks()
-        dispatch = jest.fn()    
-        state = jest.fn()
-    })
+        jest.clearAllMocks();
+        dispatch = jest.fn();
+        state = jest.fn();
+    });
 
     test('should dispatch fulfilled action when API call is successful', async () => {
-        mockedApi.get.mockResolvedValueOnce({ data: mockUserProfile })
-        const extra = { api: mockedApi }
+        mockedApi.get.mockResolvedValueOnce({ data: mockUserProfile });
+        const extra = { api: mockedApi };
 
-        const response = await fetchProfileData('1')(dispatch, state, extra)
+        const response = await fetchProfileData('1')(dispatch, state, extra);
 
-        expect(mockedApi.get).toHaveBeenCalledWith('/profile/1')
-        expect(dispatch).toHaveBeenCalledTimes(2)
-        expect(response.payload).toEqual(mockUserProfile)
-        expect(response.meta.requestStatus).toBe('fulfilled')
-
-    })
-
-})
+        expect(mockedApi.get).toHaveBeenCalledWith('/profile/1');
+        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(response.payload).toEqual(mockUserProfile);
+        expect(response.meta.requestStatus).toBe('fulfilled');
+    });
+});

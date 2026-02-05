@@ -1,3 +1,3 @@
-import { ProfileRating } from "./ui/ProfileRating";
+import { ProfileRating } from './ui/ProfileRating';
 
-export {ProfileRating}
+export { ProfileRating };

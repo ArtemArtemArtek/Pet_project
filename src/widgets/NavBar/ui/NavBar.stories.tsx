@@ -22,9 +22,6 @@ export const LightNavBar = Template.bind({});
 LightNavBar.args = {};
 LightNavBar.decorators = [ThemeDecorator(Themes.LIGHT), RouterDecorator];
 
-
 export const DarkNavBar = Template.bind({});
 DarkNavBar.args = {};
 DarkNavBar.decorators = [ThemeDecorator(Themes.DARK), RouterDecorator];
-
-

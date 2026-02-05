@@ -1,3 +1,3 @@
-import { AddComment } from "./ui/AddComment";
+import { AddComment } from './ui/AddComment';
 
-export {AddComment}
+export { AddComment };

@@ -22,4 +22,3 @@ LoaderLight.decorators = [ThemeDecorator(Themes.LIGHT)];
 export const LoaderDark = Template.bind({});
 LoaderDark.args = {};
 LoaderDark.decorators = [ThemeDecorator(Themes.DARK)];
-

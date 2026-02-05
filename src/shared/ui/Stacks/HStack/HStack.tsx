@@ -1,15 +1,16 @@
-import React from "react";
-import { FlexStack, FlexStackProps } from "../FlexStack/FlexStack";
+import React from 'react';
+import { FlexStack, FlexStackProps } from '../FlexStack/FlexStack';
 
-type HStackProps = Omit<FlexStackProps,"flexDirection">
+type HStackProps = Omit<FlexStackProps, 'flexDirection'>;
 
-export const HStack:React.FC<HStackProps>=(props)=>{
+export const HStack: React.FC<HStackProps> = (props) => {
+    const { children } = props;
 
-    const {children} = props
-
-    return(
-        <FlexStack {...props} flexDirection="row">
+    return (
+        <FlexStack
+            {...props}
+            flexDirection="row">
             {children}
         </FlexStack>
-    )
-}
+    );
+};

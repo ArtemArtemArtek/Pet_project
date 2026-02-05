@@ -1,15 +1,18 @@
-import React, { ErrorInfo, ReactNode, Suspense } from "react";
-import { PageError } from "../../../../widgets/PageError/index";
+import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import { PageError } from '../../../../widgets/PageError/index';
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-    hasError: boolean,
+    hasError: boolean;
 }
 
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };
@@ -24,18 +27,19 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     }
 
     render() {
-        const { children } = this.props
-        const { hasError } = this.state
+        const { children } = this.props;
+        const { hasError } = this.state;
 
         if (hasError) {
             return (
-                <Suspense fallback=''>
+                <Suspense fallback="">
                     <PageError />
-                </Suspense>)
+                </Suspense>
+            );
         }
 
         return children;
     }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

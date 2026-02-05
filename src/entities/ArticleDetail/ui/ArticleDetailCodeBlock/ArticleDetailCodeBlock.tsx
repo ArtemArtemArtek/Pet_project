@@ -1,23 +1,23 @@
-import React from "react";
-import cls from './ArticleDetailCodeBlock.module.scss'
-import { ArticleCode } from "../../model/types/ArticleDetailTypes";
-import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
-import CopyIcon from '../../../../shared/assets/icons/Copy.svg'
+import React from 'react';
+import cls from './ArticleDetailCodeBlock.module.scss';
+import { ArticleCode } from '../../model/types/ArticleDetailTypes';
+import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
+import CopyIcon from '../../../../shared/assets/icons/Copy.svg';
 
 interface ArticleDetailCodeBlock_props {
-    code_block: ArticleCode
+    code_block: ArticleCode;
 }
 
-export const ArticleDetailCodeBlock: React.FC<ArticleDetailCodeBlock_props> = (props) => {
-
-    const { code_block } = props
+export const ArticleDetailCodeBlock: React.FC<ArticleDetailCodeBlock_props> = (
+    props,
+) => {
+    const { code_block } = props;
 
     const copyFunction = () => {
-        navigator.clipboard.writeText(code_block.code)
-    }
+        navigator.clipboard.writeText(code_block.code);
+    };
 
     return (
-
         <pre className={cls.code_wrapper}>
             <Button
                 onClick={copyFunction}
@@ -25,9 +25,7 @@ export const ArticleDetailCodeBlock: React.FC<ArticleDetailCodeBlock_props> = (p
                 theme={ButtonTheme.BACKGROUND}>
                 <CopyIcon className={cls.copy_icon} />
             </Button>
-            <code >
-                {code_block.code}
-            </code>
+            <code>{code_block.code}</code>
         </pre>
-    )
-}
+    );
+};

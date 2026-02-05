@@ -10,16 +10,9 @@ interface StoreProviderProps {
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
-    const {
-        children,
-        initialState,
-    } = props;
+    const { children, initialState } = props;
 
     const store = universalStore(initialState as StateSchema);
 
-    return (
-        <Provider store={store}>
-            {children}
-        </Provider>
-    );
+    return <Provider store={store}>{children}</Provider>;
 };

@@ -13,23 +13,23 @@ import { getUser } from '../entities/User';
 import { useSelector } from 'react-redux';
 
 const App = () => {
-    const { theme, changeTheme } = useTheme()
+    const { theme, changeTheme } = useTheme();
 
-    const [isOpened, setIsOpened] = useState(false)
-    const dispatch = useDispatch()
-    const {init} = useSelector(getUser)
+    const [isOpened, setIsOpened] = useState(false);
+    const dispatch = useDispatch();
+    const { init } = useSelector(getUser);
 
-    useEffect(()=>{
-        dispatch(userActions.initUserData())
-    },[dispatch])
-    
+    useEffect(() => {
+        dispatch(userActions.initUserData());
+    }, [dispatch]);
+
     return (
         <div className={ClassNameHelper('app', {}, [theme])}>
             <Suspense fallback={<Loader />}>
-                <NavBar className='' />
+                <NavBar className="" />
                 <div className="content-page">
                     <SideBar />
-                    {init?<AppRouter />: null}
+                    {init ? <AppRouter /> : null}
                 </div>
             </Suspense>
         </div>

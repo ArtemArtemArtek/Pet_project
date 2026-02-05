@@ -1,3 +1,3 @@
-import { RatingArticle } from "./ui/RatingArticle";
+import { RatingArticle } from './ui/RatingArticle';
 
-export {RatingArticle}
+export { RatingArticle };

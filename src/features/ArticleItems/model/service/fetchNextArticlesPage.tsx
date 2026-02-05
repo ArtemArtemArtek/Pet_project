@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkType } from "../../../../app/providers/StoreProvider"
+import { ThunkType } from '../../../../app/providers/StoreProvider';
 import {
     getArticlesPageHasMore,
     getArticlesPageIsLoading,
@@ -12,19 +12,18 @@ export const fetchNextArticlesPage = createAsyncThunk<
     void,
     void,
     ThunkType<string>
-    >(
-        'articlesPage/fetchNextArticlesPage',
-        async (_, thunkApi) => {
-            const { getState, dispatch } = thunkApi;
-            const hasMore = getArticlesPageHasMore(getState());
-            const page = getArticlesPageNum(getState());
-            const isLoading = getArticlesPageIsLoading(getState());
+>('articlesPage/fetchNextArticlesPage', async (_, thunkApi) => {
+    const { getState, dispatch } = thunkApi;
+    const hasMore = getArticlesPageHasMore(getState());
+    const page = getArticlesPageNum(getState());
+    const isLoading = getArticlesPageIsLoading(getState());
 
-            if (hasMore && !isLoading) {
-                dispatch(articlesActions.setPage(page + 1));
-                dispatch(fetchArticlesData({
-                    page: page + 1,
-                }));
-            }
-        },
-    );
+    if (hasMore && !isLoading) {
+        dispatch(articlesActions.setPage(page + 1));
+        dispatch(
+            fetchArticlesData({
+                page: page + 1,
+            }),
+        );
+    }
+});

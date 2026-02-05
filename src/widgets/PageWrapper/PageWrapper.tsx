@@ -1,59 +1,60 @@
-import React, { ReactNode, useRef, useEffect } from "react"
-import cls from './PageWrapper.module.scss'
-import ClassNameHelper from "../../shared/lib/classNames/classNames"
-import { useInfiniteScroll } from "../../shared/lib/useInfiniteScroll/useInfiniteScroll"
-import { saveScrollActions, getScrollData } from "../SaveScroll"
-import { useSelector } from "react-redux"
-import { useLocation } from "react-router-dom"
-import { useAppDispatch } from "../../app/providers/StoreProvider/config/store"
-import { useThrottle } from "../../shared/hooks/useThrottle"
-import { dataTestId } from "../../shared/consts/tests"
+import React, { ReactNode, useRef, useEffect } from 'react';
+import cls from './PageWrapper.module.scss';
+import ClassNameHelper from '../../shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '../../shared/lib/useInfiniteScroll/useInfiniteScroll';
+import { saveScrollActions, getScrollData } from '../SaveScroll';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useAppDispatch } from '../../app/providers/StoreProvider/config/store';
+import { useThrottle } from '../../shared/hooks/useThrottle';
+import { dataTestId } from '../../shared/consts/tests';
 
-interface PageWrapperProps extends dataTestId{
-    className?: string
-    children: ReactNode
-    onScrolledEnd?: () => void
-
+interface PageWrapperProps extends dataTestId {
+    className?: string;
+    children: ReactNode;
+    onScrolledEnd?: () => void;
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
-    const { children, className, onScrolledEnd} = props
-    const triggerRef = useRef() as React.MutableRefObject<HTMLDivElement>
-    const wrapperRef = useRef() as React.MutableRefObject<HTMLDivElement>
-    const { pathname } = useLocation()
-    const dispatch = useAppDispatch()
-    const {scroll} = useSelector(getScrollData)
-
+    const { children, className, onScrolledEnd } = props;
+    const triggerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+    const wrapperRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+    const { pathname } = useLocation();
+    const dispatch = useAppDispatch();
+    const { scroll } = useSelector(getScrollData);
 
     useInfiniteScroll({
         callback: onScrolledEnd,
         triggerRef: triggerRef,
-        wrapperRef: wrapperRef
-    })
+        wrapperRef: wrapperRef,
+    });
 
-    useEffect(()=>{
-        wrapperRef.current.scrollTop = scroll[pathname]
+    useEffect(() => {
+        wrapperRef.current.scrollTop = scroll[pathname];
         //eslint-disable-next-line
-    },[])
+    }, []);
 
     const ScrollFunction = useThrottle((event: React.UIEvent<HTMLElement>) => {
-        console.log(event.currentTarget.scrollTop)
-        dispatch(saveScrollActions.setScroll({
-            path: pathname,
-            scroll: event.currentTarget.scrollTop
-        }))
-
-    }, 500)
+        console.log(event.currentTarget.scrollTop);
+        dispatch(
+            saveScrollActions.setScroll({
+                path: pathname,
+                scroll: event.currentTarget.scrollTop,
+            }),
+        );
+    }, 500);
 
     return (
         <main
             onScroll={ScrollFunction}
             ref={wrapperRef}
             className={ClassNameHelper(cls.pageWrapper, {}, [className])}
-            data-testid = {props['data-testid']??'Page'}
-        >
+            data-testid={props['data-testid'] ?? 'Page'}>
             {children}
-            <div className={cls.trigger} ref={triggerRef} />
+            <div
+                className={cls.trigger}
+                ref={triggerRef}
+            />
         </main>
-    )
-}
+    );
+};

@@ -1,35 +1,35 @@
-import { user } from "./profileTypes";
+import { user } from './profileTypes';
 
-enum ArticleSortFields{
+enum ArticleSortFields {
     VIEWS = 'views',
     CREATED_AT = 'createdAt',
-    TITLE = 'title'
+    TITLE = 'title',
 }
 
 enum ArticleType {
     CODE = 'CODE',
     IT = 'IT',
-    MANAGMENT = 'MANAGMENT'
+    MANAGMENT = 'MANAGMENT',
 }
 
 enum ArticleBlockType {
     CODE = 'CODE',
     TEXT = 'TEXT',
-    IMAGE = 'IMAGE'
+    IMAGE = 'IMAGE',
 }
 
 interface ArticleBase {
-    id: string,
-    type: ArticleBlockType
+    id: string;
+    type: ArticleBlockType;
 }
 
 interface ArticleImage extends ArticleBase {
     src: string;
-    title: string
+    title: string;
 }
 
 interface ArticleCode extends ArticleBase {
-    code: string
+    code: string;
 }
 
 interface ArticleText extends ArticleBase {
@@ -37,16 +37,16 @@ interface ArticleText extends ArticleBase {
     title?: string;
 }
 
-type ArticleBlock = ArticleImage | ArticleCode | ArticleText
+type ArticleBlock = ArticleImage | ArticleCode | ArticleText;
 
 export interface ArticleDetailType {
     id: string;
     title: string;
-    user:user
+    user: user;
     subtitle: string;
     img: string;
     views: number;
     createdAt: string;
     type: ArticleType[];
-    blocks: ArticleBlock[]
+    blocks: ArticleBlock[];
 }

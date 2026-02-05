@@ -1,1 +1,1 @@
-export * from './RaitingStars'
+export * from './RaitingStars';

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 import webpack from 'webpack';
 import { webpackConfig } from './config/build/buildWebpackConfig';
 import { buildPath } from './config/build/types/config';
@@ -11,16 +11,21 @@ export default (env: envData) => {
         output: path.resolve(__dirname, 'build'),
         src: path.resolve(__dirname, 'src'),
         from: path.resolve(__dirname, 'public', 'locales'),
-        to:  path.resolve(__dirname, 'build')
-    }
+        to: path.resolve(__dirname, 'build'),
+    };
 
-    const mode = env.mode||'development'
+    const mode = env.mode || 'development';
     // const url = env.url||'http://localhost:8000'
-    const port = env.port||3000
+    const port = env.port || 3000;
 
-    const isDev = mode === 'development'
+    const isDev = mode === 'development';
 
-    const config: webpack.Configuration = webpackConfig({ path: paths, mode, port, isDev})
+    const config: webpack.Configuration = webpackConfig({
+        path: paths,
+        mode,
+        port,
+        isDev,
+    });
 
-    return config
-}
+    return config;
+};

@@ -1,3 +1,3 @@
-import { LogoutModal } from "./ui/LogoutModal";
+import { LogoutModal } from './ui/LogoutModal';
 
-export {LogoutModal}
+export { LogoutModal };

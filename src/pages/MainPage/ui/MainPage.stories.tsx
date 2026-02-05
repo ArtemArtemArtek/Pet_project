@@ -13,7 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args as object} />;
+const Template: ComponentStory<typeof MainPage> = (args) => (
+    <MainPage {...(args as object)} />
+);
 
 export const MainPageLight = Template.bind({});
 MainPageLight.args = {};
@@ -22,4 +24,3 @@ MainPageLight.decorators = [ThemeDecorator(Themes.LIGHT)];
 export const MainPageDark = Template.bind({});
 MainPageDark.args = {};
 MainPageDark.decorators = [ThemeDecorator(Themes.DARK)];
-

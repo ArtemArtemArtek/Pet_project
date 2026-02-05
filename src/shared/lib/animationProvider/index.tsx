@@ -1,3 +1,3 @@
-import { AnimationProvider, useAnimationLibs } from "./animationProvider";
+import { AnimationProvider, useAnimationLibs } from './animationProvider';
 
-export {AnimationProvider, useAnimationLibs}
+export { AnimationProvider, useAnimationLibs };

@@ -12,17 +12,18 @@ export default {
     },
 } as ComponentMeta<typeof FlexStack>;
 
-const Template: ComponentStory<typeof FlexStack> = (args) => <FlexStack {...args} />;
+const Template: ComponentStory<typeof FlexStack> = (args) => (
+    <FlexStack {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
-    children: 
-    <>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-    </>,
+    children: (
+        <>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </>
+    ),
 };
 // Primary.decorators = [ThemeDecorator(Themes.DARK)];
-
-

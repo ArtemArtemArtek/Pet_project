@@ -1,5 +1,5 @@
-export type ScrollData = Record<string, number>
+export type ScrollData = Record<string, number>;
 
-export interface SaveScrollSchema{
-    scroll: ScrollData
+export interface SaveScrollSchema {
+    scroll: ScrollData;
 }

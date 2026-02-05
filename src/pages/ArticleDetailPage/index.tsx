@@ -1,3 +1,3 @@
-import { ArticleDetailPage } from "./ui/ArticleDetailPage";
+import { ArticleDetailPage } from './ui/ArticleDetailPage';
 
-export {ArticleDetailPage}
+export { ArticleDetailPage };

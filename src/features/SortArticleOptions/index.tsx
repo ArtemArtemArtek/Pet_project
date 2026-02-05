@@ -1,3 +1,3 @@
-import { SortArticleOptions } from "./ui/SortArticleOptions";
+import { SortArticleOptions } from './ui/SortArticleOptions';
 
-export {SortArticleOptions}
+export { SortArticleOptions };

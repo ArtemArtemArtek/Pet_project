@@ -1,7 +1,7 @@
-import { user } from "../../../../entities/User";
+import { user } from '../../../../entities/User';
 
-export interface CommentType{
-      id: number,
-      body: string,
-      user: user,
+export interface CommentType {
+    id: number;
+    body: string;
+    user: user;
 }

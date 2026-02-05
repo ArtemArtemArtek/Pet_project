@@ -1,5 +1,5 @@
-import { StateSchema } from "../../../../app/providers/StoreProvider/";
+import { StateSchema } from '../../../../app/providers/StoreProvider/';
 
-export const getAuth=(state:StateSchema)=>{
-    return state.auth
-}
+export const getAuth = (state: StateSchema) => {
+    return state.auth;
+};

@@ -1,5 +1,5 @@
-import { StateSchema } from "../../../../app/providers/StoreProvider"
+import { StateSchema } from '../../../../app/providers/StoreProvider';
 
-export const getRecomendationData=(state:StateSchema)=>{
-    return state.recomendation
-}
+export const getRecomendationData = (state: StateSchema) => {
+    return state.recomendation;
+};

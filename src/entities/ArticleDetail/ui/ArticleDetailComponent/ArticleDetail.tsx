@@ -1,94 +1,147 @@
-import React, { useCallback } from "react";
-import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import { StateSchema } from "../../../../app/providers/StoreProvider";
-import Eye_icon from '../../../../shared/assets/icons/Eye.svg'
-import Calendar from '../../../../shared/assets/icons/Created_data.svg'
-import { Skeleton } from "../../../../shared/ui/Skeleton/Skeleton";
-import { Avatar, AvatarSize } from "../../../../shared/ui/Avatar/Avatar";
-import { ArticleBlockType, ArticleBlock, ArticleText, ArticleImage, ArticleCode } from "../../model/types/ArticleDetailTypes";
-import { ArticleDetailCodeBlock } from "../ArticleDetailCodeBlock/ArticleDetailCodeBlock";
-import { ArticleDetailImageBlock } from "../ArticleDetailImageBlock/ArticleDetailImageBlock";
-import { ArticleDetailTextBlock } from "../ArticleDetailTextBlock/ArticleDetailTextBlock";
-import { CommentComponent } from "../../../../features/Comment";
-import { commentSelectors } from "../../../../entities/CommentData";
-import { AddComment } from "../../../../features/AddComment";
-import { Button, ButtonTheme, ButtonSize } from "../../../../shared/ui/Button/Button";
-import { useNavigate } from "react-router-dom";
-import { getArticlesPath } from "../../../../shared/configs/routeConfig/routeConfig";
-import { PageWrapper } from "../../../../widgets/PageWrapper/PageWrapper";
-import { useAppDispatch } from "../../../../app/providers/StoreProvider/config/store";
-import { RatingArticle } from "../../../../entities/RatingArticle";
-import { getUser } from "../../../../entities/User";
-import cls from './ArticleDetail.module.scss'
-import { Recomendations } from "../../../../features/Recomendations/ui/Recomendations";
+import React, { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { StateSchema } from '../../../../app/providers/StoreProvider';
+import Eye_icon from '../../../../shared/assets/icons/Eye.svg';
+import Calendar from '../../../../shared/assets/icons/Created_data.svg';
+import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
+import { Avatar, AvatarSize } from '../../../../shared/ui/Avatar/Avatar';
+import {
+    ArticleBlockType,
+    ArticleBlock,
+    ArticleText,
+    ArticleImage,
+    ArticleCode,
+} from '../../model/types/ArticleDetailTypes';
+import { ArticleDetailCodeBlock } from '../ArticleDetailCodeBlock/ArticleDetailCodeBlock';
+import { ArticleDetailImageBlock } from '../ArticleDetailImageBlock/ArticleDetailImageBlock';
+import { ArticleDetailTextBlock } from '../ArticleDetailTextBlock/ArticleDetailTextBlock';
+import { CommentComponent } from '../../../../features/Comment';
+import { commentSelectors } from '../../../../entities/CommentData';
+import { AddComment } from '../../../../features/AddComment';
+import {
+    Button,
+    ButtonTheme,
+    ButtonSize,
+} from '../../../../shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { getArticlesPath } from '../../../../shared/configs/routeConfig/routeConfig';
+import { PageWrapper } from '../../../../widgets/PageWrapper/PageWrapper';
+import { useAppDispatch } from '../../../../app/providers/StoreProvider/config/store';
+import { RatingArticle } from '../../../../entities/RatingArticle';
+import { getUser } from '../../../../entities/User';
+import cls from './ArticleDetail.module.scss';
+import { Recomendations } from '../../../../features/Recomendations/ui/Recomendations';
 
 export const ArticleDetail: React.FC = React.memo(() => {
-    const comments = useSelector(commentSelectors.selectAll)
-    const dispatch = useAppDispatch()
-    const articleData = useSelector((state: StateSchema) => state.article_detail)
-    const {isAuth} = useSelector(getUser)||{}
-    const { t } = useTranslation()
-    const navigate =useNavigate()
+    const comments = useSelector(commentSelectors.selectAll);
+    const dispatch = useAppDispatch();
+    const articleData = useSelector(
+        (state: StateSchema) => state.article_detail,
+    );
+    const { isAuth } = useSelector(getUser) || {};
+    const { t } = useTranslation();
+    const navigate = useNavigate();
 
     // useEffect(()=>{
     //     console.log(articleData)
     //     dispatch(fetchRecomendationData(articleData?.data?.type[1]))
     // },[articleData, dispatch])
 
-    const back_to_articles =useCallback(()=>{
-        navigate(getArticlesPath())
-    },[navigate])
+    const back_to_articles = useCallback(() => {
+        navigate(getArticlesPath());
+    }, [navigate]);
 
     const renderBlock = useCallback((el: ArticleBlock) => {
         switch (el.type) {
             case ArticleBlockType.CODE:
                 return (
-                    <ArticleDetailCodeBlock key={el.id} code_block={el as ArticleCode} />
-                )
+                    <ArticleDetailCodeBlock
+                        key={el.id}
+                        code_block={el as ArticleCode}
+                    />
+                );
             case ArticleBlockType.IMAGE:
                 return (
-                    <ArticleDetailImageBlock key={el.id} image={el as ArticleImage} />
-                )
+                    <ArticleDetailImageBlock
+                        key={el.id}
+                        image={el as ArticleImage}
+                    />
+                );
             case ArticleBlockType.TEXT:
                 return (
-                    <ArticleDetailTextBlock key={el.id} block={el as ArticleText} />
-                )
+                    <ArticleDetailTextBlock
+                        key={el.id}
+                        block={el as ArticleText}
+                    />
+                );
 
             default:
-                return null
+                return null;
         }
-    }, [])
-
+    }, []);
 
     if (articleData?.isLoading) {
         return (
             <PageWrapper className={cls.skeleton_wrapper}>
-                <Skeleton borderRadius="50%" width="150px" height="150px" className={cls.image_skeleton} />
-                <Skeleton height="3px" width="18%" className={cls.title_skeleton} />
-                <Skeleton width="10%" className={cls.subtitle_skeleton} />
-                <Skeleton width="95%" height="70%" className={cls.content_skeleton} />
+                <Skeleton
+                    borderRadius="50%"
+                    width="150px"
+                    height="150px"
+                    className={cls.image_skeleton}
+                />
+                <Skeleton
+                    height="3px"
+                    width="18%"
+                    className={cls.title_skeleton}
+                />
+                <Skeleton
+                    width="10%"
+                    className={cls.subtitle_skeleton}
+                />
+                <Skeleton
+                    width="95%"
+                    height="70%"
+                    className={cls.content_skeleton}
+                />
             </PageWrapper>
-        )
+        );
     }
 
     if (articleData?.error) {
         return (
             <PageWrapper>
-            <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
-            <h1 className={cls.server_error}>{t('Ошибка сервера')}</h1>
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    size={ButtonSize.SIZE_XL}
+                    onClick={back_to_articles}>
+                    {t('Назад')}
+                </Button>
+                <h1 className={cls.server_error}>{t('Ошибка сервера')}</h1>
             </PageWrapper>
-        )
+        );
     }
 
     return (
         <PageWrapper data-testid="ArticleDetailPage">
-        <Button theme={ButtonTheme.OUTLINE} size={ButtonSize.SIZE_XL} onClick={back_to_articles}>{t('Назад')}</Button>
+            <Button
+                theme={ButtonTheme.OUTLINE}
+                size={ButtonSize.SIZE_XL}
+                onClick={back_to_articles}>
+                {t('Назад')}
+            </Button>
             <div className={cls.avatar_wrapper}>
-                <Avatar size={AvatarSize.MEDIUM} src={articleData?.data?.img} />
+                <Avatar
+                    size={AvatarSize.MEDIUM}
+                    src={articleData?.data?.img}
+                />
             </div>
             <div className={cls.title_wrapper}>{articleData?.data?.title}</div>
-            <div data-testid='ArticleDetailSubtitle' className={cls.sub_title_wrapper}>{articleData?.data?.subtitle}</div>
+            <div
+                data-testid="ArticleDetailSubtitle"
+                className={cls.sub_title_wrapper}>
+                {articleData?.data?.subtitle}
+            </div>
             <div className={cls.created_data_wrapper}>
                 <Calendar />
                 <p>{articleData?.data?.createdAt}</p>
@@ -101,20 +154,26 @@ export const ArticleDetail: React.FC = React.memo(() => {
                 {articleData?.data?.blocks?.map(renderBlock)}
             </div>
             <hr className={cls.line_design} />
-            <RatingArticle articleID={articleData?.data?.id} userID={isAuth?.id} />
+            <RatingArticle
+                articleID={articleData?.data?.id}
+                userID={isAuth?.id}
+            />
             <hr className={cls.line_design} />
-            <Recomendations articleType={articleData?.data?.type[1]}/>
+            <Recomendations articleType={articleData?.data?.type[1]} />
             <div>
                 <hr className={cls.line_design} />
                 <div className={cls.coment_title}>{t('Комментарии')}</div>
-                <AddComment/>
-                
-                {comments.map((el)=>{
-                return(    
-                    <CommentComponent key={el.id} comment={el} />
-                )
+                <AddComment />
+
+                {comments.map((el) => {
+                    return (
+                        <CommentComponent
+                            key={el.id}
+                            comment={el}
+                        />
+                    );
                 })}
             </div>
         </PageWrapper>
-    )
-})
+    );
+});
