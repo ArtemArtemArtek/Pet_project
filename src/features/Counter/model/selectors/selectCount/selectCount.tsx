@@ -7,3 +7,4 @@ import { buildSelector } from '../../../../../shared/lib/store';
 export const [useGetCounter, getCounter] = buildSelector(
     (state: StateSchema) => state.counter.value,
 );
+
