@@ -19,9 +19,8 @@ if (optionName !== 'on' && optionName !== 'off') {
 
 const project = new Project({});
 
-project.addSourceFilesAtPaths('src/**/ArticleDetail.tsx');
-// project.addSourceFilesAtPaths('src/**/*.ts');
-// project.addSourceFilesAtPaths('src/**/*.tsx');
+project.addSourceFilesAtPaths('src/**/*.ts');
+project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const files = project.getSourceFiles()
 
@@ -57,8 +56,11 @@ files.forEach((sourceFile) => {
                     if (optionName === 'off') {
                         descendant.replaceWithText(offFunction.getBody().getText() ?? '')
                     }
+
                 }
             })
         }
     })
 })
+
+project.save();
