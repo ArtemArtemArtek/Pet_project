@@ -1,3 +1,5 @@
+import { EnabledFlags } from "../../../../shared/types";
+
 export enum UserRoles {
     ADMIN = 'ADMIN',
     USER = 'USER',
@@ -9,6 +11,7 @@ export interface user {
     username: string;
     avatar?: string;
     role?: UserRoles;
+    enabledFlags?:EnabledFlags
 }
 
 export interface userSchema {

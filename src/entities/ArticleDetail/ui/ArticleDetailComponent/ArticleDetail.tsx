@@ -32,6 +32,8 @@ import { RatingArticle } from '../../../../entities/RatingArticle';
 import { getUser } from '../../../../entities/User';
 import cls from './ArticleDetail.module.scss';
 import { Recomendations } from '../../../../features/Recomendations/ui/Recomendations';
+import { getEnabledFlags } from '../../../../shared/lib/enabledFlags';
+import { enabledFeatureFlag } from '../../../../shared/lib/enabledFlags/eneblaedFeatureFlag';
 
 export const ArticleDetail: React.FC = React.memo(() => {
     const comments = useSelector(commentSelectors.selectAll);
@@ -41,7 +43,14 @@ export const ArticleDetail: React.FC = React.memo(() => {
     );
     const { isAuth } = useSelector(getUser) || {};
     const { t } = useTranslation();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const articleRatingEnableFlag = getEnabledFlags('isArticleRatingEnabled')
+
+    const articleFeatureFlag = enabledFeatureFlag({
+        name: 'isArticleRatingEnabled',
+        on: () => <RatingArticle articleID={articleData?.data?.id} userID={isAuth?.id} />,
+        off: () => <>Рейтинг находится в разработке</>
+    })
 
     // useEffect(()=>{
     //     console.log(articleData)
@@ -154,11 +163,16 @@ export const ArticleDetail: React.FC = React.memo(() => {
                 {articleData?.data?.blocks?.map(renderBlock)}
             </div>
             <hr className={cls.line_design} />
-            <RatingArticle
+            {/* {articleRatingEnableFlag && <RatingArticle
                 articleID={articleData?.data?.id}
                 userID={isAuth?.id}
-            />
-            <hr className={cls.line_design} />
+            />} */}
+            {articleFeatureFlag}
+            {/* <RatingArticle
+                articleID={articleData?.data?.id}
+                userID={isAuth?.id}
+            /> */}
+            {articleRatingEnableFlag && <hr className={cls.line_design} />}
             <Recomendations articleType={articleData?.data?.type[1]} />
             <div>
                 <hr className={cls.line_design} />
