@@ -205,6 +205,10 @@
             "enabledFlags": {
                 "isCounterEnabled": true,
                 "isArticleRatingEnabled": true
+            },
+            "jsonSettings":{
+                "theme":"app_light_theme",
+                "pageInitedFirstTime": false
             }
         },
         {

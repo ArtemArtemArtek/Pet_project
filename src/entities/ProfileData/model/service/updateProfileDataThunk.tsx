@@ -11,14 +11,14 @@ export const updateProfileData = createAsyncThunk<
     undefined,
     ThunkType<string>
 >('profile/updateUserData', async (_, thunkAPI) => {
-    console.log('Попали в редюсер обновления профиля');
+
     const { extra, rejectWithValue, getState } = thunkAPI;
     try {
         const { data: profileData } = getProfileData(getState());
         const { isAuth: authData } = getUser(getState());
 
         const validateError = validateProfileData(profileData);
-        console.log('ERRORS', validateError);
+  
         if (Object.keys(validateError).length) {
             return rejectWithValue(validateError);
         }

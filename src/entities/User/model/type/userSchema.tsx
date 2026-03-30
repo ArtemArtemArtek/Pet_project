@@ -1,4 +1,5 @@
 import { EnabledFlags } from "../../../../shared/types";
+import { jsonSettingsType } from "./jsonSrttings";
 
 export enum UserRoles {
     ADMIN = 'ADMIN',
@@ -12,6 +13,8 @@ export interface user {
     avatar?: string;
     role?: UserRoles;
     enabledFlags?:EnabledFlags
+    jsonSettings?: jsonSettingsType
+
 }
 
 export interface userSchema {

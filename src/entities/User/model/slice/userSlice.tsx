@@ -3,7 +3,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { userSchema, user } from '../type/userSchema';
 import { LOCAL_USER_AUTH_KEY } from '../../../../shared/consts/consts';
 import { setEnabledFlags } from '../../../../shared/lib/enabledFlags';
-import type {EnabledFlags} from '../../../../shared/types'
+import type { EnabledFlags } from '../../../../shared/types'
+import { postJsonSettings } from '../../service/postJsonSettingsThunk';
+import { jsonSettingsType } from '../type/jsonSrttings';
 
 const initialState: userSchema = {
     isAuth: undefined,
@@ -32,6 +34,21 @@ const userSlice = createSlice({
             localStorage.removeItem(LOCAL_USER_AUTH_KEY);
             setEnabledFlags({} as EnabledFlags)
         },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(
+                postJsonSettings.fulfilled,
+                (state, { payload }: PayloadAction<jsonSettingsType>) => {
+                    if (state.isAuth) {
+                        state.isAuth.jsonSettings = payload
+                    };
+                },
+            )
+        // .addCase(postJsonSettings.rejected, (state, action) => {
+        //     state.error = action.error.message;
+        //     state.isLoading = false;
+        // })
     },
 });
 
