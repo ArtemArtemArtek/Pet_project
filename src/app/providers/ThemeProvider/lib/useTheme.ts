@@ -10,8 +10,12 @@ interface useThemeResult {
     changeTheme: () => void;
 }
 
-const useTheme = (): useThemeResult => {
+//useTheme работает по дефолту с localStorage, однако 
+//может принимать калбек с иной обработкой темы
+
+const useTheme = (callback? :(theme: Themes) => void): useThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
+
 
     const changeTheme = () => {
         let newTheme: Themes;
@@ -29,11 +33,12 @@ const useTheme = (): useThemeResult => {
                 newTheme = Themes.LIGHT;
         }
         setTheme?.(newTheme);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+        
+        callback?callback(newTheme):localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
     return {
         theme: theme || Themes.LIGHT,
-        changeTheme,
+        changeTheme
     };
 };
 
