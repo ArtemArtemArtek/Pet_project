@@ -1,8 +1,7 @@
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { getJsonSettings, getUser } from '../../../../entities/User';
+import { FC, ReactNode, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { LOCAL_STORAGE_THEME_KEY, Themes, ThemeContext } from './ThemeContext';
-
-const currentTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Themes) || Themes.LIGHT;
 
 interface ThemeProviderProps {
     initialTheme?: Themes;
@@ -11,8 +10,26 @@ interface ThemeProviderProps {
 
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const { children, initialTheme } = props;
+    const jsonSettings = useSelector(getJsonSettings);
+    const [isReady, setIsReady] = useState(false);
 
-    const [theme, setTheme] = useState<Themes>(initialTheme || currentTheme);
+    console.log('jsonSettings',jsonSettings)
+    
+    useEffect(() => {
+        if (jsonSettings &&!isReady) {
+            setTheme(jsonSettings.theme)
+            setIsReady(true);
+        }
+
+    }, [jsonSettings]);
+
+    // let currentTheme = null
+
+    // if(isReady){
+    //     currentTheme =jsonSettings?.theme ??((localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Themes) || Themes.LIGHT)
+    // }
+    
+    const [theme, setTheme] = useState<Themes>(initialTheme || jsonSettings?.theme || Themes.LIGHT);
 
     const defaultProps = useMemo(
         () => ({

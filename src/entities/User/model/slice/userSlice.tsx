@@ -6,10 +6,12 @@ import { setEnabledFlags } from '../../../../shared/lib/enabledFlags';
 import type { EnabledFlags } from '../../../../shared/types'
 import { postJsonSettings } from '../../service/postJsonSettingsThunk';
 import { jsonSettingsType } from '../type/jsonSrttings';
+import { initUser } from '../../service/initUserThunk';
 
 const initialState: userSchema = {
     isAuth: undefined,
     init: false,
+    initError: null
 };
 
 const userSlice = createSlice({
@@ -21,6 +23,7 @@ const userSlice = createSlice({
             setEnabledFlags(action.payload.enabledFlags)
         },
         initUserData: (state) => {
+            
             const data = localStorage.getItem(LOCAL_USER_AUTH_KEY);
             if (data) {
                 const json = JSON.parse(data) as user
@@ -45,10 +48,18 @@ const userSlice = createSlice({
                     };
                 },
             )
-        // .addCase(postJsonSettings.rejected, (state, action) => {
-        //     state.error = action.error.message;
-        //     state.isLoading = false;
-        // })
+            .addCase(
+                initUser.fulfilled,
+                (state, {payload}: PayloadAction<user>)=>{
+                    state.isAuth = payload
+                }
+            )
+            .addCase(
+                initUser.rejected,
+                (state)=>{
+                    state.initError = 'Ошибка сервера'
+                }
+            )
     },
 });
 

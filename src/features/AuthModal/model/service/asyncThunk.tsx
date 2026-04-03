@@ -19,7 +19,7 @@ export const authUser = createAsyncThunk<user, useData, ThunkType<string>>(
             }
             localStorage.setItem(
                 LOCAL_USER_AUTH_KEY,
-                JSON.stringify(response.data),
+                JSON.stringify(response.data?.id),
             );
             dispatch(userActions.setUserData(response.data));
             return response.data;

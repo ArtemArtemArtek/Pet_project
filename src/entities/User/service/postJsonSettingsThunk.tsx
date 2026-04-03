@@ -12,15 +12,17 @@ export const postJsonSettings = createAsyncThunk<
 
     const { rejectWithValue, getState, dispatch } = thunkAPI;
     try {
+        console.log('newJsonSettings', newJsonSettings)
         const { isAuth: authData } = getUser(getState());
-
+        
         const currentJsonSettings = authData?.jsonSettings || null
+        console.log('currentJsonSettings', currentJsonSettings)
 
         const response = await dispatch(jsonSettingsPatchData({
             userId: authData.id,
             jsonSettings: {
-                ...newJsonSettings,
-                ...currentJsonSettings
+                ...currentJsonSettings,
+                ...newJsonSettings
             }
         })).unwrap()
 

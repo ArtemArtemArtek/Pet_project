@@ -8,6 +8,7 @@ import OrangeIcon from '../../../assets/icons/theme-orange 1.svg';
 import { Themes } from '../../../../app/providers/ThemeProvider/ui/ThemeContext';
 import { postJsonSettings } from '../../../../entities/User/service/postJsonSettingsThunk';
 import { useDispatch } from 'react-redux';
+
 interface ThemeSwitcherProps {
     className?: string;
 }

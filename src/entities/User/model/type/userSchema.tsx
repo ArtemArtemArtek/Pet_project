@@ -20,4 +20,5 @@ export interface user {
 export interface userSchema {
     isAuth?: user;
     init?: boolean;
+    initError?:string
 }

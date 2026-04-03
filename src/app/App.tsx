@@ -8,7 +8,7 @@ import { NavBar } from '../widgets/NavBar/index';
 import { SideBar } from '../widgets/SideBar/MainSideBar/index';
 import { Loader } from '../shared/ui/Loader/Loader';
 import { useDispatch } from 'react-redux';
-import { userActions } from '../entities/User';
+import { userActions, initUser } from '../entities/User';
 import { getUser } from '../entities/User';
 import { useSelector } from 'react-redux';
 
@@ -20,7 +20,10 @@ const App = () => {
     const { init } = useSelector(getUser);
 
     useEffect(() => {
-        dispatch(userActions.initUserData());
+        //@ts-ignore
+        dispatch(initUser());
+
+        // dispatch(userActions.initUserData());
     }, [dispatch]);
 
     return (

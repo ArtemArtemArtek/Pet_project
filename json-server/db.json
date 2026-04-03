@@ -209,7 +209,7 @@
         "isArticleRatingEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "pageInitedFirstTime": false
       }
     },
