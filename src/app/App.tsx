@@ -1,5 +1,5 @@
 // import { Routes, Route, Link } from 'react-router-dom';
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import './styles/index.scss';
 import useTheme from './providers/ThemeProvider/lib/useTheme';
 import ClassNameHelper from '../shared/lib/classNames/classNames';
@@ -18,8 +18,9 @@ const App = () => {
     const [isOpened, setIsOpened] = useState(false);
     const dispatch = useDispatch();
     const { init } = useSelector(getUser);
+    console.log(init)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         //@ts-ignore
         dispatch(initUser());
 

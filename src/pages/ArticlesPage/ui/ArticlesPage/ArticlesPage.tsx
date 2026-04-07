@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import cls from './ArticlesPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleItemList } from '../../../../features/ArticleItems';
@@ -22,7 +22,10 @@ import {
     sortOrderData,
     sortFieldData,
 } from '../../../../features/SortArticleOptions/ui/SortArticleOptions';
+import Modal from '../../../../shared/ui/Modal/Modal';
 import { useSearchParams } from 'react-router-dom';
+import { getJsonSettings } from '../../../../entities/User';
+import { postJsonSettings } from '../../../../entities/User/service/postJsonSettingsThunk';
 
 const inputReducers: ReducerList = {
     articles: articlesReducer,
@@ -32,7 +35,11 @@ export const ArticlesPage: React.FC = () => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('articles');
     const inited = useSelector(getArticlesPageInited);
+    const jsonSettings = useSelector(getJsonSettings)
+    console.log('jsonSettings',jsonSettings)
     const [searchParams] = useSearchParams();
+    const [modalOpened, seIsModalOpened] = useState(jsonSettings?.pageInitedFirstTime ? true : false)
+
 
     console.log(searchParams);
     const onChangeView = useCallback(
@@ -41,6 +48,12 @@ export const ArticlesPage: React.FC = () => {
         },
         [dispatch],
     );
+
+    const onCloseStartModal=()=>{
+        seIsModalOpened(false)
+        //@ts-ignore
+          dispatch(postJsonSettings({pageInitedFirstTime: false}))
+    }
 
     const onLoadNextPart = useCallback(() => {
         //@ts-ignore
@@ -115,6 +128,9 @@ export const ArticlesPage: React.FC = () => {
                     sortOrderOptions={sortOptionsOrder}
                 />
                 <ArticleItemList view={view as ArticlesView} />
+                <Modal opened={modalOpened} setOpen={() => onCloseStartModal()} >
+                    <h1>Добро пожадовать на страницу статей! Здесь вы можете просматривать статьи</h1>
+                </Modal>
             </AsyncReducerWrapper>
         </PageWrapper>
     );

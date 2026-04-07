@@ -23,7 +23,6 @@ const userSlice = createSlice({
             setEnabledFlags(action.payload.enabledFlags)
         },
         initUserData: (state) => {
-            
             const data = localStorage.getItem(LOCAL_USER_AUTH_KEY);
             if (data) {
                 const json = JSON.parse(data) as user
@@ -52,6 +51,7 @@ const userSlice = createSlice({
                 initUser.fulfilled,
                 (state, {payload}: PayloadAction<user>)=>{
                     state.isAuth = payload
+                    state.init = true
                 }
             )
             .addCase(
