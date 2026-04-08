@@ -206,12 +206,12 @@
       ],
       "enabledFlags": {
         "isCounterEnabled": true,
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_light_theme",
-        "pageInitedFirstTime": false,
-        "isRedesigned": true
+        "pageInitedFirstTime": false
       }
     },
     {
